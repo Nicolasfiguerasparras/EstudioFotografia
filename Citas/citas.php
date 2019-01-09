@@ -36,6 +36,7 @@
                 header('Location: citas.php?ym='.$today);
             }
         ?>
+        
         <!--NavBar-->
         <?php include('../NavBar/navbar.php'); ?>
         

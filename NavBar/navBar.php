@@ -74,9 +74,13 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="login" placeholder="User" aria-label="Search">
-                    <input class="form-control mr-sm-2" type="login" placeholder="Password" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+                    <div class="form-group">
+                        <input type="user" class="form-control" id="usuario" aria-describedby="userHelp" placeholder="Usuario">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
         </nav>

@@ -33,7 +33,7 @@
         </div>
         <!--/Modal-->
         
-        <!--NavBar-->
+        <!--NavBarIndex-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.php">Estudio de Fotografía</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar" aria-controls="navBar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,43 +46,16 @@
                         <a class="nav-link" href="index.php">Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="Noticias/noticias.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Noticias
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Noticias/insertarNoticia.php">Nueva</a>
-                            <a class="dropdown-item" href="Noticias/borrarNoticia.php">Borrar</a>
-                            <a class="dropdown-item" href="Noticias/buscarNoticia.php">Buscar</a>
-                        </div>
+                        <a class="nav-link" href="Noticias/noticias.php">Noticias<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="Clientes/clientes.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Clientes
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Clientes/nuevoCliente.php">Nuevo</a>
-                            <a class="dropdown-item" href="Clientes/buscarCliente.php">Buscar</a>
-                        </div>
+                        <a class="nav-link" href="Clientes/clientes.php">Clientes<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="Trabajos/trabajos.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Trabajos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Trabajos/nuevoTrabajo.php">Nuevo</a>
-                            <a class="dropdown-item" href="Trabajos/borrarTrabajo.php">Borrar</a>
-                            <a class="dropdown-item" href="Trabajos/buscarTrabajo.php">Buscar</a>
-                        </div>
+                        <a class="nav-link" href="Trabajos/trabajos.php">Trabajos<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="Citas/citas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Citas
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Citas/nuevaCita.php">Nueva</a>
-                            <a class="dropdown-item" href="Citas/borrarCita.php">Borrar</a>
-                            <a class="dropdown-item" href="Citas/buscarCita.php">Buscar</a>
-                        </div>
+                        <a class="nav-link" href="Citas/citas.php">Citas<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="Contacto/contacto.php">Contacto<span class="sr-only">(current)</span></a>
@@ -92,9 +65,13 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="user" placeholder="Usuario" aria-label="Search">
-                    <input class="form-control mr-sm-2" type="pass" placeholder="Contraseña" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+                    <div class="form-group">
+                        <input type="user" class="form-control" id="usuario" aria-describedby="userHelp" placeholder="Usuario">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
         </nav>
@@ -112,8 +89,8 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="Trabajos/img/1.jpg" style="height:1000px">
-                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 255, 0.5);" >
+                                <img class="d-block w-100" src="Trabajos/img/1.jpg" style="height:90vh">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>Imagen de un faro</h5>
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -126,8 +103,8 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="Trabajos/img/2.jpg" style="height:1000px">
-                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 255, 0.5);" >
+                                <img class="d-block w-100" src="Trabajos/img/2.jpg" style="height:90vh">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>Imagen de un faro</h5>
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -140,8 +117,8 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="Trabajos/img/3.jpg" style="height:1000px">
-                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 255, 0.5);" >
+                                <img class="d-block w-100" src="Trabajos/img/3.jpg" style="height:90vh">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>Imagen de un faro</h5>
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
