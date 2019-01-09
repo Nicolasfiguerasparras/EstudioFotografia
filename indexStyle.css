@@ -1,8 +1,7 @@
 footer{
     width: 100%;
     height: 10%;
-    background-color: #cc66ff;
-    color: #f2f2f2;
+    background-color: whitesmoke;
     text-align: center;
 }
 
@@ -24,4 +23,15 @@ p{
 
     margin-right: 0px;
 
+}
+
+.card{
+    background-color: whitesmoke;
+}
+
+body{
+    background-color:#ffffcc;
+}
+.presentacion{
+    background-color: whitesmoke;
 }

@@ -32,11 +32,11 @@
                 }
                 
                 
-                //En el caso en el que encuentre noticias, imprime una tabla con los resultados
+                // En el caso en el que encuentre noticias, imprime una tabla con los resultados
                 if ($row = mysqli_fetch_array($query)){ 
                     echo "<table>"; 
 
-                    //Mostramos las cabeceras de la tabla
+                    // Mostramos las cabeceras de la tabla
                     echo "<tr>"; 
                         echo "<td style='width:250px;'>ID</td>";
                         echo "<td style='width:250px;'>Titular</td>";
