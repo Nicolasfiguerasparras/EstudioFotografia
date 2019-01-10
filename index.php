@@ -226,27 +226,30 @@
             }else{
                 echo "No se ha encontrado ninguna noticia";
             }
-  
-            // Utilizamos un bucle for para recorrer las variables de cada noticia
-            for($i=0; $i<$rows; $i++){
-                // Inicializamos un form para crear el botón ver más
-                echo "<form method='post' action='Noticias/moreAbout.php'>";
+            echo "<div class = 'card-deck'>";
+                // Utilizamos un bucle for para recorrer las variables de cada noticia
+                for($i=0; $i<$rows; $i++){
+                    // Inicializamos un form para crear el botón ver más
                     $noticias=mysqli_fetch_array($resultNews);
-                    echo "<div class = 'col-4 offset-4'>";
-                        echo "<div class='card'>";
-                            echo "<img src='Noticias/$noticias[imagen]' alt='new$i'";
-                            echo "<div class='card-body'>";
-                                echo "<h5 class='card-title'>$noticias[titular]</h5>";
-                                echo "<input type='hidden' name='id$i' value='$noticias[id]'>";
-                                echo "<input type='submit' name='send$i' value='Ver más'>";
-                                echo "</form>";
-                            echo "</div>";
+                    echo "<div class='card text-white bg-dark mb-3' id=accordion>";
+                        echo "<img class='card-img-top' src='Noticias/$noticias[imagen]'>";
+                        echo "<div class='card-header' id='headingOne'>";
+                            echo "<h5 class='card-title'>$noticias[titular]</h5>";
+                            echo "<button class='btn btn-link' data-toggle='collapse' data-target='#collapseOne' aria-expanded='false' aria-controls='collapseOne'>";
+                                echo "Ver más";
+                            echo "</button>";
                         echo "</div>";
                     echo "</div>";
-                    echo "<br>";
-            }
+                    echo "<div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#accordion'>";
+                        echo "<div class='card-body'>";
+                            echo "<p class='card-text'>$noticias[contenido]</p>";
+                        echo "</div>";
+                    echo "</div>";
+                }
+            echo "</div>";
             mysqli_close($db);
         ?>
+        
         <!--/Sección con las últimas tres noticias publicadas-->
         
         <!--Footer de libre contenido-->  
