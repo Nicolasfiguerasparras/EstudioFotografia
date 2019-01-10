@@ -25,10 +25,10 @@ GENERAL:
     - Acceso USUARIO:
         -INDEX:
             - NavBar:
-                * Inicio
-                * Trabajos (redirección a login)
-                * Acceder (redirección a login)
-                * Contacto (redirección a login)
+                - Inicio
+                - Trabajos (redirección a login)
+                - Acceder (redirección a login)
+                - Contacto (redirección a login)
             - Imagen aleartoria de los trabajos
             - 3 últimas noticias
             - Footer

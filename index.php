@@ -252,7 +252,7 @@
         
         <!--/Sección con las últimas tres noticias publicadas-->
         
-        <!--Footer de libre contenido-->  
+        <!--Footer-->  
         <footer id="foot">
             <ul>
                 <a href="#">Aviso legal</a></li>
