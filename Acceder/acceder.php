@@ -11,13 +11,35 @@
         <!--NavBar-->
         <?php include('../NavBar/navbar.php'); ?>
         <br><br>
-        <div class="card text-white bg-dark mb-3 col-6 offset-4" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-                <div class="card-body">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <form method="post" action="acceder.php>
+            <div class="form-group row">
+                <label for="inputUser" class="col-sm-2 col-form-label">Usuario</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputUser" placeholder="Introduce tu nombre de usuario">
+                </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Introduce tu contraseña">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    Mantener la sesión abierta
+                </div>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="openSession">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </form>
         <?php
 
         ?>

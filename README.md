@@ -13,12 +13,12 @@ CITAS:
     - Poner calendario de mes anterior y mes próximo para que se tenga perspectiva de las citas
     - Detectar el mes para sacar todas las citas en ese mes y crear un link por cada elemento de día en el que haya una cita
     - Añadir tooltip con información referente a la cita
-ACCESO:
-    - Crear página de acceso
 DB:
     - Crear usuario admin(usr:admin;passwd:admin;id:0)
 NAVBAR:
     - Crear y añadir logo en lugar de "Estudio de Fotografía"
+ACCESO:
+    - Controlar submit del formulario y crear cookies
 GENERAL:
     - Añadir al menos una fuente cargada mediante la inclusión de un link de cabecera
     - Añadir una flecha de subida que esté siempre presente en la esquina inferior derecha
@@ -72,3 +72,5 @@ GENERAL:
 10/01/2019 ->
     INDEX:
         + Cambiar el ver más por un collapse en el mismo index
+    ACCESO:
+        + Crear página de acceso

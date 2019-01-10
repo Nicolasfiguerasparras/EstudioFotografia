@@ -255,9 +255,9 @@
         <!--Footer-->  
         <footer id="foot">
             <ul>
-                <a href="#">Aviso legal</a></li>
-                <a href="#">Privacidad</a></li>
-                <a href="Contacto/contacto.html">Contactar</a></li>
+                <a href="#">Aviso legal</a>
+                <a href="#">Privacidad</a>
+                <a href="Contacto/contacto.php">Contactar</a>
             </ul>
         </footer>
         <!--/Footer de libre contenido--> 
