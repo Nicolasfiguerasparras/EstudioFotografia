@@ -17,7 +17,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -27,44 +26,21 @@
                         <a class="nav-link dropdown-toggle" href="../Noticias/noticias.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Noticias
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../Noticias/insertarNoticia.php">Nueva</a>
-                            <a class="dropdown-item" href="../Noticias/borrarNoticia.php">Borrar</a>
-                            <a class="dropdown-item" href="../Noticias/buscarNoticia.php">Buscar</a>
-                            <a class="dropdown-item" href="../Noticias/noticias.php">Ver todas las noticias</a>
-                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="../Clientes/clientes.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Clientes
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../Clientes/nuevoCliente.php">Nuevo</a>
-                            <a class="dropdown-item" href="../Clientes/buscarCliente.php">Buscar</a>
-                            <a class="dropdown-item" href="../Clientes/clientes.php">Ver todos los clientes</a>
-                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="../Trabajos/trabajos.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Trabajos
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../Trabajos/nuevoTrabajo.php">Nuevo</a>
-                            <a class="dropdown-item" href="../Trabajos/borrarTrabajo.php">Borrar</a>
-                            <a class="dropdown-item" href="../Trabajos/buscarTrabajo.php">Buscar</a>
-                            <a class="dropdown-item" href="../Trabajos/trabajos.php">Ver todos los trabajos</a>
-                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="../Citas/citas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Citas
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../Citas/nuevaCita.php">Nueva</a>
-                            <a class="dropdown-item" href="../Citas/borrarCita.php">Borrar</a>
-                            <a class="dropdown-item" href="../Citas/buscarCita.php">Buscar</a>
-                            <a class="dropdown-item" href="../Citas/citas.php">Ver todas las citas</a>
-                        </div>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="../Contacto/contacto.php">Contacto<span class="sr-only">(current)</span></a>

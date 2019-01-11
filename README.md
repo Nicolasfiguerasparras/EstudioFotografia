@@ -2,7 +2,6 @@
 INDEX:
     - Mostrar advertencia de uso de cookies hasta que se acepten
     - Cambiar imágenes para que no se pixelen
-    - PREGUNTAR A BORJA POR QUÉ AL DARLE A VER MÁS SE ABREN TODOS Y EN COL-12
     Footer:
         - Añadir enlaces a distintas páginas de la web
         - Añadir titular de la web
@@ -26,9 +25,9 @@ GENERAL:
         -INDEX:
             - NavBar:
                 - Inicio
-                - Trabajos (redirección a login)
-                - Acceder (redirección a login)
-                - Contacto (redirección a login)
+                - Trabajos
+                - Acceder
+                - Contacto
             - Imagen aleartoria de los trabajos
             - 3 últimas noticias
             - Footer
@@ -74,3 +73,9 @@ GENERAL:
         + Cambiar el ver más por un collapse en el mismo index
     ACCESO:
         + Crear página de acceso
+11/01/2019 ->
+    ACCESO:
+        + Formateo de la página
+    INDEX:
+        + Cambio de colores
+        + Solución problema collapse

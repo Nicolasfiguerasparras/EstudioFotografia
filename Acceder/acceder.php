@@ -11,33 +11,25 @@
         <!--NavBar-->
         <?php include('../NavBar/navbar.php'); ?>
         <br><br>
-        <form method="post" action="acceder.php>
-            <div class="form-group row">
-                <label for="inputUser" class="col-sm-2 col-form-label">Usuario</label>
-                <div class="col-sm-10">
+        <form method="post" action="acceder.php">
+            <div class="form-row">
+                <div class="form-group col-5 offset-1">
+                    <label for="inputUser">Usuario</label>
                     <input type="text" class="form-control" id="inputUser" placeholder="Introduce tu nombre de usuario">
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
-                <div class="col-sm-10">
+                <div class="form-group col-5">
+                    <label for="inputPassword">Contraseña</label>
                     <input type="password" class="form-control" id="inputPassword" placeholder="Introduce tu contraseña">
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-sm-2">
-                    Mantener la sesión abierta
-                </div>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="openSession">
-                    </div>
+            <div class="form-group offset-1">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="openSession">
+                    <label class="form-check-label" for="openSession">Mantener la sesión abierta</label>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </div>
+            <div class="offset-1">
+                <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
         <?php

@@ -3,6 +3,7 @@ footer{
     height: 10%;
     background-color: whitesmoke;
     text-align: center;
+    text-decoration: #0075A2;
 }
 
 p{
@@ -30,7 +31,7 @@ p{
 }
 
 body{
-    background-color:#ffffcc;
+    background-color:#EEEEEE;
 }
 .presentacion{
     background-color: whitesmoke;

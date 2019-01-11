@@ -15,7 +15,7 @@
             </h2>
             <div class="form-row">
                 <div class="form-group col-5 offset-1">
-                    <label for="inputEmail4">Nombre</label>
+                    <label for="inputName">Nombre</label>
                     <input type="text" class="form-control" id="inputName" placeholder="Arturo Pérez Fernandez">
                 </div>
                 <div class="form-group col-5">

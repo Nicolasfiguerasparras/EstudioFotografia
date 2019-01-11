@@ -28,9 +28,8 @@
                                 Si continua navegando, consideramos que acepta su uso.</p>";
                             echo "</div>";
                             echo "<div class='modal-footer footerModal'>";
-                                echo "<button type='button' class='btn btn-primary btn-success' data-dismiss='modal'>Estoy de acuerdo, seguir navegando</button>";		
-                                echo "<a href='https://www.boe.es/buscar/act.php?id=BOE-A-1999-23750'>";
-                                    echo "<button type='button' class='btn btn-secondary btn-danger'>No estoy de acuerdo, sácame de aquí</button>";
+                                 echo "<a href='https://www.boe.es/buscar/act.php?id=BOE-A-1999-23750'>";
+                                    echo "<button ntype='button' class='btn btn-secondary btn-danger'>No estoy de acuerdo, sácame de aquí</button>";
                                 echo "</a>";
                             echo "</div>";
                         echo "</div>";
@@ -91,15 +90,6 @@
                         <a class="nav-link" href="Acceder/acceder.php">Acceder<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <div class="form-group">
-                        <input type="user" class="form-control" id="usuario" aria-describedby="userHelp" placeholder="Usuario">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
             </div>
         </nav>
         <!--/NavBar-->
@@ -192,11 +182,11 @@
         <!--/Caroussel-->
         
         <!--Sección de presentación-->
-        <div class="presentacion">
-            <p>Hola! Me llamo Nicolás Figueras Parras y soy alumno de la Escuela Arte Granada.</p><br>
-            <p>Estoy estudiando fotografía. En esta página web mostraré y pondré a la venta mis proyectos.</p><br>
-            <p>Sean todos bienvenidos.</p>
-            <p>
+        <div class="presentacion" style="background-color: #13293D">
+            <p style="color: #e8f1f2">
+                Hola! Me llamo Nicolás Figueras Parras y soy alumno de la Escuela Arte Granada.<br>
+                Estoy estudiando fotografía. En esta página web mostraré y pondré a la venta mis proyectos.<br>
+                Sean todos bienvenidos.<br>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -226,30 +216,29 @@
             }else{
                 echo "No se ha encontrado ninguna noticia";
             }
-            echo "<div class = 'card-deck'>";
+            echo "<div class = 'card-deck col-12'>";
                 // Utilizamos un bucle for para recorrer las variables de cada noticia
                 for($i=0; $i<$rows; $i++){
-                    // Inicializamos un form para crear el botón ver más
                     $noticias=mysqli_fetch_array($resultNews);
-                    echo "<div class='card text-white bg-dark mb-3' id=accordion>";
+                    echo "<div class='card text-white bg-dark mb-3 col-4' id=accordion>";
                         echo "<img class='card-img-top' src='Noticias/$noticias[imagen]'>";
                         echo "<div class='card-header' id='headingOne'>";
                             echo "<h5 class='card-title'>$noticias[titular]</h5>";
-                            echo "<button class='btn btn-link' data-toggle='collapse' data-target='#collapseOne' aria-expanded='false' aria-controls='collapseOne'>";
+                            echo "<button class='btn btn-link' data-toggle='collapse' data-target='#Collapse$i' aria-expanded='false' aria-controls='collapseOne'>";
                                 echo "Ver más";
                             echo "</button>";
                         echo "</div>";
                     echo "</div>";
-                    echo "<div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#accordion'>";
-                        echo "<div class='card-body'>";
+                    // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
+                    echo "<div id='Collapse$i' class='collapse' aria-labelledby='headingOne' data-parent='#accordion'>";
+                        echo "<div class='card-body col-3'>";
                             echo "<p class='card-text'>$noticias[contenido]</p>";
                         echo "</div>";
                     echo "</div>";
                 }
             echo "</div>";
             mysqli_close($db);
-        ?>
-        
+        ?> 
         <!--/Sección con las últimas tres noticias publicadas-->
         
         <!--Footer-->  
