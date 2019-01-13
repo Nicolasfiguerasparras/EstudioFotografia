@@ -220,19 +220,23 @@
                 // Utilizamos un bucle for para recorrer las variables de cada noticia
                 for($i=0; $i<$rows; $i++){
                     $noticias=mysqli_fetch_array($resultNews);
-                    echo "<div class='card text-white bg-dark mb-3 col-4' id=accordion>";
-                        echo "<img class='card-img-top' src='Noticias/$noticias[imagen]'>";
-                        echo "<div class='card-header' id='headingOne'>";
-                            echo "<h5 class='card-title'>$noticias[titular]</h5>";
-                            echo "<button class='btn btn-link' data-toggle='collapse' data-target='#Collapse$i' aria-expanded='false' aria-controls='collapseOne'>";
-                                echo "Ver más";
-                            echo "</button>";
+                    echo "<div class='col-4'>";
+                        echo "<div class='card text-white bg-dark mb-3' id=accordion>";
+                            echo "<img class='card-img-top' src='Noticias/$noticias[imagen]' style='height:500px'>";
+                            echo "<div class='card-header' id='headingOne'>";
+                                echo "<h5 class='card-title'>$noticias[titular]</h5>";
+                                echo "<button class='btn btn-link' data-toggle='collapse' data-target='#Collapse$i' aria-expanded='false' aria-controls='collapseOne'>";
+                                    echo "Ver más";
+                                echo "</button>";
+                            echo "</div>";
                         echo "</div>";
-                    echo "</div>";
-                    // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                    echo "<div id='Collapse$i' class='collapse' aria-labelledby='headingOne' data-parent='#accordion'>";
-                        echo "<div class='card-body col-3'>";
-                            echo "<p class='card-text'>$noticias[contenido]</p>";
+                        // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
+                        echo "<div id='Collapse$i' class='collapse' aria-labelledby='headingOne' data-parent='#accordion'>";
+                            echo "<div class='cardText'>";
+                                echo "<div class='card-body'>";
+                                    echo "<p>$noticias[contenido]</p>";
+                                echo "</div>";
+                            echo "</div>";
                         echo "</div>";
                     echo "</div>";
                 }
@@ -240,6 +244,7 @@
             mysqli_close($db);
         ?> 
         <!--/Sección con las últimas tres noticias publicadas-->
+        
         
         <!--Footer-->  
         <footer id="foot">
@@ -260,7 +265,7 @@
                 echo "
                     <script>
                         $(window).on('load',function(){
-                        $('#modalInicio').modal('show');
+                            $('#modalInicio').modal('show');
                         });
                     </script>
                 ";

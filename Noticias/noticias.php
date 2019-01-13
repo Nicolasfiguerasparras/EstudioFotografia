@@ -34,21 +34,19 @@
                 
                 // En el caso en el que encuentre noticias, imprime una tabla con los resultados
                 if ($row = mysqli_fetch_array($query)){ 
-                    echo "<table>"; 
+                    echo "<table style='width:90vw'>"; 
 
                     // Mostramos las cabeceras de la tabla
                     echo "<tr>"; 
-                        echo "<td style='width:250px;'>ID</td>";
-                        echo "<td style='width:250px;'>Titular</td>";
-                        echo "<td style='width:400px;'>Contenido</td>";
-                        echo "<td style='width:250px;'>Imagen</td>";
-                        echo "<td style='width:250px;'>Fecha de activación</td>";
+                        echo "<td style='width:150px;'>Titular</td>";
+                        echo "<td style='width:200px;'>Contenido</td>";
+                        echo "<td style='width:300px;'>Imagen</td>";
+                        echo "<td style='width:100px;'>Fecha de activación</td>";
                     echo "</tr>"; 
                     
                     // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
                     do{ 
                         echo "<tr>"; 
-                            echo "<td>".$row["id"]."</td>"; 
                             echo "<td>".$row["titular"]."</td>"; 
                             echo "<td>".$row["contenido"]."</td>"; 
                             echo "<td><img src='".$row["imagen"]."' style='width:250px; height:240px;' /></td>"; 

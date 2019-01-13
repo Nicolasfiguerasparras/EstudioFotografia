@@ -9,7 +9,17 @@
     </head>
     <body>          
         <!--NavBar-->
-        <?php include('../NavBar/navbar.php'); ?>
+        <?php 
+            include('../NavBar/navbar.php'); 
+            if(isset($_POST['submit'])){
+                if($_POST['inputUser']!=null){
+                    if($_POST['inputPassword']!=null){
+                        $query= mysqli_query($db, "SELECT * FROM clientes");
+                        $rows = mysqli_fetch_array($query);
+                    }
+                }
+            }
+        ?>
         <br><br>
         <form method="post" action="acceder.php">
             <div class="form-row">
@@ -32,8 +42,5 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
-        <?php
-
-        ?>
     </body>
 </html>
