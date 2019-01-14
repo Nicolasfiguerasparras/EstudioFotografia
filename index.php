@@ -149,7 +149,7 @@
                 </div>
             </div>
         </div>
-        <br>
+        <br><br>
         <!--/Caroussel-->
         
         <!--Sección de presentación-->
@@ -194,9 +194,9 @@
                     echo "<div class='col-4'>";
                         echo "<div class='card text-white bg-dark mb-3' id=accordion>";
                             echo "<img class='card-img-top' src='Noticias/$noticias[imagen]' style='height:500px'>";
-                            echo "<div class='card-header' id='headingOne'>";
+                            echo "<div class='card-header' id='headingOne' style='height:150px'>";
                                 echo "<h5 class='card-title'>$noticias[titular]</h5>";
-                                echo "<button class='btn btn-link' data-toggle='collapse' data-target='#Collapse$i' aria-expanded='false' aria-controls='collapseOne'>";
+                                echo "<button class='btn btn-primary' data-toggle='collapse' data-target='#Collapse$i' aria-expanded='false' aria-controls='collapseOne'>";
                                     echo "Ver más";
                                 echo "</button>";
                             echo "</div>";

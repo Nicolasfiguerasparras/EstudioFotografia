@@ -1,6 +1,6 @@
 # EstudioFotografia
 INDEX:
-    Footer:       
+    Footer:
         - Añadir titular de la web
         - Añadir numero de inscripción del registro del negocio
         - Añadir CIF
@@ -15,14 +15,6 @@ GENERAL:
     - Añadir al menos una fuente cargada mediante la inclusión de un link de cabecera
     - Añadir una flecha de subida que esté siempre presente en la esquina inferior derecha
     - Acceso CLIENTE (post login):
-        - INDEX:
-            - NavBar:
-                - Inicio
-                - Mis trabajos
-                - Mis datos personales
-                - Mis citas
-                - Contacto
-                - Cerrar sesión de <nombre_cliente>
         - Mis trabajos:
             - Trabajos comprados a lo largo del tiempo
         -Mis datos personales:
@@ -83,3 +75,12 @@ GENERAL:
             + INDEX:
                 + NavBar:
                     + Cambiar "acceder" por "Cerrar sesión de administrador"
+        - Acceso CLIENTE (post login):
+            + INDEX:
+                + NavBar:
+                    + Inicio
+                    + Mis trabajos
+                    + Mis datos personales
+                    + Mis citas
+                    + Contacto
+                    + Cerrar sesión de <nombre_cliente>

@@ -51,7 +51,7 @@
                         $rows = mysqli_num_rows($result2);
                         for($i=0;$i<$rows;$i++){
                             $data=mysqli_fetch_array($result2);
-                            if($data['nombre']!="admin"){
+                            if($data['nombre']!="Disponible"){
                                 echo "<option value='$data[id]'>$data[nombre] $data[apellidos]</option>"; 
                             }
                         }
@@ -94,8 +94,8 @@
                                 if($row['id_cliente']=0){
                                     echo "";
                                 }else{
-                                    if($client['nombre'] == "admin"){
-                                        echo "<td style='background-color:green;'><p>admin</p></td>";
+                                    if($client['nombre'] == "Disponible"){
+                                        echo "<td style='background-color:green;'><p>Disponible</p></td>";
                                     }else{
                                         echo "<td>".$client['nombre']."</td>";
                                     }

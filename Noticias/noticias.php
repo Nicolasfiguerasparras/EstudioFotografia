@@ -25,7 +25,7 @@
                     include('../NavBar/navBarClient.php');
                 }
             }else{
-                include('../NavBar/navBarClearUser.php');
+                header("location: ../Acceder/error.php");
             }
         ?>
         <!--/NavBar-->
