@@ -12,7 +12,6 @@
         
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
         <script src="../JavaScript/app.js" type="text/javascript"></script>
-        <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
         <meta charset="utf-8">
         
         <style>
@@ -50,13 +49,14 @@
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
                 }else{
-                    include('../NavBar/navBarClient.php');
+                    header("location: ../Acceder/error.php");
                 }
             }else{
-                include('../NavBar/navBarClearUser.php');
+                header("location: ../Acceder/error.php");
             }
         ?>
         <!--/NavBar-->
+        <br><br>
         
         <div class='contextMenu'>
             <table border='1px solid'>

@@ -9,7 +9,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Ver todos los trabajos</title>
-        <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
         <link href="../Noticias/tableStyle.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -28,6 +27,7 @@
             }
         ?>
         <!--/NavBar-->
+        <br><br>
       
         <?php
             // Establecemos conexión con la base de datos

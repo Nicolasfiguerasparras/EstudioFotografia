@@ -10,7 +10,6 @@
         <meta charset="UTF-8">
         <title>Noticias</title>
         <link href="noticiasStyle.css" rel="stylesheet" type="text/css"/>
-        <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
         <link href="tableStyle.css" rel="stylesheet" type="text/css"/>
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
     </head>
@@ -22,7 +21,7 @@
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
                 }else{
-                    include('../NavBar/navBarClient.php');
+                    header("location: ../Acceder/error.php");
                 }
             }else{
                 header("location: ../Acceder/error.php");

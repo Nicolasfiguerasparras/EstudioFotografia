@@ -34,15 +34,24 @@
     <head>
         <meta charset="UTF-8">
         <title>Acceder</title>
-        <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
     </head>
     <body>          
         <!--NavBar-->
-        <?php 
-            include('../NavBar/navBarClearUser.php');
+        <?php
+            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
+            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+                if($_SESSION['user']=='admin'){
+                    header('../index.php');
+                }else{
+                    header('../index.php');
+                }
+            }else{
+                include('../NavBar/navBarClearUser.php');
+            }
         ?>
-        <!--/NavBar-->       
+        <!--/NavBar-->
+        <br><br>       
         
         <!--Form-->
         <form method="post" action="acceder.php">

@@ -9,7 +9,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Nuevo cliente</title>
-        <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!--NavBar-->
@@ -19,10 +18,10 @@
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
                 }else{
-                    include('../NavBar/navBarClient.php');
+                    header("location: ../Acceder/error.php");
                 }
             }else{
-                include('../NavBar/navBarClearUser.php');
+                header("location: ../Acceder/error.php");
             }
         ?>
         <!--/NavBar-->
@@ -63,54 +62,50 @@
         ?>
         
         
-        <!--Formulario que recoge los datos insertados por el usuario-->
-        <div class="padre container">
-            <div class="row">
-                <form method="post" action="nuevoCliente.php">  
-                    ID: <input type="text" name="idCliente" placeholder="<?php echo($id); ?>"disabled>
+        <!--Formulario que recoge los datos insertados por el usuario-->      
+        <form method="post" action="nuevoCliente.php">
+            <div class="form-row">
+                <div class="form-group col-1 offset-1">
+                    <label for="idCliente">ID</label>
+                    <input type="text" name="idCliente" class="form-control" id="idCliente" placeholder="<?php echo($id); ?>"disabled>
+                </div>
+                <div class="form-group col-4">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Arturo Pérez Ávila" required>
+                </div>
+                <div class="form-group col-5">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Pérez Ávila" required>
+                </div>
             </div>
-            <br><br>
-                    
-            <div class="row">
-                        Nombre: <input type="text" name="nombre" required>
+            <div class="form-row">
+                <div class="form-group col-4 offset-1">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" placeholder="Apartamento, estudio, etc" name="direccion" required>
+                </div>
+                <div class="form-group col-3">
+                    <label for="telef1">Teléfono 1</label>
+                    <input type="text" class="form-control" id="telef1" name="telef1" required>
+                </div>
+                <div class="form-group col-3">
+                    <label for="telef2">Teléfono 2</label>
+                    <input type="text" class="form-control" id="telef2" name="telef2" required>
+                </div>
             </div>
-            <br><br>
-                    
-            <div class="row">
-                        Apellidos: <input type="text" name="apellidos" required>
+            <div class="form-row">
+                <div class="form-group col-5 offset-1">
+                    <label for="nick">Nick</label>
+                    <input type="text" class="form-control" id="nick" name="nick" required>
+                </div>
+                <div class="form-group col-5">
+                    <label for="pass">Contraseña</label>
+                    <input type="password" class="form-control" id="pass" name="pass" required>
+                </div>
             </div>
-            <br><br>
-                    
-            <div class="row">
-                        Dirección: <input type="text" name="direccion" required>
+            <div class="form-group offset-1">
+                <input type="submit" name="submit" value="Crear cliente">  
             </div>
-            <br><br>
-            
-            <div class="row">
-                        Teléfono 1: <input type="text" name="telef1" required>
-            </div>
-            <br><br>
-            
-            <div class="row">
-                        Teléfono 2: <input type="text" name="telef2">
-            </div>
-            <br><br>
-            
-            <div class="row">
-                        Nick: <input type="text" name="nick" required>
-            </div>
-            <br><br>
-            
-            <div class="row">
-                        Contraseña: <input type="password" name="pass" required>
-            </div>
-            <br><br>
-                    
-                    <input type="submit" name="submit" value="Enviar">  
-                </form>
-            </div>
-        </div>
-        <br><br>
+        </form>
         
         <?php
             // En caso de que se haya insertado correctamente el usuario, mostramos un mensaje por pantalla, al igual que en el caso contrario

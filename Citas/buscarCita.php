@@ -9,7 +9,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Buscar cita</title>
-        <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!--NavBar-->
@@ -19,13 +18,14 @@
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
                 }else{
-                    include('../NavBar/navBarClient.php');
+                    header("location: ../Acceder/error.php");
                 }
             }else{
-                include('../NavBar/navBarClearUser.php');
+                header("location: ../Acceder/error.php");
             }
         ?>
         <!--/NavBar-->
+        <br><br>
         
         <?php
             // Establecemos conexión con la base de datos

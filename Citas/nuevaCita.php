@@ -9,23 +9,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Nueva cita</title>
-        <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-            <!--NavBar-->
+        <!--NavBar-->
         <?php
             // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
             if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
                 }else{
-                    include('../NavBar/navBarClient.php');
+                    header("location: ../Acceder/error.php");
                 }
             }else{
-                include('../NavBar/navBarClearUser.php');
+                header("location: ../Acceder/error.php");
             }
         ?>
         <!--/NavBar-->
+        <br><br>
         
         <?php            
             // Conectar a la Base de Datos y sacar el ID
@@ -56,34 +56,33 @@
         
         
         <!--Formulario que recoge los datos insertados por el usuario-->
-        <div class="padre container">
-            <div class="row">
-                <form method="post" action="nuevaCita.php">  
-                    ID: <input type="number" name="idTrabajo" placeholder="<?php echo($idCita); ?>"disabled>
+        <form method="post" action="nuevaCita.php">
+            <div class="form-row">
+                <div class="form-group col-1 offset-1">
+                    <label for="idTrabajo">ID</label>
+                    <input type="number" name="idTrabajo" class="form-control" id="idTrabajo" placeholder="<?php echo($idCita); ?>"disabled>
+                </div>
+                <div class="form-group col-4">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" class="form-control" name="fecha" id="fecha" required>
+                </div>
+                <div class="form-group col-5">
+                    <label for="hora">Hora</label>
+                    <input type="time" class="form-control" name="hora" id="hora" required>
+                </div>
             </div>
-            <br><br>
-                    
-            <div class="row">
-                    Fecha: <input type="date" name="fecha" required>
+            <div class="form-row">
+                <div class="form-group col-4 offset-1">
+                    <label for="motivo">Motivo</label>
+                    <input type="text" class="form-control" id="motivo" placeholder="Apartamento, estudio, etc" name="motivo" required>
+                </div>
+                <div class="form-group col-3">
+                    <label for="lugar">Lugar</label>
+                    <input type="text" class="form-control" id="lugar" name="lugar" required>
+                </div>
             </div>
-            <br><br>
-                    
-            <div class="row">
-                Hora: <input type="time" name="hora" required>
-            </div>
-            <br><br>
-                    
-            <div class="row">
-                    Motivo: <input type="text" name="motivo" required>
-            </div>
-            <br><br>
-            
-            <div class="row">
-                    Lugar: <input type="text" name="lugar" required>
-            </div>
-            <br><br>
-            
-            <div class="row">
+            <div class="form-row">
+                <div class="form-group col-5 offset-1">
                     <select name="cliente" id="choseClient">
                         <option value=0>Elige un cliente</option>
                         
@@ -100,13 +99,13 @@
                                 }
                             } 
 			?>
-		</select>
+                    </select>
+                </div>
             </div>
-            <br><br>
-                    <input type="submit" name="submit" value="Enviar">  
-                </form>
+            <div class="form-group offset-1">
+                <input type="submit" name="submit" value="Enviar">
             </div>
-        </div>
+        </form>
         <br><br>
         
         <?php

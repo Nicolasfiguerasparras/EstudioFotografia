@@ -9,7 +9,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Buscar trabajo</title>
-        <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
         <link href="../Noticias/tableStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -20,10 +19,10 @@
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
                 }else{
-                    include('../NavBar/navBarClient.php');
+                    header("location: ../Acceder/error.php");
                 }
             }else{
-                include('../NavBar/navBarClearUser.php');
+                header("location: ../Acceder/error.php");
             }
         ?>
         <!--/NavBar-->

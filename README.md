@@ -1,5 +1,6 @@
 # EstudioFotografia
-INDEX:
+INDEX:  
+    - Imagen aleartoria de los trabajos
     Footer:
         - Añadir titular de la web
         - Añadir numero de inscripción del registro del negocio
@@ -29,6 +30,7 @@ GENERAL:
             - Listado de trabajos disponibles:
                 - Resumen de trabajo (img, titulo y precio)
                 - Botón ver más para acceder a toda la información del trabajo (idea: collapse)
+    - AHORA TODOS LOS HEADERS PARA INSERTAR/BORRAR NO FUNCIONAN POR SESSION
 09/01/2019 ->
     INDEX:
         + Cambio los links del NavBar del Index
@@ -64,7 +66,6 @@ GENERAL:
                     + Trabajos
                     + Acceder
                     + Contacto
-                + Imagen aleartoria de los trabajos
                 + 3 últimas noticias
                 + Footer
             + LOGIN:
@@ -75,7 +76,7 @@ GENERAL:
             + INDEX:
                 + NavBar:
                     + Cambiar "acceder" por "Cerrar sesión de administrador"
-        - Acceso CLIENTE (post login):
+        + Acceso CLIENTE (post login):
             + INDEX:
                 + NavBar:
                     + Inicio
