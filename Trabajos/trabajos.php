@@ -1,3 +1,9 @@
+<!--Sacamos sesión-->
+<?php
+    session_start();
+?>
+<!--/Sacamos sesión-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,27 +11,23 @@
         <title>Ver todos los trabajos</title>
         <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script src="../JavaScript/app.js" type="text/javascript"></script>
         <link href="../Noticias/tableStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!--NavBar-->
-        <?php include('../NavBar/navbar.php'); ?>
-        <br><br>
-        
-        <div class='contextMenu'>
-            <table border='1px solid'>
-                <tr>
-                    <td><a href='borrarTrabajo.php'>Borrar trabajo</a></td>
-                </tr>
-                <tr>
-                    <td><a href='borrarTrabajo.php'>Buscar trabajo</a></td>
-                </tr>
-                <tr>
-                    <td><a href='borrarTrabajo.php'>Nuevo trabajo</a></td>
-                </tr>
-            </table>
-        </div>
+        <?php
+            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
+            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+                if($_SESSION['user']=='admin'){
+                    include('../NavBar/navBarAdmin.php');
+                }else{
+                    include('../NavBar/navBarClient.php');
+                }
+            }else{
+                include('../NavBar/navBarClearUser.php');
+            }
+        ?>
+        <!--/NavBar-->
       
         <?php
             // Establecemos conexión con la base de datos

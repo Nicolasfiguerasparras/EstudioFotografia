@@ -17,19 +17,26 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="../index.php">Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../Trabajos/trabajos.php">Trabajos<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../Trabajos/misTrabajos.php">Mis trabajos<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../Acceder/acceder.php">Acceder<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../personalData.php">Mis datos personales<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../Citas/misCitas.php">Mis citas<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="../Contacto/contacto.php">Contacto<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../Acceder/cerrarSesion.php">Cerrar sesión de <?php echo "$_SESSION[user]" ?> <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>

@@ -70,7 +70,7 @@
                         <a class="nav-link" href="../Contacto/contacto.php">Contacto<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../Acceder/acceder.php">Acceder<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../Acceder/cerrarSesion.php">Cerrar sesión de administrador<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>

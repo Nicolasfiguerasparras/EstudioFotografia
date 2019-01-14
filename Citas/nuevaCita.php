@@ -1,3 +1,9 @@
+<!--Sacamos sesión-->
+<?php
+    session_start();
+?>
+<!--/Sacamos sesión-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,10 +12,22 @@
         <link href="../NavBar/navBarStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+            <!--NavBar-->
         <?php
-            // NavBar
-            include('../NavBar/navBar.php');
-            
+            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
+            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+                if($_SESSION['user']=='admin'){
+                    include('../NavBar/navBarAdmin.php');
+                }else{
+                    include('../NavBar/navBarClient.php');
+                }
+            }else{
+                include('../NavBar/navBarClearUser.php');
+            }
+        ?>
+        <!--/NavBar-->
+        
+        <?php            
             // Conectar a la Base de Datos y sacar el ID
             include('../connectDB.php');
             $db = connectDb();

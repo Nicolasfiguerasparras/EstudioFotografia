@@ -1,7 +1,6 @@
 # EstudioFotografia
 INDEX:
-    Footer:
-        - Añadir enlaces a distintas páginas de la web
+    Footer:       
         - Añadir titular de la web
         - Añadir numero de inscripción del registro del negocio
         - Añadir CIF
@@ -15,19 +14,6 @@ NAVBAR:
 GENERAL:
     - Añadir al menos una fuente cargada mediante la inclusión de un link de cabecera
     - Añadir una flecha de subida que esté siempre presente en la esquina inferior derecha
-    - Acceso USUARIO:
-        -INDEX:
-            - NavBar:
-                - Inicio
-                - Trabajos
-                - Acceder
-                - Contacto
-            - Imagen aleartoria de los trabajos
-            - 3 últimas noticias
-            - Footer
-        - LOGIN:
-            - Field para usr&pass
-            - OptCase para mantener sesión abierta
     - Acceso CLIENTE (post login):
         - INDEX:
             - NavBar:
@@ -50,12 +36,7 @@ GENERAL:
         - Trabajos disponibles:
             - Listado de trabajos disponibles:
                 - Resumen de trabajo (img, titulo y precio)
-                - Botón ver más para acceder a toda la información del trabajo (idea: colapse)
-    - Acceso ADMINISTRADOR:
-        - CREAR, MODIFICAR, BORRAR O CONSULTAR (CLIENTES, TRABAJOS, NOTICIAS O CITAS)
-        - INDEX:
-            - NavBar:
-                - Cambiar "acceder" por "Cerrar sesión de administrador"
+                - Botón ver más para acceder a toda la información del trabajo (idea: collapse)
 09/01/2019 ->
     INDEX:
         + Cambio los links del NavBar del Index
@@ -81,3 +62,24 @@ GENERAL:
     INDEX:
         + Cambiar imágenes para que no se pixelen
         + Mostrar advertencia de uso de cookies hasta que se acepten
+        Footer:
+            + Añadir enlaces a distintas páginas de la web
+    GENERAL:
+        + Acceso USUARIO:
+            +INDEX:
+                + NavBar:
+                    + Inicio
+                    + Trabajos
+                    + Acceder
+                    + Contacto
+                + Imagen aleartoria de los trabajos
+                + 3 últimas noticias
+                + Footer
+            + LOGIN:
+                + Field para usr&pass
+                + OptCase para mantener sesión abierta
+        + Acceso ADMINISTRADOR:
+            + CREAR, MODIFICAR, BORRAR O CONSULTAR (CLIENTES, TRABAJOS, NOTICIAS O CITAS)
+            + INDEX:
+                + NavBar:
+                    + Cambiar "acceder" por "Cerrar sesión de administrador"

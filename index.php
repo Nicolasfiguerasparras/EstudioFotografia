@@ -1,3 +1,9 @@
+<!--Sacamos sesión-->
+<?php
+    session_start();
+?>
+<!--/Sacamos sesión-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,6 +34,7 @@
                                 Si continua navegando, consideramos que acepta su uso.</p>";
                             echo "</div>";
                             echo "<div class='modal-footer footerModal'>";
+                                // En caso de aceptar las cookies, se redirige a un archivo php que crea la cookie y éste vuelve a redirigir al index con la cookie ya creada
                                 echo "<a href='cookieAccess.php' class='btn btn-primary btn-success'>Estoy de acuerdo, seguir navegando</a>";
                                 echo "<br>";
                                 echo "<a href='https://www.boe.es/buscar/act.php?id=BOE-A-1999-23750'>";
@@ -42,37 +49,18 @@
         <!--/Modal advertencia-->
         
         <!--NavBarIndex-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.php">Estudio de Fotografía</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar" aria-controls="navBar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navBar">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Inicio<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Noticias/noticias.php">Noticias<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Clientes/clientes.php">Clientes<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Trabajos/trabajos.php">Trabajos<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Citas/citas.php">Citas<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Contacto/contacto.php">Contacto<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Acceder/acceder.php">Acceder<span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <?php
+            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
+            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+                if($_SESSION['user']=='admin'){
+                    include('NavBar/Index/navBarAdmin.php');
+                }else{
+                    include('NavBar/Index/navBarClient.php');
+                }
+            }else{
+                include('NavBar/Index/navBarClearUser.php');
+            }
+        ?>
         <!--/NavBar-->
         
         <!--Caroussel con imagenes de trabajos-->

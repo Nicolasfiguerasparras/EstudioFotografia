@@ -13,23 +13,33 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="../index.php">Estudio de Fotografía</a>
+            <a class="navbar-brand" href="index.php">Estudio de Fotografía</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.php">Inicio<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../Trabajos/trabajos.php">Trabajos<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Noticias/noticias.php">Noticias<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../Acceder/acceder.php">Acceder<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Clientes/clientes.php">Clientes<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../Contacto/contacto.php">Contacto<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Trabajos/trabajos.php">Trabajos<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Citas/citas.php">Citas<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Contacto/contacto.php">Contacto<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Acceder/cerrarSesion.php">Cerrar sesión de administrador<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
