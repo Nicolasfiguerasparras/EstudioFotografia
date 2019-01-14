@@ -16,8 +16,6 @@ GENERAL:
     - Añadir al menos una fuente cargada mediante la inclusión de un link de cabecera
     - Añadir una flecha de subida que esté siempre presente en la esquina inferior derecha
     - Acceso CLIENTE (post login):
-        - Mis trabajos:
-            - Trabajos comprados a lo largo del tiempo
         -Mis datos personales:
             - Datos que la empresa tiene de él
             - Podrá modificar:
@@ -85,3 +83,5 @@ GENERAL:
                     + Mis citas
                     + Contacto
                     + Cerrar sesión de <nombre_cliente>
+            + Mis trabajos:
+                + Trabajos comprados a lo largo del tiempo

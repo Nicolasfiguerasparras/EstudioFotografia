@@ -8,12 +8,12 @@
         $user=$_POST['inputUser'];
         $password=$_POST['inputPassword'];
         $query= mysqli_query($db, "SELECT * FROM clientes where nick='$user' and contraseña='$password'");
-        $session = mysqli_num_rows($query);
 
-        if($session>0){
+        if($session = mysqli_fetch_array($query)){
             session_start(); 
             $_SESSION['login_ok'] = true;
             $_SESSION['user'] = $user;
+            $_SESSION['id_user']= $session['id'];
 
             // Codifico la sesión para guardarla en una cookie
             $dataSesion = session_encode();
