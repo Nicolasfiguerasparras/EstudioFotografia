@@ -18,10 +18,11 @@ GENERAL:
     - Acceso CLIENTE (post login):
         -Mis datos personales:
             - Datos que la empresa tiene de él
-            - Podrá modificar:
+            - Podrá modificar: (idea mandar a nueva pagina updateData)
                 - Contraseña
                 - Dirección
                 - Teléfonos
+            - Formatear
         - Mis citas:
             - Citas que ha tenido o tendrá (solo consulta, no modificación)
         - Trabajos disponibles:

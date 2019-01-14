@@ -27,7 +27,7 @@
                         <a class="nav-link" href="Trabajos/misTrabajos.php">Mis trabajos<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="personalData.php">Mis datos personales<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Clientes/personalData.php">Mis datos personales<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="Citas/misCitas.php">Mis citas<span class="sr-only">(current)</span></a>

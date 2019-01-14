@@ -44,7 +44,6 @@
                     // Mostramos las cabeceras de la tabla
                     echo "<tr>"; 
                         echo "<td>Título</td>";
-                        echo "<td>Cliente</td>";
                         echo "<td>Precio</td>";
                         echo "<td>Imagen</td>";
                     echo "</tr>"; 
@@ -56,15 +55,6 @@
                         echo "<tr>";
                             $mod_id=$row['id'];
                             echo "<td>".$row["titulo"]."</td>"; 
-                            if($row['id_cliente']=0){
-                                echo "";
-                            }else{
-                                if($client['nombre'] == "Disponible"){
-                                    echo "<td style='background-color:green;'><p>Disponible</p></td>";
-                                }else{
-                                    echo "<td>".$client['nombre']."</td>";
-                                }
-                            }
                             echo "<td>".$row['precio']."</td>";
                             echo "<td><img src='".$row["imagen"]."' height='150' width='150' /></td>";
                         echo "</tr>"; 
