@@ -88,7 +88,7 @@
                             $rows = mysqli_num_rows($result2);
                             for($i=0;$i<$rows;$i++){
                                 $data=mysqli_fetch_array($result2);
-                                if($data['nombre']!="Disponible"){
+                                if($data['nombre']!="admin"){
                                     echo "<option value='$data[id]'>$data[nombre] $data[apellidos]</option>"; 
                                 }
                             } 

@@ -28,36 +28,17 @@
                                 Si continua navegando, consideramos que acepta su uso.</p>";
                             echo "</div>";
                             echo "<div class='modal-footer footerModal'>";
-                                 echo "<a href='https://www.boe.es/buscar/act.php?id=BOE-A-1999-23750'>";
-                                    echo "<button ntype='button' class='btn btn-secondary btn-danger'>No estoy de acuerdo, sácame de aquí</button>";
+                                echo "<a href='cookieAccess.php' class='btn btn-primary btn-success'>Estoy de acuerdo, seguir navegando</a>";
+                                echo "<br>";
+                                echo "<a href='https://www.boe.es/buscar/act.php?id=BOE-A-1999-23750'>";
+                                    echo "<button type='button' class='btn btn-secondary btn-danger'>No estoy de acuerdo, sácame de aquí</button>";
                                 echo "</a>";
                             echo "</div>";
                         echo "</div>";
                     echo "</div>";
                 echo "</div>";
-                setcookie("acceso", date('j-m-Y,H:i:s'), null, "/");
-            }else{
-                setcookie("acceso", date('j-m-Y,H:i:s'), null, "/");
             }
         ?>
-        <div class="modal" tabindex="-1" role="dialog" id="modalInicio" data-keyboard="false" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title">Aceptación de cookies</h2>
-                    </div>
-                    <div class="modal-body">
-                        <p>Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. Si continua navegando, consideramos que acepta su uso.</p>
-                    </div>
-                    <div class="modal-footer footerModal">
-                        <button type="button" class="btn btn-primary btn-success" data-dismiss="modal">Estoy de acuerdo, seguir navegando</button>	
-                        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-23750">
-                            <button type="button" class="btn btn-secondary btn-danger">No estoy de acuerdo, sácame de aquí</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!--/Modal advertencia-->
         
         <!--NavBarIndex-->
@@ -104,6 +85,8 @@
                 // Creamos la consulta para obtener titular y descripción de las noticias
                 $titulares = mysqli_query($db, "SELECT * FROM noticias");
             ?>
+            <!--/Sacamos titulares de noticias-->
+            
         <div class="container-fluid">
             <div class = "row">
                 <div class= "col-12">
@@ -269,8 +252,6 @@
                         });
                     </script>
                 ";
-                setcookie("acceso", date('j-m-Y,H:i:s'), null, "/");
-                // Buscar la manera de que se cree la cookie solo si hace click en el botón aceptar
             }
         ?>
         <!--/Script modal-->

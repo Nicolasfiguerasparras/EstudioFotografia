@@ -1,7 +1,5 @@
 # EstudioFotografia
 INDEX:
-    - Mostrar advertencia de uso de cookies hasta que se acepten
-    - Cambiar imágenes para que no se pixelen
     Footer:
         - Añadir enlaces a distintas páginas de la web
         - Añadir titular de la web
@@ -12,12 +10,8 @@ CITAS:
     - Poner calendario de mes anterior y mes próximo para que se tenga perspectiva de las citas
     - Detectar el mes para sacar todas las citas en ese mes y crear un link por cada elemento de día en el que haya una cita
     - Añadir tooltip con información referente a la cita
-DB:
-    - Crear usuario admin(usr:admin;passwd:admin;id:0)
 NAVBAR:
     - Crear y añadir logo en lugar de "Estudio de Fotografía"
-ACCESO:
-    - Controlar submit del formulario y crear cookies
 GENERAL:
     - Añadir al menos una fuente cargada mediante la inclusión de un link de cabecera
     - Añadir una flecha de subida que esté siempre presente en la esquina inferior derecha
@@ -79,3 +73,11 @@ GENERAL:
     INDEX:
         + Cambio de colores
         + Solución problema collapse
+14/01/2019 ->
+    DB:
+        + Crear usuario admin(usr:admin;passwd:admin;id:0)
+    ACCESO:
+        + Controlar submit del formulario y crear cookies
+    INDEX:
+        + Cambiar imágenes para que no se pixelen
+        + Mostrar advertencia de uso de cookies hasta que se acepten

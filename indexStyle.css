@@ -20,10 +20,8 @@ p{
 	margin-bottom: 15px;
 }
 
-.footerModal > :not(:last-child) {
-
+.footerModal > :not(:last-child){
     margin-right: 0px;
-
 }
 
 .card{

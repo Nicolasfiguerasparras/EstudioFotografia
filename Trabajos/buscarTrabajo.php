@@ -53,8 +53,8 @@
                                 if($row['id_cliente']=0){
                                     echo "";
                                 }else{
-                                    if($client['nombre'] == "Disponible"){
-                                        echo "<td style='background-color:green;'><p>Disponible</p></td>";
+                                    if($client['nombre'] == "admin"){
+                                        echo "<td style='background-color:green;'><p>admin</p></td>";
                                     }else{
                                         echo "<td>".$client['nombre']."</td>";
                                     }
