@@ -56,8 +56,8 @@
                 // Cerramos la conexión a la base de datos
                 mysqli_close($db);
                 
-                // Redirigimos al cliente a una URL validada.
-                header('Location: nuevoCliente.php?success='.$result);
+                // Redirigimos al cliente al listado de clientes.
+                echo "<script> location.href='clientes.php'; </script>";
             }
         ?>
         
@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group col-4">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Arturo Pérez Ávila" required>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Arturo" required>
                 </div>
                 <div class="form-group col-5">
                     <label for="apellidos">Apellidos</label>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="form-group col-3">
                     <label for="telef2">Teléfono 2</label>
-                    <input type="text" class="form-control" id="telef2" name="telef2" required>
+                    <input type="text" class="form-control" id="telef2" name="telef2">
                 </div>
             </div>
             <div class="form-row">
@@ -106,14 +106,5 @@
                 <input type="submit" name="submit" value="Crear cliente">  
             </div>
         </form>
-        
-        <?php
-            // En caso de que se haya insertado correctamente el usuario, mostramos un mensaje por pantalla, al igual que en el caso contrario
-            if(isset($_GET['success']) && !$_GET['success']==0){
-                echo "Se ha insertado correctamente el cliente";
-            }elseif(isset($_GET['success']) && $_GET['success']==0){
-                echo "No se ha insertado correctamente el cliente";
-            }
-        ?>
     </body>
 </html>
