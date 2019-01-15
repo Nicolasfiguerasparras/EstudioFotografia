@@ -24,9 +24,7 @@
                 setcookie("sesion", $dataSesion, null, "/");
             }
             header("location: ../index.php");
-        }else{
-            header("location: accederError.php");
-        }
+        } 
     }
 ?>
 <!--/Form PHP code-->
@@ -54,6 +52,10 @@
         ?>
         <!--/NavBar-->
         <br><br>       
+        
+        <!--Mensaje de error-->
+        <h2 style="color:red; text-align:center">Usuario y/o contraseña incorrectos</h2>
+        <!--/Mensaje de error-->
         
         <!--Form-->
         <form method="post" action="acceder.php">

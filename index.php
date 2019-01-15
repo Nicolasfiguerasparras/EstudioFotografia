@@ -173,7 +173,7 @@
             $actualDate = date("Y/m/d");
 
             // Creamos la consulta para obtener las últimas noticias
-            $query = "SELECT * FROM noticias WHERE fecha >= $actualDate";
+            $query = "SELECT * FROM noticias WHERE fecha >= $actualDate ORDER BY fecha DESC";
             $resultNews = mysqli_query($db, $query);
 
             // En caso de que encuentre noticias, vuelca los resultados
@@ -191,17 +191,17 @@
                 for($i=0; $i<$rows; $i++){
                     $noticias=mysqli_fetch_array($resultNews);
                     echo "<div class='col-4'>";
-                        echo "<div class='card text-white bg-dark mb-3' id=accordion>";
+                        echo "<div class='card text-white bg-dark mb-3'>";
                             echo "<img class='card-img-top' src='Noticias/$noticias[imagen]' style='height:500px'>";
                             echo "<div class='card-header' id='headingOne' style='height:150px'>";
                                 echo "<h5 class='card-title'>$noticias[titular]</h5>";
-                                echo "<button class='btn btn-primary' data-toggle='collapse' data-target='#Collapse$i' aria-expanded='false' aria-controls='collapseOne'>";
+                                echo "<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapseExample$i' aria-expanded='false' aria-controls='collapseExample'>";
                                     echo "Ver más";
                                 echo "</button>";
                             echo "</div>";
                         echo "</div>";
                         // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                        echo "<div id='Collapse$i' class='collapse' aria-labelledby='headingOne' data-parent='#accordion'>";
+                        echo "<div class='collapse' id='collapseExample$i'>";
                             echo "<div class='cardText'>";
                                 echo "<div class='card-body'>";
                                     echo "<p>$noticias[contenido]</p>";
@@ -225,6 +225,7 @@
             </ul>
         </footer>
         <!--/Footer de libre contenido--> 
+        
         
         <!--Script modal-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

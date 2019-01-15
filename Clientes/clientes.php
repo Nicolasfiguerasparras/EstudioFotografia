@@ -15,7 +15,6 @@
     <body>
         <!--NavBar-->
         <?php
-            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
             if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
@@ -49,7 +48,7 @@
                             while ($field = mysqli_fetch_field($consulta)){ 
                                 echo "<td>$field->name</td>"; 
                             }
-                        echo "</tr>"; 
+                        echo "</tr>";
 
                         // Establecemos un bucle DO WHILE que imprime los clientes mientras haya
                         do{ 
