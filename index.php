@@ -15,6 +15,7 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Estudio Fotografía</title>
         <link href="indexStyle.css" rel="stylesheet" type="text/css"/>
+        <script src="JavaScript/showNhide.js" type="text/javascript"></script>
     </head>
     <body>
         <!--Modal advertencia-->
@@ -195,19 +196,15 @@
                             echo "<img class='card-img-top' src='Noticias/$noticias[imagen]' style='height:500px'>";
                             echo "<div class='card-header' id='headingOne' style='height:150px'>";
                                 echo "<h5 class='card-title'>$noticias[titular]</h5>";
-                                echo "<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapseExample$i' aria-expanded='false' aria-controls='collapseExample'>";
-                                    echo "Ver más";
-                                echo "</button>";
+                                echo "<a class='btn btn-info' id='showNhide$i'>Mostrar</a>";
                             echo "</div>";
                         echo "</div>";
                         // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                        echo "<div class='collapse' id='collapseExample$i'>";
-                            echo "<div class='cardText'>";
+                            echo "<div class='cardText' style='display:none' id='texto$i'>";
                                 echo "<div class='card-body'>";
                                     echo "<p>$noticias[contenido]</p>";
                                 echo "</div>";
                             echo "</div>";
-                        echo "</div>";
                     echo "</div>";
                 }
             echo "</div>";

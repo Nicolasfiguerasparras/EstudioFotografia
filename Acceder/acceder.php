@@ -1,3 +1,9 @@
+<!--Sacamos sesión-->
+<?php
+    session_start();
+?>
+<!--/Sacamos sesión-->
+
 <!--Form PHP code-->
 <?php 
     // Establecemos conexión con la base de datos
@@ -10,7 +16,6 @@
         $query= mysqli_query($db, "SELECT * FROM clientes where nick='$user' and contraseña='$password'");
 
         if($session = mysqli_fetch_array($query)){
-            session_start(); 
             $_SESSION['login_ok'] = true;
             $_SESSION['user'] = $user;
             $_SESSION['id_user']= $session['id'];
@@ -38,22 +43,21 @@
         <title>Acceder</title>
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
     </head>
-    <body>          
+    <body>
         <!--NavBar-->
         <?php
-            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
             if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
-                    header('../index.php');
+                    header('location: ../index.php');
                 }else{
-                    header('../index.php');
+                    header('location: ../index.php');
                 }
             }else{
                 include('../NavBar/navBarClearUser.php');
             }
         ?>
         <!--/NavBar-->
-        <br><br>       
+        <br><br>
         
         <!--Form-->
         <form method="post" action="acceder.php">
