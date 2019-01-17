@@ -180,6 +180,7 @@
             // En caso de que encuentre noticias, vuelca los resultados
             if(!$resultNews == 0){
                 $rows=mysqli_num_rows($resultNews);
+                
                 // En caso de que haya más de 3 noticias insertadas, establece el número de filas a 3
                 if($rows>3){
                     $rows=3;
@@ -187,31 +188,30 @@
             }else{
                 echo "No se ha encontrado ninguna noticia";
             }
-            echo "<div class = 'card-deck col-12'>";
-                // Utilizamos un bucle for para recorrer las variables de cada noticia
-                for($i=0; $i<$rows; $i++){
+            
+            // Utilizamos un bucle for para recorrer las variables de cada noticia
+            for($i=0; $i<$rows; $i++){
+                echo "<div class='row'>";
                     $noticias=mysqli_fetch_array($resultNews);
-                    echo "<div class='col-4'>";
-                        echo "<div class='card text-white bg-dark mb-3'>";
-                            echo "<img class='card-img-top' src='Noticias/$noticias[imagen]' style='height:500px'>";
-                            echo "<div class='card-header' id='headingOne' style='height:150px'>";
-                                echo "<h5 class='card-title'>$noticias[titular]</h5>";
-                                echo "<a class='btn btn-info' id='showNhide$i'>Mostrar</a>";
-                            echo "</div>";
+                    echo "<div class='card col-4 offset-1 text-white bg-dark mb-3'>";
+                        echo "<br><img class='card-img-top' src='Noticias/$noticias[imagen]'>";
+                        echo "<div class='card-header' id='headingOne'>";
+                            echo "<h5 class='card-title'>$noticias[titular]</h5>";
+                            echo "<a class='btn btn-info' id='showNhide$i'>Mostrar</a>";
                         echo "</div>";
-                        // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                            echo "<div class='cardText' style='display:none' id='texto$i'>";
-                                echo "<div class='card-body'>";
-                                    echo "<p>$noticias[contenido]</p>";
-                                echo "</div>";
-                            echo "</div>";
                     echo "</div>";
-                }
-            echo "</div>";
+                    
+                    // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
+                    echo "<div class='card col-5 text-white bg-dark mb-3 outer-div' style='display:none' id='texto$i'>";
+                        echo "<div class='inner-div'><p>$noticias[contenido]</p></div>";
+                    echo "</div>";
+                echo "</div>";
+                echo "<br><br>";
+            }
             mysqli_close($db);
         ?> 
         <!--/Sección con las últimas tres noticias publicadas-->
-        
+
         
         <!--Footer-->  
         <footer id="foot">
@@ -229,15 +229,13 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
         <?php
-            if(!isset($_COOKIE['acceso'])){
-                echo "
-                    <script>
-                        $(window).on('load',function(){
-                            $('#modalInicio').modal('show');
-                        });
-                    </script>
-                ";
-            }
+            echo "
+                <script>
+                    $(window).on('load',function(){
+                        $('#modalInicio').modal('show');
+                    });
+                </script>
+            ";
         ?>
         <!--/Script modal-->
     </body>

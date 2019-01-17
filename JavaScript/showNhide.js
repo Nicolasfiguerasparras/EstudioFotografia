@@ -9,7 +9,7 @@ function Start() {
 function Control_0() {
     let texto = $("#showNhide0").text();
     if(texto == "Mostrar"){
-        $("#texto0").show(1000);
+        $("#texto0").show(300);
         $("#showNhide0").text("Ocultar")
     }else{
         $("#texto0").hide(300);
