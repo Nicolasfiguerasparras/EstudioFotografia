@@ -65,8 +65,8 @@
                 // Sacamos la consulta
                 $result = mysqli_query($db, $query) or die(mysqli_error($db));;
                 
-                // Redirigimos al cliente a una URL validada.
-                header('Location: nuevoTrabajo.php?success='.$result);
+                // Redirigimos al cliente al listado de trabajos.
+                echo "<script> location.href='trabajos.php'; </script>";
             }
         ?>
         
@@ -75,75 +75,28 @@
         <form method="post" action="nuevoTrabajo.php" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-1 offset-1">
-                    <label for="idCliente">ID</label>
-                    <input type="text" name="idTrabajo" class="form-control" id="idCliente" placeholder="<?php echo($idTrabajo); ?>"disabled>
+                    <label for="idTrabajo">ID</label>
+                    <input type="text" name="idTrabajo" class="form-control" id="idTrabajo" placeholder="<?php echo($idTrabajo); ?>"disabled>
                 </div>
                 <div class="form-group col-4">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Arturo" required>
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título del trabajo" required>
                 </div>
                 <div class="form-group col-5">
-                    <label for="apellidos">Apellidos</label>
-                    <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Pérez Ávila" required>
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Descripción del trabajo" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-4 offset-1">
-                    <label for="direccion">Dirección</label>
-                    <input type="text" class="form-control" id="direccion" placeholder="Apartamento, estudio, etc" name="direccion" required>
+                    <label for="precio">Precio</label>
+                    <input type="text" class="form-control" id="precio" placeholder="Precio del trabajo" name="precio" required>
                 </div>
                 <div class="form-group col-3">
-                    <label for="telef1">Teléfono 1</label>
-                    <input type="text" class="form-control" id="telef1" name="telef1" required>
-                </div>
-                <div class="form-group col-3">
-                    <label for="telef2">Teléfono 2</label>
-                    <input type="text" class="form-control" id="telef2" name="telef2">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-5 offset-1">
-                    <label for="nick">Nick</label>
-                    <input type="text" class="form-control" id="nick" name="nick" required>
-                </div>
-                <div class="form-group col-5">
-                    <label for="pass">Contraseña</label>
-                    <input type="password" class="form-control" id="pass" name="pass" required>
-                </div>
-            </div>
-            <div class="form-group offset-1">
-                <input type="submit" name="submit" value="Crear cliente">  
-            </div>
-        </form>
-        
-        <!--Formulario que recoge los datos insertados por el usuario-->
-        <div class="padre container">
-            <div class="row">
-                <form method="post" action="nuevoTrabajo.php" enctype="multipart/form-data">  
-                    ID: <input type="number" name="idTrabajo" placeholder="<?php echo($idTrabajo); ?>"disabled>
-            </div>
-            <br><br>
-                    
-            <div class="row">
-                    Título: <input type="text" name="titulo" required>
-            </div>
-            <br><br>
-                    
-            <div class="row">
-                    Descripción: <input type="text" name="descripcion" required>
-            </div>
-            <br><br>
-                    
-            <div class="row">
-                    Precio: <input type="text" name="precio" required>
-            </div>
-            <br><br>
-            
-            <div class="row">
-                    <select name="cliente" id="choseClient">
-                        <option value=0>Elige un cliente</option>
-                        
-			<?php 
+                    <label for="cliente">Cliente</label>
+                    <select class="form-control" name="cliente" id="cliente" required>
+                        <option value="0">Elige un cliente</option>
+                        <?php 
                             $consulta = "SELECT id, nombre, apellidos FROM clientes";
                             $result2 = mysqli_query($db, $consulta);
                             // Sacamos el número de clientes que hay
@@ -156,28 +109,20 @@
                             } 
 			?>
                     </select>
+                </div>
+                <div class="form-group col-3">
+                    <label for="imagen">Imagen</label>
+                    <input type="file" class="form-control-file" id="imagen" accept="image/*" name="imagen" required>
+                </div>
             </div>
-            <br><br>
-            
-            <div class="row">
-                    Sube una imagen: <input type="file" name="imagen" accept="image/*" required>
-            </div>
-            <br><br>
-                    
+            <div class="form-row">
+                <div class="form-group col-1 offset-1">
                     <input type="submit" name="submit" value="Enviar">  
-                </form>
+                </div>
             </div>
-        </div>
-        <br><br>
+        </form>
         
         <?php
-            // En caso de que se haya insertado correctamente el trabajo, mostramos un mensaje por pantalla, al igual que en el caso contrario
-            if(isset($_GET['success']) && !$_GET['success']==0){
-                echo "Se ha insertado correctamente el trabajo";
-            }elseif(isset($_GET['success']) && $_GET['success']==0){
-                echo "No se ha insertado correctamente el trabajo";
-            }
-            
             // Cerramos la conexión a la base de datos
             mysqli_close($db);
         ?>

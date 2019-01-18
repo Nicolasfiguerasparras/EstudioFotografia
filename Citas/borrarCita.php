@@ -9,7 +9,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Borrar cita</title>
-        <link href="../Noticias/tableStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!--NavBar-->
@@ -40,7 +39,7 @@
 
                 // Imprimimos una tabla con las noticias
                 if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table border='1px' align='center' style='width:700px; height: 500px'>"; 
+                    echo "<table class='table'>"; 
                         
                         // Mostramos las cabeceras de la tabla
                         echo "<tr>"; 

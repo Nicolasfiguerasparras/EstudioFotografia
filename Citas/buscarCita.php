@@ -41,7 +41,7 @@
                 
                 //En el caso en el que encuentre clientes, imprime una tabla con los resultados
                 if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table border=1>"; 
+                    echo "<table class='table'>"; 
 
                         //Mostramos las cabeceras de la tabla
                         echo "<tr>"; 

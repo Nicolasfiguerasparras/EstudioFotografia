@@ -10,7 +10,6 @@
         <meta charset="UTF-8">
         <title>Noticias</title>
         <link href="noticiasStyle.css" rel="stylesheet" type="text/css"/>
-        <link href="tableStyle.css" rel="stylesheet" type="text/css"/>
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
     </head>
     <body>
@@ -51,7 +50,7 @@
                 
                 // En el caso en el que encuentre noticias, imprime una tabla con los resultados
                 if ($row = mysqli_fetch_array($query)){ 
-                    echo "<table style='width:90vw'>"; 
+                    echo "<table class='table'>"; 
 
                     // Mostramos las cabeceras de la tabla
                     echo "<tr>"; 

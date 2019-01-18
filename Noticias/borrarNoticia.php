@@ -37,14 +37,13 @@
 
                 // Imprimimos una tabla con las noticias
                 if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table>"; 
+                    echo "<table class='table'>"; 
                         
                         // Mostramos las cabeceras de la tabla
                         echo "<tr>"; 
                             echo "<td>ID</td>
                                   <td>Titular</td>
-                                  <td>Contenido</td>
-                                  <td>Imagen</td>
+                                  <td style='width: 33%'>Imagen</td>
                                   <td>Fecha</td>
                                   <td>Borrar noticia</td>";
                         echo "</tr>"; 
@@ -59,8 +58,7 @@
                                     $del_id=$row['id'];
                                     echo "<td>".$del_id."</td>"; 
                                     echo "<td>".$row["titular"]."</td>"; 
-                                    echo "<td>".$row["contenido"]."</td>"; 
-                                    echo "<td><img src='".$row["imagen"]."' /></td>"; 
+                                    echo "<td style='width: 33%'><img src='".$row["imagen"]."' /></td>"; 
                                     $fecha = strtotime($row["fecha"]);
                                     $dia = date('d', $fecha);
                                     $mes = date('m', $fecha);
