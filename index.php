@@ -90,7 +90,7 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="Noticias/img/3.jpg" style="height:90vh">
-                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(102,102,0, 0.8);" >
+                                <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>
                                         <?php 
                                             $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=3");
@@ -107,7 +107,7 @@
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="Noticias/img/4.jpg" style="height:90vh">
-                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(102,102,0, 0.8);" >
+                                <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>
                                         <?php 
                                             $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=4");
@@ -124,7 +124,7 @@
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="Noticias/img/5.jpg" style="height:90vh">
-                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(102,102,0, 0.8);" >
+                                <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>
                                         <?php 
                                             $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=5");
@@ -192,24 +192,27 @@
                 echo "No se ha encontrado ninguna noticia";
             }
             
+            
             // Utilizamos un bucle for para recorrer las variables de cada noticia
             for($i=0; $i<$rows; $i++){
-                echo "<div class='row'>";
-                    $noticias=mysqli_fetch_array($resultNews);
-                    echo "<div class='card col-4 offset-1 text-white bg-dark mb-3'>";
-                        echo "<br><img class='card-img-top' src='Noticias/$noticias[imagen]'>";
-                        echo "<div class='card-header' id='headingOne'>";
-                            echo "<h5 class='card-title'>$noticias[titular]</h5>";
+                echo "<div class='container col-12'>";
+                    echo "<div class='row'>";
+                        $noticias=mysqli_fetch_array($resultNews);
+                        echo "<div class='card col-12 col-lg-4 offset-lg-1 text-white bg-dark mb-3'>";
+                            echo "<br><img class='card-img-top' src='Noticias/$noticias[imagen]'>";
+                            echo "<div class='card-header d-none d-md-block' id='headingOne'>";
+                                echo "<h5 class='card-title'>$noticias[titular]</h5>";
+                                
+                            echo "</div>";
                             echo "<a class='btn btn-info' id='showNhide$i'>Mostrar</a>";
                         echo "</div>";
-                    echo "</div>";
-                    
-                    // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                    echo "<div class='card col-5 text-white bg-dark mb-3 outer-div' style='display:none' id='texto$i'>";
-                        echo "<div class='inner-div'><p>$noticias[contenido]</p></div>";
+                      
+                        // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
+                        echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' style='display:none' id='texto$i'>";
+                            echo "<div class='inner-div'><p>$noticias[contenido]</p></div>";
+                        echo "</div>";
                     echo "</div>";
                 echo "</div>";
-                echo "<br><br>";
             }
             mysqli_close($db);
         ?> 

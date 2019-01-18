@@ -11,13 +11,13 @@ p{
 }
 
 .footerModal{
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .footerModal>button{
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .footerModal > :not(:last-child){
@@ -33,21 +33,21 @@ body{
 }
 
 .cardText{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
-  margin: 0 auto;
-  background-color: #212121;
-  color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin: 0 auto;
+    background-color: #212121;
+    color: white;
 }
 
 .outer-div{
-  padding: 30px;
-  background-color: #f3f3f3;
+    padding: 30px;
+    background-color: #f3f3f3;
 }
 
 .inner-div{
-  margin: auto;
-  border-radius: 3px;
+    margin: auto;
+    border-radius: 3px;
 }
 
 /*Return to top*/
