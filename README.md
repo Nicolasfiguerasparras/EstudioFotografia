@@ -8,15 +8,9 @@ CITAS:
 NAVBAR:
     - Crear y añadir logo en lugar de "Estudio de Fotografía"
 GENERAL:
-    - Añadir una flecha de subida que esté siempre presente en la esquina inferior derecha
     - Acceso CLIENTE (post login):
-        -Mis datos personales:
-            - Datos que la empresa tiene de él
-            - Podrá modificar: (idea mandar a nueva pagina updateData)
-                - Contraseña
-                - Dirección
-                - Teléfonos
             - Formatear
+            - Ver por qué detecta mal el login
         - Mis citas:
             - Citas que ha tenido o tendrá (solo consulta, no modificación)
         - Trabajos disponibles:
@@ -50,6 +44,7 @@ GENERAL:
         + Crear usuario admin(usr:admin;passwd:admin;id:0)  
     GENERAL:
         + Añadir al menos una fuente cargada mediante la inclusión de un link de cabecera
+        + Añadir una flecha de subida que esté siempre presente en la esquina inferior derecha
         + Acceso USUARIO:
             +INDEX:
                 + NavBar:
@@ -78,3 +73,9 @@ GENERAL:
                     + Cerrar sesión de <nombre_cliente>
             + Mis trabajos:
                 + Trabajos comprados a lo largo del tiempo
+            + Mis datos personales
+                + Datos que la empresa tiene de él
+                + Podrá modificar: (idea mandar a nueva pagina updateData)
+                    + Contraseña
+                    + Dirección
+                    + Teléfonos

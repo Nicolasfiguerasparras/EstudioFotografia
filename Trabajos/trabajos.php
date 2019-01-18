@@ -19,11 +19,14 @@
             if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
+                    $usuario=1;
                 }else{
                     include('../NavBar/navBarClient.php');
+                    $usuario=0;
                 }
             }else{
                 include('../NavBar/navBarClearUser.php');
+                $usuario=0;
             }
         ?>
         <!--/NavBar-->
@@ -104,8 +107,12 @@
                                 echo "<td>".$row["precio"]."</td>";
 
                                 echo "<td><img src='".$row["imagen"]."' height='150' width='150' /></td>";
-                                echo "<td><input type='submit' name='submit' value='Modificar'></td>";
-                                echo "<input type='hidden' name='id' value='$mod_id'>";
+                                if($usuario==1){
+                                    if($client['nombre']=="Disponible"){
+                                        echo "<td><input type='submit' name='submit' value='Modificar'></td>";
+                                        echo "<input type='hidden' name='id' value='$mod_id'>";
+                                    }
+                                }
                                 echo "</form>";
                             echo "</tr>"; 
                         }while($row = mysqli_fetch_array($works)); 

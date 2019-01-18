@@ -52,7 +52,7 @@
 
                         // Establecemos un bucle DO WHILE que imprime los clientes mientras haya
                         do{ 
-                            echo "<form method='post'>";
+                            echo "<form method='post' action='clientes.php'>";
                             if($row['nombre']!="Disponible"){
                                 echo "<tr>";
                                     // Creamos una variable que almacena el ID

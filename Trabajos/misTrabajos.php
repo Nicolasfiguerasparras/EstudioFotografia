@@ -63,7 +63,7 @@
 
                 // En caso de no encontrar ningún resultado, mostramos un mensaje informativo
             }else{ 
-                echo "¡No has comprado aún ningún trabajo!"; 
+                echo "<h1 style='text-align:center'>¡No has comprado aún ningún trabajo!</h1>"; 
             }
         ?>
     </body>

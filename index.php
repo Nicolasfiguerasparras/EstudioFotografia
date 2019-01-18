@@ -156,18 +156,20 @@
         <!--/Caroussel-->
         
         <!--Sección de presentación-->
-        <div class="presentacion" style="background-color: #13293D">
-            <p style="color: #e8f1f2">
-                Hola! Me llamo Nicolás Figueras Parras y soy alumno de la Escuela Arte Granada.<br>
-                Estoy estudiando fotografía. En esta página web mostraré y pondré a la venta mis proyectos.<br>
-                Sean todos bienvenidos.<br>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+        <div class="container col-12">
+            <div class="presentacion" style="background-color: #13293D">
+                <p style="color: #e8f1f2">
+                    Hola! Me llamo Nicolás Figueras Parras y soy alumno de la Escuela Arte Granada.<br>
+                    Estoy estudiando fotografía. En esta página web mostraré y pondré a la venta mis proyectos.<br>
+                    Sean todos bienvenidos.<br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
         </div>
         <br>
         <!--/Sección de presentación-->
@@ -204,7 +206,7 @@
                                 echo "<h5 class='card-title'>$noticias[titular]</h5>";
                                 
                             echo "</div>";
-                            echo "<a class='btn btn-info' id='showNhide$i'>Mostrar</a>";
+                            echo "<a class='btn btn-dark' id='showNhide$i'>Mostrar</a>";
                         echo "</div>";
                       
                         // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
