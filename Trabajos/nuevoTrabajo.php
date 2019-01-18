@@ -71,6 +71,51 @@
         ?>
         
         
+        <!--Formulario que recoge los datos insertados por el usuario-->      
+        <form method="post" action="nuevoTrabajo.php" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-1 offset-1">
+                    <label for="idCliente">ID</label>
+                    <input type="text" name="idTrabajo" class="form-control" id="idCliente" placeholder="<?php echo($idTrabajo); ?>"disabled>
+                </div>
+                <div class="form-group col-4">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Arturo" required>
+                </div>
+                <div class="form-group col-5">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Pérez Ávila" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-4 offset-1">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" placeholder="Apartamento, estudio, etc" name="direccion" required>
+                </div>
+                <div class="form-group col-3">
+                    <label for="telef1">Teléfono 1</label>
+                    <input type="text" class="form-control" id="telef1" name="telef1" required>
+                </div>
+                <div class="form-group col-3">
+                    <label for="telef2">Teléfono 2</label>
+                    <input type="text" class="form-control" id="telef2" name="telef2">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-5 offset-1">
+                    <label for="nick">Nick</label>
+                    <input type="text" class="form-control" id="nick" name="nick" required>
+                </div>
+                <div class="form-group col-5">
+                    <label for="pass">Contraseña</label>
+                    <input type="password" class="form-control" id="pass" name="pass" required>
+                </div>
+            </div>
+            <div class="form-group offset-1">
+                <input type="submit" name="submit" value="Crear cliente">  
+            </div>
+        </form>
+        
         <!--Formulario que recoge los datos insertados por el usuario-->
         <div class="padre container">
             <div class="row">

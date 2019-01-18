@@ -48,8 +48,8 @@
                 // Sacamos la consulta
                 $result = mysqli_query($db, $query) or die(mysqli_error($db));;
                 
-                // Redirigimos al cliente a una URL validada.
-                header('Location: nuevaCita.php?success='.$result);
+                // Redirigimos al cliente al listado de clientes.
+                echo "<script> location.href='citas.php';</script>";
             }
         ?>
         <br><br>
@@ -108,14 +108,7 @@
         </form>
         <br><br>
         
-        <?php
-            // En caso de que se haya insertado correctamente la cita, mostramos un mensaje por pantalla, al igual que en el caso contrario
-            if(isset($_GET['success']) && !$_GET['success']==0){
-                echo "Se ha insertado correctamente la cita";
-            }elseif(isset($_GET['success']) && $_GET['success']==0){
-                echo "No se ha insertado correctamente la cita";
-            }
-            
+        <?php            
             // Cerramos la conexión a la base de datos
             mysqli_close($db);
         ?>

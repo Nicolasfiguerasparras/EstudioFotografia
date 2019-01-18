@@ -1,11 +1,6 @@
 # EstudioFotografia
 INDEX:  
     - Imagen aleartoria de los trabajos
-    Footer:
-        - Añadir titular de la web
-        - Añadir numero de inscripción del registro del negocio
-        - Añadir CIF
-        - Añadir enlace a la página que contiene los datos de información general del sitio web (crear dicha página)
 CITAS:
     - Poner calendario de mes anterior y mes próximo para que se tenga perspectiva de las citas
     - Detectar el mes para sacar todas las citas en ese mes y crear un link por cada elemento de día en el que haya una cita
@@ -13,7 +8,6 @@ CITAS:
 NAVBAR:
     - Crear y añadir logo en lugar de "Estudio de Fotografía"
 GENERAL:
-    - Añadir al menos una fuente cargada mediante la inclusión de un link de cabecera
     - Añadir una flecha de subida que esté siempre presente en la esquina inferior derecha
     - Acceso CLIENTE (post login):
         -Mis datos personales:
@@ -45,12 +39,17 @@ GENERAL:
         + Mostrar advertencia de uso de cookies hasta que se acepten
         Footer:
             + Añadir enlaces a distintas páginas de la web
+            + Añadir titular de la web
+            + Añadir numero de inscripción del registro del negocio
+            + Añadir CIF
+            + Añadir enlace a la página que contiene los datos de información general del sitio web (crear dicha página)
     ACCESO:
         + Formateo de la página
         + Controlar submit del formulario y crear cookies
     DB:
         + Crear usuario admin(usr:admin;passwd:admin;id:0)  
     GENERAL:
+        + Añadir al menos una fuente cargada mediante la inclusión de un link de cabecera
         + Acceso USUARIO:
             +INDEX:
                 + NavBar:

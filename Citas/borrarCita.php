@@ -104,7 +104,8 @@
                 }
                 // En caso contrario, refrescamos la página
                 else{
-                    header("Location: borrarCita.php");
+                    // Redirigimos al cliente al listado de clientes.
+                    echo "<script> location.href='citas.php';</script>";
                 }
                 // Cerramos la conexión
                 mysqli_close($db);

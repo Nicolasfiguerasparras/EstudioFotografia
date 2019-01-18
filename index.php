@@ -13,6 +13,9 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">	
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
         <title>Estudio Fotografía</title>
         <link href="indexStyle.css" rel="stylesheet" type="text/css"/>
         <script src="JavaScript/showNhide.js" type="text/javascript"></script>
@@ -213,15 +216,137 @@
         <!--/Sección con las últimas tres noticias publicadas-->
 
         
+        <!--Return to Top-->
+        <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+        <!--/Return to Top-->
+        
         <!--Footer-->  
-        <footer id="foot">
-            <ul>
-                <a href="#">Aviso legal</a>
-                <a href="#">Privacidad</a>
-                <a href="Contacto/contacto.php">Contactar</a>
-            </ul>
+        <footer class="page-footer font-small blue-grey lighten-5">
+
+           <div style="background-color: #21d192;">
+                <div class="container">
+
+                    <!-- Grid row-->
+                    <div class="row py-4 d-flex align-items-center">
+
+                        <!-- Grid column -->
+                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                            <h6 class="mb-0">¡Estate al día de nuestras redes sociales!</h6>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                            <!-- Facebook -->
+                            <a class="fb-ic" href="facebook.com">
+                                <i class="fa fa-facebook-f white-text mr-4"></i>
+                            </a>
+                            
+                            <!-- Twitter -->
+                            <a class="tw-ic" href="twitter.com">
+                                <i class="fa fa-twitter white-text mr-4"> </i>
+                            </a>
+                            
+                            <!-- Google +-->
+                            <a class="gplus-ic" href="google.com">
+                                <i class="fa fa-google-plus-g white-text mr-4"> </i>
+                            </a>
+                            
+                            <!--Linkedin -->
+                            <a class="li-ic" href="linkedin.com">
+                                <i class="fa fa-linkedin-in white-text mr-4"> </i>
+                            </a>
+                            
+                            <!--Instagram-->
+                            <a class="ins-ic" href="instagram.com">
+                                <i class="fa fa-instagram white-text"> </i>
+                            </a>
+
+                        </div> 
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row-->
+
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left mt-5">
+
+                <!-- Grid row -->
+                <div class="row mt-3 dark-grey-text">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-4 col-xl-3 mb-4">
+
+                        <!-- Content -->
+                        <h6 class="text-uppercase font-weight-bold">Estudio Fotográfico</h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>Una aplicación web con diseño aplicado para presentar como trabajo.</p>
+                        <p>Nº de registro: 123515416851</p>
+                        <p>CIF: 1165152518</p>
+
+                    </div>
+                    <!-- Grid column -->
+
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                        <!-- Links -->
+                        <h6 class="text-uppercase font-weight-bold">Links de utilidad</h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                            <a class="dark-grey-text" href="#!">Acceder</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">Contacto</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">Aviso legal</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">Ayuda</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                        <!-- Links -->
+                        <h6 class="text-uppercase font-weight-bold">Contacto</h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                            <i class="fas fa-home mr-3"></i>Granada, Granada 18012, ES</p>
+                        <p>
+                            <i class="fas fa-envelope mr-3"></i>nicolas@escuela.com</p>
+                        <p>
+                            <i class="fas fa-phone mr-3"></i>622514535</p>
+                        <p>
+                            <i class="fas fa-print mr-3"></i>958451254</p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Footer Links -->
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center text-black-50 py-3">© 2018 Copyright:
+                <a class="dark-grey-text" href="http://nicolasfiguerasparras.com">Nicolás Figueras Parras</a>
+            </div>
+            <!-- Copyright -->
+
         </footer>
         <!--/Footer de libre contenido--> 
+        
         
         
         <!--Script modal-->
@@ -238,5 +363,21 @@
             ";
         ?>
         <!--/Script modal-->
+        
+        <!--Scroll to top-->
+        <script>
+            $(window).scroll(function() {
+                if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+                    $('#return-to-top').fadeIn(200);    // Fade in the arrow
+                } else {
+                    $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+                }
+            });
+            $('#return-to-top').click(function() {      // When arrow is clicked
+                $('body,html').animate({
+                    scrollTop : 0                       // Scroll to top of body
+                }, 500);
+            });
+        </script>
     </body>
 </html>
