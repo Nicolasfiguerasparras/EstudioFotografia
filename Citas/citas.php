@@ -37,7 +37,33 @@
             $diaActual=date("j");
             $mesActual=date("m");
             $fechaActual=date("Y-m");
-            $query=mysqli_query($db,"SELECT * FROM citas"); // A PARTIR DE AQUI
+            
+            // Sacamos todas las citas
+            $query=mysqli_query($db,"SELECT * FROM citas");
+            // Sacamos el número de citas para crear un bucle que las recorra todas
+            $rows = mysqli_num_rows($query);
+            // Creamos un array donde añadiremos todos los ID de cita que sean de este mes
+            if(!isset($citasMes)){
+                $citasMes=array();
+            }else{
+                unset($citasMes);
+            }
+            
+            for($i=0;$i<$rows;$i++){
+                $row = mysqli_fetch_array($query);
+                $fecha = $row['fecha'];
+                $fecha_exploded=explode("-",$fecha);
+                $mesFecha = $fecha_exploded[1];
+                $diaFecha = $fecha_exploded[2];
+                if($diaFecha<10){
+                    $diaFecha= $diaFecha[1];
+                }
+                $idCita = $row['id'];
+                if($mesFecha==$mesActual){
+                    $citasMes[$diaFecha] = $idCita;
+                }
+            }
+            print_r($citasMes);
 
             // Obtenemos el dia de la semana del primer dia
             // Devuelve 0 para domingo, 6 para sabado
@@ -96,7 +122,7 @@
                                     echo "<td>&nbsp;</td>";
                                 }else{
                                     // Mostramos el dia
-                                    if($day==$diaActual && $month==$mesActual && $year==$exploded[0]){
+                                    if(isset($citasMes[$day])){
                                         echo "<td style='background-color:green'>$day</td>";
                                     }else{
                                         echo "<td>$day</td>";
