@@ -38,39 +38,40 @@
             // Creamos la consulta que saca todos los clientes
             $consulta=mysqli_query($db,"SELECT * FROM clientes where id=$id_user");
 
-            // Imprimimos una tabla con los datos personales
-            if($row = mysqli_fetch_array($consulta)){ 
-                echo "<table border=1>"; 
+            function imprimirTabla($consulta_var){
+                if($row = mysqli_fetch_array($consulta_var)){ 
+                    echo "<table border=1>"; 
 
-                // Mostramos las cabeceras de la tabla
-                echo "<tr>"; 
-                    echo "<td>Nombre</td>";
-                    echo "<td>Apellidos</td>";
-                    echo "<td>Dirección</td>";
-                    echo "<td>Teléfono 1</td>";
-                    echo "<td>Teléfono 2</td>";
-                    echo "<td>Nick</td>";
-                    echo "<td>Contraseña</td>";
-                echo "</tr>"; 
+                    // Mostramos las cabeceras de la tabla
+                    echo "<tr>"; 
+                        echo "<td>Nombre</td>";
+                        echo "<td>Apellidos</td>";
+                        echo "<td>Dirección</td>";
+                        echo "<td>Teléfono 1</td>";
+                        echo "<td>Teléfono 2</td>";
+                        echo "<td>Nick</td>";
+                        echo "<td>Contraseña</td>";
+                    echo "</tr>"; 
 
-                echo "<form method='post'>";
-                    echo "<tr>";
-                        // Creamos una variable que almacena el ID
-                        $mod_id=$row['id'];
-                        echo "<td>".$row["nombre"]."</td>"; 
-                        echo "<td>".$row["apellidos"]."</td>"; 
-                        echo "<td>".$row["direccion"]."</td>"; 
-                        echo "<td>".$row["telefono1"]."</td>"; 
-                        echo "<td>".$row["telefono2"]."</td>"; 
-                        echo "<td>".$row["nick"]."</td>"; 
-                        echo "<td>".$row["contraseña"]."</td>";
-                        echo "<td><input type='submit' name='submit' value='Modificar'></td>";
-                        echo "<input type='hidden' name='id' value='$mod_id'>";
-                        echo "</form>";
-                    echo "</tr>";
-                echo "</table>"; 
+                    echo "<form method='post'>";
+                        echo "<tr>";
+                            // Creamos una variable que almacena el ID
+                            $mod_id=$row['id'];
+                            echo "<td>".$row["nombre"]."</td>"; 
+                            echo "<td>".$row["apellidos"]."</td>"; 
+                            echo "<td>".$row["direccion"]."</td>"; 
+                            echo "<td>".$row["telefono1"]."</td>"; 
+                            echo "<td>".$row["telefono2"]."</td>"; 
+                            echo "<td>".$row["nick"]."</td>"; 
+                            echo "<td>".$row["contraseña"]."</td>";
+                            echo "<td><input type='submit' name='submit' value='Modificar'></td>";
+                            echo "<input type='hidden' name='id' value='$mod_id'>";
+                            echo "</form>";
+                        echo "</tr>";
+                    echo "</table>"; 
+                }
             }
-            
+            imprimirTabla($consulta);
             if(isset($_POST["submit"])){
                 $id=$_POST['id'];
                 $client="select * from clientes where id=$id";
@@ -106,10 +107,9 @@
                         telefono1='$telefono1', telefono2='$telefono2', nick='$nick', contraseña='$contraseña' 
                         WHERE id='$id'";
                 mysqli_query($db, $update);
-                header("Refresh:0");
+                
+                header("Location: ../index.php");
             }
-            // Vuelvo a imprimir la tabla después de haber actualizado la información
-            
             mysqli_close($db);
         ?>
         

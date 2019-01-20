@@ -9,6 +9,7 @@ NAVBAR:
     - Crear y añadir logo en lugar de "Estudio de Fotografía"
 GENERAL:
     - Acceso CLIENTE (post login):
+        - Mis datos personales
             - Formatear
             - Ver por qué detecta mal el login
         - Mis citas:
