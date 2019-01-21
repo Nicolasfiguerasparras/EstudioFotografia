@@ -29,7 +29,6 @@
             }
         ?>
         <!--/NavBar-->
-        <br><br>
       
         <?php
             // Establecemos conexión con la base de datos
@@ -70,17 +69,19 @@
 
                 // En el caso en el que encuentre noticias, imprime una tabla con los resultados
                 if($row = mysqli_fetch_array($works)){ 
-                    echo "<table border='1px' align='center'>"; 
-
+                    echo "<table class='table table-sm table-dark'>"; 
+                    
                         // Mostramos las cabeceras de la tabla
-                        echo "<tr>"; 
-                            echo "<td>Título</td>";
-                            if($usuario==1){
-                                echo "<td>Cliente</td>";
-                            }
-                            echo "<td>Precio</td>";
-                            echo "<td>Imagen</td>";
-                        echo "</tr>"; 
+                        echo "<thead>";
+                            echo "<tr>"; 
+                                echo "<th scope='col'>Título</th>";
+                                if($usuario==1){
+                                    echo "<th scope='col'>Cliente</th>";
+                                }
+                                echo "<th scope='col'>Precio</th>";
+                                echo "<th scope='col'>Imagen</th>";
+                            echo "</tr>"; 
+                        echo "</thead>";
                         
                         // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
                         do{
