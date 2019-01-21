@@ -15,8 +15,7 @@
     <body>
         <!--NavBar-->
         <?php
-            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
-            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+            if(isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
                     $usuario=1;
@@ -38,6 +37,9 @@
             $db = connectDb();
             
             
+            if(isset($_POST["update"])){
+                header("location:modificaTrabajo.php?data=$_POST[id]-$_POST[cliente]");
+            }
             if(isset($_POST["submit"])){
                 $id=$_POST['id'];
                 $work="select * from trabajos where id=$id";
@@ -45,11 +47,7 @@
                 $array=mysqli_fetch_array($consulta, MYSQLI_ASSOC);
 
                 //Formulario que recoge los datos insertados por el usuario
-                echo "<form method='post' action='trabajos.php'>";
-                    echo "<input type='hidden' name='imagen' placeholder='$array[imagen]' disabled>";
-                    echo "<input type='hidden' name='descripcion' placeholder='$array[descripcion]' disabled>";
-                    echo "<input type='hidden' name='precio' placeholder='$array[precio]' disabled>";
-                    echo "<input type='hidden' name='titulo' placeholder='$array[titulo]' disabled>";
+                echo "<form method='get' action='modificaTrabajo.php'>";
                     echo "<select name='cliente' id='choseClient'>";
                         echo "<option value=0>Elige un cliente</option>";
                         $consultaClientes = "SELECT id, nombre, apellidos FROM clientes";
@@ -66,18 +64,13 @@
                     echo "<input type='hidden' name='id' value='$id'>";
                     echo "<input type='submit' name='update' value='Enviar'>";
                 echo "</form>";
-
-                if(isset($_POST["update"])){
-                    $update="UPDATE trabajos SET id=$_POST[id], imagen='$_POST[imagen]', titulo='$_POST[titulo]', descripcion='$_POST[descripcion]', precio='$_POST[precio]', id_cliente='$_POST[cliente]' WHERE id='$_POST[id]'"; // No lo cambia porque hay que actualizar todo
-                    mysqli_query($db, $update);
-                }
             }else{
                 // Definimos la consulta de búsqueda
                 $works = mysqli_query($db,"SELECT * FROM trabajos"); 
 
                 // En el caso en el que encuentre noticias, imprime una tabla con los resultados
                 if($row = mysqli_fetch_array($works)){ 
-                    echo "<table border='1px' align='center' style='width:500px; height: 500px'>"; 
+                    echo "<table border='1px' align='center'>"; 
 
                         // Mostramos las cabeceras de la tabla
                         echo "<tr>"; 
@@ -94,7 +87,7 @@
                             $queryClient = mysqli_query($db,"select nombre from clientes where id=$row[id_cliente]");
                             $client = mysqli_fetch_array($queryClient);
                             echo "<tr>"; 
-                                echo "<form method='post'>";
+                                echo "<form method='post' action='trabajos.php'>";
                                 $mod_id=$row['id'];
                                 echo "<td>".$row["titulo"]."</td>"; 
                                 if($row['id_cliente']=0){

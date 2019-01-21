@@ -1,4 +1,3 @@
-<!--Sacamos sesión-->
 <?php
     session_start();
 ?>
@@ -13,15 +12,14 @@
     <body>
         <!--NavBar-->
         <?php
-            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
-            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+            if(isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
-                    header('../index.php');
+                    header('location:../index.php');
                 }else{
                     include('../NavBar/navBarClient.php');
                 }
             }else{
-                header('../Acceder/error.php');
+                header('location:../Acceder/error.php');
             }
         ?>
         <!--/NavBar-->
@@ -79,7 +77,7 @@
                 $array=mysqli_fetch_array($consulta, MYSQLI_ASSOC);
                 
                 //Formulario que recoge los datos insertados por el usuario
-                echo "<form method='post' action='clientes.php'>";
+                echo "<form method='post' action='personalData.php'>";
                     echo "Dirección: <input type='text' name='direccion' value='$array[direccion]' required><br><br>";
                     echo "Teléfono 1: <input type='text' name='telef1' value='$array[telefono1]' required><br><br>";
                     echo "Teléfono 2: <input type='text' name='telef2' value='$array[telefono2]'><br><br>";
@@ -108,7 +106,7 @@
                         WHERE id='$id'";
                 mysqli_query($db, $update);
                 
-                header("Location: ../index.php");
+                header("Location:personalData.php");
             }
             mysqli_close($db);
         ?>

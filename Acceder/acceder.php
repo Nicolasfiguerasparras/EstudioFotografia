@@ -25,8 +25,6 @@
 
             if(isset($_POST['openSession'])){
                 setcookie("sesion", $dataSesion, time(), "/");
-            }else{
-                setcookie("sesion", $dataSesion, null, "/");
             }
             header("location: ../index.php");
         }else{
@@ -46,7 +44,7 @@
     <body>
         <!--NavBar-->
         <?php
-            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+            if(isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
                     header('location: ../index.php');
                 }else{

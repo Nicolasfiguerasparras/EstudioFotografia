@@ -12,8 +12,7 @@
     <body>  
         <!--NavBar-->
         <?php
-            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
-            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+            if(isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
                     include('../NavBar/navBarAdmin.php');
                 }else{
@@ -37,40 +36,42 @@
 
                 // Imprimimos una tabla con las noticias
                 if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table class='table'>"; 
-                        
-                        // Mostramos las cabeceras de la tabla
-                        echo "<tr>"; 
-                            echo "<td>ID</td>
-                                  <td>Titular</td>
-                                  <td style='width: 33%'>Imagen</td>
-                                  <td>Fecha</td>
-                                  <td>Borrar noticia</td>";
-                        echo "</tr>"; 
+                    echo "<div class='container col-12'>";
+                        echo "<table class='table'>"; 
+
+                            // Mostramos las cabeceras de la tabla
+                            echo "<tr>"; 
+                                echo "<td>ID</td>
+                                      <td>Titular</td>
+                                      <td style='width: 33%'>Imagen</td>
+                                      <td>Fecha</td>
+                                      <td>Borrar noticia</td>";
+                            echo "</tr>"; 
 
 
-                        // Establecemos un bucle DO WHILE que imprime las noticias mientras haya
-                        do{ 
-                            echo "<tr>";
-                                // Creamos un formulario para introducir el botón borrar en cada noticia
-                                echo "<form method='get'>";
-                                    // Creamos una variable que almacena el ID
-                                    $del_id=$row['id'];
-                                    echo "<td>".$del_id."</td>"; 
-                                    echo "<td>".$row["titular"]."</td>"; 
-                                    echo "<td style='width: 33%'><img src='".$row["imagen"]."' /></td>"; 
-                                    $fecha = strtotime($row["fecha"]);
-                                    $dia = date('d', $fecha);
-                                    $mes = date('m', $fecha);
-                                    $anio = date('Y', $fecha);
-                                    echo "<td>".$dia."-".$mes."-".$anio."</td>"; 
-                                    echo "<td><a class='deleteButton'><input type='submit' value='Borrar' name='borrar'></a></td>";
-                                    // Introducimos un input oculto que utilizaremos para conocer a qué botón de borrar de todos ha pulsado el usuario
-                                    echo "<input type='hidden' name='id' value='$del_id'>";
-                                echo "</form>";
-                            echo "</tr>";
-                        }while($row = mysqli_fetch_array($consulta)); 
-                    echo "</table>"; 
+                            // Establecemos un bucle DO WHILE que imprime las noticias mientras haya
+                            do{ 
+                                echo "<tr>";
+                                    // Creamos un formulario para introducir el botón borrar en cada noticia
+                                    echo "<form method='get'>";
+                                        // Creamos una variable que almacena el ID
+                                        $del_id=$row['id'];
+                                        echo "<td>".$del_id."</td>"; 
+                                        echo "<td>".$row["titular"]."</td>"; 
+                                        echo "<td style='width: 33%'><img src='".$row["imagen"]."' /></td>"; 
+                                        $fecha = strtotime($row["fecha"]);
+                                        $dia = date('d', $fecha);
+                                        $mes = date('m', $fecha);
+                                        $anio = date('Y', $fecha);
+                                        echo "<td>".$dia."-".$mes."-".$anio."</td>"; 
+                                        echo "<td><a class='deleteButton'><input type='submit' value='Borrar' name='borrar'></a></td>";
+                                        // Introducimos un input oculto que utilizaremos para conocer a qué botón de borrar de todos ha pulsado el usuario
+                                        echo "<input type='hidden' name='id' value='$del_id'>";
+                                    echo "</form>";
+                                echo "</tr>";
+                            }while($row = mysqli_fetch_array($consulta)); 
+                        echo "</table>"; 
+                    echo "</div>";
                 // En caso de no encontrar ningún registro, nos lo indica
                 }else{
                     echo "¡No se ha encontrado ningún registro!";

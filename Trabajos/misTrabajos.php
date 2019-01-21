@@ -13,15 +13,14 @@
     <body>
         <!--NavBar-->
         <?php
-            // Buscar como eliminar la cookie "sesion" para eliminar la segunda comprobación
-            if(isset($_COOKIE['sesion']) && isset($_SESSION['user'])){
+            if(isset($_SESSION['user'])){
                 if($_SESSION['user']=='admin'){
-                    header('../index.php');
+                    header('location:../index.php');
                 }else{
                     include('../NavBar/navBarClient.php');
                 }
             }else{
-                header('../Acceder/error.php');
+                header('location:../Acceder/error.php');
             }
         ?>
         <!--/NavBar-->
