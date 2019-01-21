@@ -1,9 +1,8 @@
 # EstudioFotografia
 INDEX:  
-    - Imagen aleartoria de los trabajos
+    - Imagen aleatoria de los trabajos
 CITAS:
     - Poner calendario de mes anterior y mes próximo para que se tenga perspectiva de las citas
-    - Detectar el mes para sacar todas las citas en ese mes y crear un link por cada elemento de día en el que haya una cita
     - Añadir tooltip con información referente a la cita
 NAVBAR:
     - Crear y añadir logo en lugar de "Estudio de Fotografía"
@@ -11,17 +10,8 @@ GENERAL:
     - Acceso CLIENTE (post login):
         - Mis datos personales
             - Formatear
-            - Ver por qué detecta mal el login
-        - Mis citas:
-            - Citas que ha tenido o tendrá (solo consulta, no modificación)
-        - Trabajos disponibles:
-            - Listado de trabajos disponibles:
-                - Resumen de trabajo (img, titulo y precio)
-                - Botón ver más para acceder a toda la información del trabajo (idea: collapse)
-    - AHORA TODOS LOS HEADERS PARA INSERTAR/BORRAR NO FUNCIONAN POR SESSION
-
+            - Ver por qué detecta mal el login  
 ----------------------------------------------------------------------------------------------------
-
     INDEX:
         + Cambio los links del NavBar del Index
         + Añado cookie para detectar primer acceso a la página web
@@ -63,6 +53,9 @@ GENERAL:
             + INDEX:
                 + NavBar:
                     + Cambiar "acceder" por "Cerrar sesión de administrador"
+            + CITAS:
+                + Detectar el mes para sacar todas las citas en ese mes y crear un link por cada elemento de día en el que haya una cita
+
         + Acceso CLIENTE (post login):
             + INDEX:
                 + NavBar:
@@ -74,9 +67,15 @@ GENERAL:
                     + Cerrar sesión de <nombre_cliente>
             + Mis trabajos:
                 + Trabajos comprados a lo largo del tiempo
+                + Trabajos disponibles:
+                    + Listado de trabajos disponibles:
+                        + Resumen de trabajo (img, titulo y precio)
+                        + Botón ver más para acceder a toda la información del trabajo (idea: collapse)
             + Mis datos personales
                 + Datos que la empresa tiene de él
                 + Podrá modificar: (idea mandar a nueva pagina updateData)
                     + Contraseña
                     + Dirección
                     + Teléfonos
+            + Mis citas:
+                + Citas que ha tenido o tendrá (solo consulta, no modificación)

@@ -46,6 +46,10 @@
 
                 //Formulario que recoge los datos insertados por el usuario
                 echo "<form method='post' action='trabajos.php'>";
+                    echo "<input type='hidden' name='imagen' placeholder='$array[imagen]' disabled>";
+                    echo "<input type='hidden' name='descripcion' placeholder='$array[descripcion]' disabled>";
+                    echo "<input type='hidden' name='precio' placeholder='$array[precio]' disabled>";
+                    echo "<input type='hidden' name='titulo' placeholder='$array[titulo]' disabled>";
                     echo "<select name='cliente' id='choseClient'>";
                         echo "<option value=0>Elige un cliente</option>";
                         $consultaClientes = "SELECT id, nombre, apellidos FROM clientes";
@@ -64,10 +68,7 @@
                 echo "</form>";
 
                 if(isset($_POST["update"])){
-                    $id_client=$_POST['cliente'];
-                    $id_w=$_POST['id'];
-
-                    $update="UPDATE trabajos SET id_cliente='$id_client' WHERE id=$id_w";
+                    $update="UPDATE trabajos SET id=$_POST[id], imagen='$_POST[imagen]', titulo='$_POST[titulo]', descripcion='$_POST[descripcion]', precio='$_POST[precio]', id_cliente='$_POST[cliente]' WHERE id='$_POST[id]'"; // No lo cambia porque hay que actualizar todo
                     mysqli_query($db, $update);
                 }
             }else{
@@ -81,7 +82,9 @@
                         // Mostramos las cabeceras de la tabla
                         echo "<tr>"; 
                             echo "<td>Título</td>";
-                            echo "<td>Cliente</td>";
+                            if($usuario==1){
+                                echo "<td>Cliente</td>";
+                            }
                             echo "<td>Precio</td>";
                             echo "<td>Imagen</td>";
                         echo "</tr>"; 
@@ -97,12 +100,13 @@
                                 if($row['id_cliente']=0){
                                     echo "";
                                 }else{
-                                    if($client['nombre'] == "Disponible"){
-                                        echo "<td style='background-color:green;'><p>Disponible</p></td>";
-                                    }else{
-                                        echo "<td>".$client['nombre']."</td>";
+                                    if($usuario==1){
+                                        if($client['nombre'] == "Disponible"){
+                                            echo "<td style='background-color:green;'><p>Disponible</p></td>";
+                                        }else{
+                                            echo "<td>".$client['nombre']."</td>";
+                                        }
                                     }
-                                    
                                 }
                                 echo "<td>".$row["precio"]."</td>";
 
@@ -112,7 +116,10 @@
                                         echo "<td><input type='submit' name='submit' value='Modificar'></td>";
                                         echo "<input type='hidden' name='id' value='$mod_id'>";
                                     }
+                                }else{
+                                    echo "<td><a href='verMas.php?id=$mod_id'>Ver más</td>";
                                 }
+                                
                                 echo "</form>";
                             echo "</tr>"; 
                         }while($row = mysqli_fetch_array($works)); 

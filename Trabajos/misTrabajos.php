@@ -66,5 +66,7 @@
                 echo "<h1 style='text-align:center'>¡No has comprado aún ningún trabajo!</h1>"; 
             }
         ?>
+        
+        <a href="trabajos.php"><h2 style="text-align:center">Ver todos los trabajos disponibles</h2></a>
     </body>
 </html>

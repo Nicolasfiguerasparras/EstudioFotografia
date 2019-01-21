@@ -18,7 +18,7 @@
             include('../connectDB.php');
             $db = connectDb();
             
-            // Definimos los valores iniciales para nuestro calendario
+            
             if(!isset($_GET['ym'])){
                 header('Location: citas.php?ym='.date('Y-m'));
             }else{
@@ -33,37 +33,13 @@
                 }
             }
             
+            // Definimos los valores iniciales para nuestro calendario
             $year=date("Y");
             $diaActual=date("j");
             $mesActual=date("m");
             $fechaActual=date("Y-m");
             
-            // Sacamos todas las citas
-            $query=mysqli_query($db,"SELECT * FROM citas");
-            // Sacamos el número de citas para crear un bucle que las recorra todas
-            $rows = mysqli_num_rows($query);
-            // Creamos un array donde añadiremos todos los ID de cita que sean de este mes
-            if(!isset($citasMes)){
-                $citasMes=array();
-            }else{
-                unset($citasMes);
-            }
-            
-            for($i=0;$i<$rows;$i++){
-                $row = mysqli_fetch_array($query);
-                $fecha = $row['fecha'];
-                $fecha_exploded=explode("-",$fecha);
-                $mesFecha = $fecha_exploded[1];
-                $diaFecha = $fecha_exploded[2];
-                if($diaFecha<10){
-                    $diaFecha= $diaFecha[1];
-                }
-                $idCita = $row['id'];
-                if($mesFecha==$mesActual){
-                    $citasMes[$diaFecha] = $idCita;
-                }
-            }
-            print_r($citasMes);
+            $fechaDireccion=explode("-", $_GET['ym']);
 
             // Obtenemos el dia de la semana del primer dia
             // Devuelve 0 para domingo, 6 para sabado
@@ -117,13 +93,16 @@
                                     // Determinamos en que dia empieza
                                     $day=1;
                                 }
+                                
                                 if($i<$diaSemana || $i>=$last_cell){
                                     // Celda vacia
                                     echo "<td>&nbsp;</td>";
                                 }else{
+                                    $consulta="SELECT * from citas where fecha='$fechaDireccion[0]-$fechaDireccion[1]-$day'";
+                                    $resul=mysqli_query($db, $consulta);
                                     // Mostramos el dia
-                                    if(isset($citasMes[$day])){
-                                        echo "<td style='background-color:green'>$day</td>";
+                                    if($fila=mysqli_fetch_array($resul, MYSQLI_ASSOC)){
+                                       echo "<td style='background-color:green'><a href='citaDia.php?data=$fila[id]'</a>$day</td>";
                                     }else{
                                         echo "<td>$day</td>";
                                     }
