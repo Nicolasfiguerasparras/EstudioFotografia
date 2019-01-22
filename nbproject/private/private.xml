@@ -5,6 +5,10 @@
         <group>
             <file>file:/C:/xampp/htdocs/EstudioFotografia/EstudioFotografia/Trabajos/trabajos.php</file>
             <file>file:/C:/xampp/htdocs/EstudioFotografia/EstudioFotografia/Clientes/clientes.php</file>
+            <file>file:/C:/xampp/htdocs/EstudioFotografia/EstudioFotografia/JavaScript/showNhide.js</file>
+            <file>file:/C:/xampp/htdocs/EstudioFotografia/EstudioFotografia/JavaScript/showNhideNews.js</file>
+            <file>file:/C:/xampp/htdocs/EstudioFotografia/EstudioFotografia/Acceder/acceder.php</file>
+            <file>file:/C:/xampp/htdocs/EstudioFotografia/EstudioFotografia/Noticias/noticias.php</file>
         </group>
     </open-files>
 </project-private>

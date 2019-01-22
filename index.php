@@ -91,16 +91,20 @@
                                 <img class="d-block w-100" src="Noticias/img/3.jpg" style="height:90vh">
                                 <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>
+                                        <!--Sacamos el titular de la noticia-->
                                         <?php 
                                             $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=3");
                                             $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
                                             echo $row["titular"];
                                         ?>
+                                        <!--/Sacamos el titular de la noticia-->
                                     </h5>
                                     <p>
+                                        <!--Sacamos el contenido de la noticia-->
                                         <?php 
                                             echo $row["contenido"];
                                         ?>
+                                        <!--/Sacamos el contenido de la noticia-->
                                     </p>
                                 </div>
                             </div>
@@ -108,16 +112,20 @@
                                 <img class="d-block w-100" src="Noticias/img/4.jpg" style="height:90vh">
                                 <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>
+                                        <!--Sacamos el titular de la noticia-->
                                         <?php 
                                             $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=4");
                                             $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
                                             echo $row["titular"];
                                         ?>
+                                        <!--/Sacamos el titular de la noticia-->
                                     </h5>
                                     <p>
+                                        <!--Sacamos el contenido de la noticia-->
                                         <?php 
                                             echo $row["contenido"];
                                         ?>
+                                        <!--/Sacamos el contenido de la noticia-->
                                     </p>
                                 </div>
                             </div>
@@ -125,16 +133,20 @@
                                 <img class="d-block w-100" src="Noticias/img/5.jpg" style="height:90vh">
                                 <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>
+                                        <!--Sacamos el titular de la noticia-->
                                         <?php 
                                             $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=5");
                                             $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
                                             echo $row["titular"];
                                         ?>
+                                        <!--/Sacamos el titular de la noticia-->
                                     </h5>
                                     <p>
+                                        <!--Sacamos el contenido de la noticia-->
                                         <?php 
                                             echo $row["contenido"];
                                         ?>
+                                        <!--/Sacamos el contenido de la noticia-->
                                     </p>
                                 </div>
                             </div>
@@ -175,6 +187,7 @@
         
         <!--Sección con las tres últimas noticias publicadas-->
         <?php
+            // Sacamos la fecha actual
             $actualDate = date("Y/m/d");
 
             // Creamos la consulta para obtener las últimas noticias
@@ -190,20 +203,21 @@
                     $rows=3;
                 }
             }else{
+                // En caso de no encontrar noticias, imprime un mensaje de error
                 echo "No se ha encontrado ninguna noticia";
             }
             
             
-            // Utilizamos un bucle for para recorrer las variables de cada noticia
+            // Utilizamos un bucle for para recorrer las secciones de cada noticia
             for($i=0; $i<$rows; $i++){
                 echo "<div class='container col-12'>";
                     echo "<div class='row'>";
+                        // Volcamos los resultados en $noticias
                         $noticias=mysqli_fetch_array($resultNews);
                         echo "<div class='card col-12 col-lg-4 offset-lg-1 text-white bg-dark mb-3'>";
                             echo "<br><img class='card-img-top' src='Noticias/$noticias[imagen]'>";
                             echo "<div class='card-header d-none d-md-block' id='headingOne'>";
-                                echo "<h5 class='card-title'>$noticias[titular]</h5>";
-                                
+                                echo "<h5 class='card-title'>$noticias[titular]</h5>"; 
                             echo "</div>";
                             echo "<a class='btn btn-dark' id='showNhide$i'>Mostrar</a>";
                         echo "</div>";
@@ -356,7 +370,6 @@
         <!--Script modal-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	
         <?php
             echo "
                 <script>
@@ -368,7 +381,7 @@
         ?>
         <!--/Script modal-->
         
-        <!--Scroll to top-->
+        <!--Script scroll to top-->
         <script>
             $(window).scroll(function() {
                 if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
@@ -383,5 +396,6 @@
                 }, 500);
             });
         </script>
+        <!--/Script scroll to top-->
     </body>
 </html>
