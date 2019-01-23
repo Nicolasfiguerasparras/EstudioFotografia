@@ -166,7 +166,7 @@
         <br><br>
         <!--/Caroussel-->
         
-        <!--Sección de presentación-->
+<!--        Sección de presentación
         <div class="container col-12">
             <div class="presentacion" style="background-color: #13293D">
                 <p style="color: #e8f1f2">
@@ -183,9 +183,9 @@
             </div>
         </div>
         <br>
-        <!--/Sección de presentación-->
+        /Sección de presentación
         
-        <!--Sección con las tres últimas noticias publicadas-->
+        Sección con las tres últimas noticias publicadas-->
         <?php
             // Sacamos la fecha actual
             $actualDate = date("Y/m/d");
@@ -207,7 +207,9 @@
                 echo "No se ha encontrado ninguna noticia";
             }
             
-            
+            echo "<div class='col-12'>";
+                    echo "<h3 style='text-align:center'>Últimas noticias</h3>";
+            echo "</div><br>";
             // Utilizamos un bucle for para recorrer las secciones de cada noticia
             for($i=0; $i<$rows; $i++){
                 echo "<div class='container col-12'>";

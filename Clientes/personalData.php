@@ -38,35 +38,37 @@
 
             function imprimirTabla($consulta_var){
                 if($row = mysqli_fetch_array($consulta_var)){ 
-                    echo "<table border=1>"; 
+                    echo "<div class='container col-12'>";   
+                        echo "<table border=1>"; 
 
-                    // Mostramos las cabeceras de la tabla
-                    echo "<tr>"; 
-                        echo "<td>Nombre</td>";
-                        echo "<td>Apellidos</td>";
-                        echo "<td>Dirección</td>";
-                        echo "<td>Teléfono 1</td>";
-                        echo "<td>Teléfono 2</td>";
-                        echo "<td>Nick</td>";
-                        echo "<td>Contraseña</td>";
-                    echo "</tr>"; 
+                        // Mostramos las cabeceras de la tabla
+                        echo "<tr>"; 
+                            echo "<td>Nombre</td>";
+                            echo "<td>Apellidos</td>";
+                            echo "<td>Dirección</td>";
+                            echo "<td>Teléfono 1</td>";
+                            echo "<td>Teléfono 2</td>";
+                            echo "<td>Nick</td>";
+                            echo "<td>Contraseña</td>";
+                        echo "</tr>"; 
 
-                    echo "<form method='post'>";
-                        echo "<tr>";
-                            // Creamos una variable que almacena el ID
-                            $mod_id=$row['id'];
-                            echo "<td>".$row["nombre"]."</td>"; 
-                            echo "<td>".$row["apellidos"]."</td>"; 
-                            echo "<td>".$row["direccion"]."</td>"; 
-                            echo "<td>".$row["telefono1"]."</td>"; 
-                            echo "<td>".$row["telefono2"]."</td>"; 
-                            echo "<td>".$row["nick"]."</td>"; 
-                            echo "<td>".$row["contraseña"]."</td>";
-                            echo "<td><input type='submit' name='submit' value='Modificar'></td>";
-                            echo "<input type='hidden' name='id' value='$mod_id'>";
-                            echo "</form>";
-                        echo "</tr>";
-                    echo "</table>"; 
+                        echo "<form method='post'>";
+                            echo "<tr>";
+                                // Creamos una variable que almacena el ID
+                                $mod_id=$row['id'];
+                                echo "<td>".$row["nombre"]."</td>"; 
+                                echo "<td>".$row["apellidos"]."</td>"; 
+                                echo "<td>".$row["direccion"]."</td>"; 
+                                echo "<td>".$row["telefono1"]."</td>"; 
+                                echo "<td>".$row["telefono2"]."</td>"; 
+                                echo "<td>".$row["nick"]."</td>"; 
+                                echo "<td>".$row["contraseña"]."</td>";
+                                echo "<td><input type='submit' name='submit' value='Modificar'></td>";
+                                echo "<input type='hidden' name='id' value='$mod_id'>";
+                                echo "</form>";
+                            echo "</tr>";
+                        echo "</table>"; 
+                    echo "</div>";
                 }
             }
             imprimirTabla($consulta);
