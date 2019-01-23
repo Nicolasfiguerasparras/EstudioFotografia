@@ -60,110 +60,119 @@
                     $countQuery="select count(*) cuenta from noticias";
                     $resultCount=mysqli_query($db,$countQuery);
                     $total=mysqli_fetch_array($resultCount, MYSQLI_ASSOC);
-
-                    // Si el número total de noticias es mayor que múltiplos de 5, solo lo dejamos volver
-                    if($total['cuenta']<($nextPage*5)){
-                        echo "<a href='noticias.php?page=$prevPage'>Anterior</a>";
-                    }elseif($total['cuenta']==($nextPage*5)){
-                        echo "";
-                    }elseif($prevPage<0){
-                        echo "<a type='button'class='btn btn-outline-primary' href='noticias.php?page=$nextPage'>Siguiente</a>";
-                    }else{
-                        echo "<a href='noticias.php?page=$prevPage'>Anterior</a>";
-                        echo "<a href='noticias.php?page=$nextPage'>Siguiente</a>";
-                    }
+                    $numberPags=$total['cuenta']/5;
+                    $moreThan=$total['cuenta']%5;
+                    
+                    echo "<nav aria-label='Page navigation'>";
+                        echo "<ul class='pagination justify-content-center'>";
+                            echo "<li class='page-item'>";
+                                // Botón de inicio
+                                echo "<a class='page-link' href='noticias.php?page=0'>Inicio</a>";
+                            echo "</li>";
+                            // Botones entre página inicial y página final
+                            for($i=1;$i<$numberPags-1;$i++){
+                                echo "<li class='page-item'>";
+                                    echo "<a class='page-link' href='noticias.php?page=$i'>".($i+1)."</a>";
+                                echo "</li>";
+                            }
+                            // Botón de última página
+                            echo "<li class='page-item'>";
+                                echo "<a class='page-link' href='noticias.php?page=".($numberPags-1)."'>Final</a>";
+                            echo "</li>";
+                        echo "</ul>";
+                    echo "</nav>";
                 //--Botones de paginación--//
                 
                     
-                    
-                // En el caso en el que encuentre noticias, imprime una tabla con los resultados
-                if ($row = mysqli_fetch_array($query)){ 
-                    //--Primera noticia--//
-                    echo "<div class='container'>";
-                        echo "<div class='row'>";
-                            echo "<div class='card col-12 col-lg-4 text-white bg-dark mb-3'>";
-                                echo "<br><img class='card-img-top' src='../Noticias/$row[imagen]'>";
-                                echo "<div class='card-header d-none d-md-block' id='headingOne'>";
-                                    echo "<h5 class='card-title'>$row[titular]</h5>"; 
+                //--Bucle de impresión de noticias    
+                    // En el caso en el que encuentre noticias, imprime una tabla con los resultados
+                    if (!$row = mysqli_fetch_array($query)){
+                        echo "¡No se ha encontrado ningún registro!"; 
+                    }else{
+                        //--Primera noticia--//
+                        echo "<div class='container'>";
+                            echo "<div class='row'>";
+                                echo "<div class='card col-12 col-lg-4 text-white bg-dark mb-3'>";
+                                    echo "<br><img class='card-img-top' src='../Noticias/$row[imagen]'>";
+                                    echo "<div class='card-header d-none d-md-block' id='headingOne'>";
+                                        echo "<h5 class='card-title'>$row[titular]</h5>"; 
+                                    echo "</div>";
+                                    echo "<a class='btn btn-dark' id='showNhide0'>Mostrar</a>";
                                 echo "</div>";
-                                echo "<a class='btn btn-dark' id='showNhide0'>Mostrar</a>";
-                            echo "</div>";
 
-                            // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                            echo "<div class='card col-12 col-lg-8 text-white bg-dark mb-3 outer-div' style='display:none' id='texto0'>";
-                                echo "<div class='inner-div'><p>$row[contenido]</p></div>";
+                                // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
+                                echo "<div class='card col-12 col-lg-8 text-white bg-dark mb-3 outer-div' style='display:none' id='texto0'>";
+                                    echo "<div class='inner-div'><p>$row[contenido]</p></div>";
+                                echo "</div>";
                             echo "</div>";
                         echo "</div>";
-                    echo "</div>";
-                    //--Primera noticia--//
-                    
-                    
-                    //--Resto de noticias--//
+                        //--Primera noticia--//
 
-                        // Número de noticias que quedan en el array
-                        $number= mysqli_num_rows($query);
-                        echo "<div class='container' style='display: flex; flex-wrap: wrap;'>";
-                            echo "<div class='row'>";
-                                // Creo dos bucles for ya que voy a mostrar dos noticias por fila
-                                for($i=1;$i<$number-2;$i++){
-                                    $row = mysqli_fetch_array($query);
-                                    echo "<div class='card col-12 col-lg-3 text-white bg-dark mb-3'>";
-                                        echo "<br><img class='card-img-top' src='../Noticias/$row[imagen]'>";
-                                        echo "<div class='card-header d-none d-md-block' id='headingOne'>";
-                                            echo "<h5 class='card-title'>$row[titular]</h5>"; 
+
+                        //--Resto de noticias--//
+
+                            // Número de noticias que quedan en el array
+                            $number= mysqli_num_rows($query);
+                            echo "<div class='container'>";
+                                echo "<div class='row'>";
+                                    // Creo dos bucles for ya que voy a mostrar dos noticias por fila
+                                    for($i=1;$i<$number-2;$i++){
+                                        $row = mysqli_fetch_array($query);
+                                        echo "<div class='card col-12 col-lg-3 text-white bg-dark mb-3'>";
+                                            echo "<br><img class='card-img-top' src='../Noticias/$row[imagen]'>";
+                                            echo "<div class='card-header d-none d-md-block' id='headingOne'>";
+                                                echo "<h5 class='card-title'>$row[titular]</h5>"; 
+                                            echo "</div>";
+                                            if($i==1){
+                                                echo "<a class='btn btn-dark' id='showNhide$i'>Ocultar</a>";
+                                            }else{
+                                                echo "<a class='btn btn-dark' id='showNhide$i'>Mostrar</a>";
+                                            }
                                         echo "</div>";
+
+                                        // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
                                         if($i==1){
-                                            echo "<a class='btn btn-dark' id='showNhide$i'>Ocultar</a>";
+                                            echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' id='texto$i'>";
+                                                echo "<div class='inner-div'><p>$row[contenido]</p></div>";
                                         }else{
-                                            echo "<a class='btn btn-dark' id='showNhide$i'>Mostrar</a>";
+                                            echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' style='display:none' id='texto$i'>";
+                                                echo "<div class='inner-div'><p>$row[contenido]</p></div>";
                                         }
-                                    echo "</div>";
-
-                                    // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                                    if($i==1){
-                                        echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' id='texto$i'>";
-                                            echo "<div class='inner-div'><p>$row[contenido]</p></div>";
-                                    }else{
-                                        echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' style='display:none' id='texto$i'>";
-                                            echo "<div class='inner-div'><p>$row[contenido]</p></div>";
-                                    }
-                                    echo "</div>";
-                                }
-                            echo "</div>";
-                            echo "<div class='row'>";
-                                for($i=3;$i<$number;$i++){
-                                    $row = mysqli_fetch_array($query);
-                                    echo "<div class='card col-12 col-lg-3 text-white bg-dark mb-3'>";
-                                        echo "<br><img class='card-img-top' src='../Noticias/$row[imagen]'>";
-                                        echo "<div class='card-header d-none d-md-block' id='headingOne'>";
-                                            echo "<h5 class='card-title'>$row[titular]</h5>"; 
                                         echo "</div>";
-                                        if($i==3){
-                                            echo "<a class='btn btn-dark' id='showNhide$i'>Ocultar</a>";
-                                        }else{
-                                            echo "<a class='btn btn-dark' id='showNhide$i'>Mostrar</a>";
-                                        }
-                                    echo "</div>";
-
-                                    // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                                    if($i==3){
-                                        echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' id='texto$i'>";
-                                            echo "<div class='inner-div'><p>$row[contenido]</p></div>";
-                                    }else{
-                                        echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' style='display:none' id='texto$i'>";
-                                            echo "<div class='inner-div'><p>$row[contenido]</p></div>";
                                     }
-                                    echo "</div>";
-                                }
-                            echo "</div>";
-                        echo "</div>";
-                    //--Resto de noticias--//   
-                }
+                                echo "</div>";
+                                echo "<div class='row'>";
+                                    for($i=3;$i<$number;$i++){
+                                        $row = mysqli_fetch_array($query);
+                                        echo "<div class='card col-12 col-lg-3 text-white bg-dark mb-3'>";
+                                            echo "<br><img class='card-img-top' src='../Noticias/$row[imagen]'>";
+                                            echo "<div class='card-header d-none d-md-block' id='headingOne'>";
+                                                echo "<h5 class='card-title'>$row[titular]</h5>"; 
+                                            echo "</div>";
+                                            if($i==3){
+                                                echo "<a class='btn btn-dark' id='showNhide$i'>Ocultar</a>";
+                                            }else{
+                                                echo "<a class='btn btn-dark' id='showNhide$i'>Mostrar</a>";
+                                            }
+                                        echo "</div>";
 
-                // En caso de no encontrar ningún resultado, mostramos un mensaje informativo
-                else{ 
-                    echo "¡No se ha encontrado ningún registro!"; 
-                }
+                                        // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
+                                        if($i==3){
+                                            echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' id='texto$i'>";
+                                                echo "<div class='inner-div'><p>$row[contenido]</p></div>";
+                                        }else{
+                                            echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' style='display:none' id='texto$i'>";
+                                                echo "<div class='inner-div'><p>$row[contenido]</p></div>";
+                                        }
+                                        echo "</div>";
+                                    }
+                                echo "</div>";
+                            echo "</div>";
+                        //--Resto de noticias--//   
+                    }
+                //--Bucle de impresión de noticias--//
+
+                // Cerramos conexión
                 mysqli_close($db);
             ?>
         </div>
