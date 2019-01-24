@@ -163,29 +163,13 @@
                 </div>
             </div>
         </div>
-        <br><br>
         <!--/Caroussel-->
+      
         
-<!--        Sección de presentación
-        <div class="container col-12">
-            <div class="presentacion" style="background-color: #13293D">
-                <p style="color: #e8f1f2">
-                    Hola! Me llamo Nicolás Figueras Parras y soy alumno de la Escuela Arte Granada.<br>
-                    Estoy estudiando fotografía. En esta página web mostraré y pondré a la venta mis proyectos.<br>
-                    Sean todos bienvenidos.<br>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-        </div>
-        <br>
-        /Sección de presentación
-        
-        Sección con las tres últimas noticias publicadas-->
+        <!--Sección con las tres últimas noticias publicadas-->
+        <div>
+            <h3 style='text-align:center'>Últimas noticias</h3>
+        </div><br>
         <?php
             // Sacamos la fecha actual
             $actualDate = date("Y/m/d");
@@ -207,9 +191,8 @@
                 echo "No se ha encontrado ninguna noticia";
             }
             
-            echo "<div class='col-12'>";
-                    echo "<h3 style='text-align:center'>Últimas noticias</h3>";
-            echo "</div><br>";
+            
+            
             // Utilizamos un bucle for para recorrer las secciones de cada noticia
             for($i=0; $i<$rows; $i++){
                 echo "<div class='container col-12'>";
