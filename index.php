@@ -91,21 +91,14 @@
                                 <img class="d-block w-100" src="Noticias/img/3.jpg" style="height:90vh">
                                 <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
                                     <h5>
-                                        <!--Sacamos el titular de la noticia-->
+                                        <!--Sacamos el titulo del trabajo-->
                                         <?php 
                                             $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=3");
                                             $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
                                             echo $row["titular"];
                                         ?>
-                                        <!--/Sacamos el titular de la noticia-->
+                                        <!--/Sacamos el titulo del trabajo-->
                                     </h5>
-                                    <p>
-                                        <!--Sacamos el contenido de la noticia-->
-                                        <?php 
-                                            echo $row["contenido"];
-                                        ?>
-                                        <!--/Sacamos el contenido de la noticia-->
-                                    </p>
                                 </div>
                             </div>
                             <div class="carousel-item">

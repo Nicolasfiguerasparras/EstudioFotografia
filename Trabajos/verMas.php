@@ -75,7 +75,7 @@
                         <?php 
                             if($array["id_cliente"]==0){ 
                                 if($usuario==1){
-                                    echo "<li style='color:green'><a href='verMas.php?id=$array[id]'>Disponible</a></li>";
+                                    echo "<li style='color:green'><a href='venderTrabajo.php?id=$array[id]'>Disponible</a></li>";
                                 }else{
                                     echo "<li style='color:green'>Disponible</li>";
                                 }
@@ -85,9 +85,31 @@
                         ?>
                     </ul>
                 </div>
-
             </div><br>
             <!-- /.row -->
+            
+            <!-- Related Projects Row -->
+            <h3 class="my-4">Otros trabajos</h3>
+
+            <div class="row">
+                <?php
+                    $otherWork="select * from trabajos";
+                    $otherQuery=mysqli_query($db, $otherWork);
+                    $count=0;
+                    while($otherArray=mysqli_fetch_array($otherQuery, MYSQLI_ASSOC)){
+                        if($otherArray['id']!=$id && $count<5){
+                            echo "<div class='col-md-3 col-sm-6 mb-4'>";
+                                echo "<a href='verMas.php?id=$otherArray[id]'>";
+                                    echo "<img class='img-fluid' src='".$otherArray["imagen"]."' alt=''>";
+                                echo "</a>";
+                            echo "</div>";
+                        }
+                        $count++;
+                    }
+                ?>
+            </div>
+            <!-- /.row -->
+
             
             <a href="trabajos.php"><h2 style="text-align:center">Ver todos los trabajos disponibles</h2></a>
 

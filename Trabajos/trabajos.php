@@ -1,6 +1,6 @@
 <!--Sacamos sesión-->
 <?php
-    session_start();
+session_start();
 ?>
 <!--/Sacamos sesión-->
 
