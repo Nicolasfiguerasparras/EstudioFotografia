@@ -24,6 +24,11 @@
             }
         ?>
         <!--/NavBar-->
+        <div class="container">
+            <!-- Portfolio Item Heading -->
+            <h1 class="my-4">Mis trabajos</h1>
+        </div>
+            
         
         <?php
             // Establecemos conexión con la base de datos
@@ -37,28 +42,51 @@
             $works = mysqli_query($db,"SELECT * FROM trabajos where id_cliente='$id_user'"); 
 
             // En el caso en el que encuentre noticias, imprime una tabla con los resultados
-            if($row = mysqli_fetch_array($works)){ 
-                echo "<table border='1px' align='center' style='width:500px; height: 500px'>"; 
-
-                    // Mostramos las cabeceras de la tabla
-                    echo "<tr>"; 
-                        echo "<td>Título</td>";
-                        echo "<td>Precio</td>";
-                        echo "<td>Imagen</td>";
-                    echo "</tr>"; 
-
+            if($array = mysqli_fetch_array($works)){ 
                     // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
                     do{
-                        $queryClient = mysqli_query($db,"select nombre from clientes where id=$row[id_cliente]");
+                        $queryClient = mysqli_query($db,"select * from clientes where id=$array[id_cliente]");
                         $client = mysqli_fetch_array($queryClient);
-                        echo "<tr>";
-                            $mod_id=$row['id'];
-                            echo "<td>".$row["titulo"]."</td>"; 
-                            echo "<td>".$row['precio']."</td>";
-                            echo "<td><img src='".$row["imagen"]."' height='150' width='150' /></td>";
-                        echo "</tr>"; 
-                    }while($row = mysqli_fetch_array($works)); 
-                echo "</table>";
+        ?>
+        
+        <!-- Page Content -->
+        <div class="container">
+
+            <!-- Portfolio Item Row -->
+            <div class="row">
+
+                <div class="col-md-8">
+                    <?php echo "<img class='img-fluid' src='".$array["imagen"]."' alt=''>"; ?>
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="my-3"><?php echo $array["titulo"]; ?></h3>
+                    <p><?php $array["descripcion"] ?><p>
+                    <h3 class="my-3">Detalles del trabajo</h3>
+                    <ul>
+                        <li>
+                            <?php echo $array["precio"]; ?>
+                        </li>
+                        <li>
+                        <?php 
+                            if($array["id_cliente"]==0){ 
+                                echo "Disponible";
+                            }else{
+                                echo "Vendido a $client[nombre] $client[apellidos]";
+                            }
+                        ?>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /.row -->
+
+        </div><br>
+        <!-- /.container -->
+        
+        <?php
+            }while($array = mysqli_fetch_array($works)); 
 
                 // En caso de no encontrar ningún resultado, mostramos un mensaje informativo
             }else{ 
