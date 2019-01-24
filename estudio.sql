@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-01-2019 a las 01:19:03
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.2.9
+-- Tiempo de generación: 24-01-2019 a las 09:35:55
+-- Versión del servidor: 10.1.36-MariaDB
+-- Versión de PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,7 +44,7 @@ CREATE TABLE `citas` (
 INSERT INTO `citas` (`id`, `fecha`, `hora`, `motivo`, `lugar`, `id_cliente`) VALUES
 (2, '2018-12-06', '12:30', 'Pagar Trabajo', 'Oficina', 11),
 (3, '2018-12-22', '18:00', 'Solicitud de Trabajo', 'Oficinas', 6),
-(4, '2019-01-01', '10:00', 'Sesion de fotos', 'Alhambra', 1);
+(4, '2019-01-01', '10:00', 'Sesion de fotos con Yusef', 'Alhambra', 1);
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`id`, `nombre`, `apellidos`, `direccion`, `telefono1`, `telefono2`, `nick`, `contraseña`) VALUES
 (0, 'Disponible', '', '', '', '', 'admin', 'admin'),
-(1, 'Juan Manuel', 'Cristobal Soria', 'Calle Calcará 3, nº 12', '652451357', '', 'jManuel', 'manuel312'),
+(1, 'Juan Manuel', 'Cristobal Soria', 'Calle Calcará 3, nº 12', '652451356', '', 'jManuel', 'manuel312'),
 (2, 'Alberto ', 'Garcia Montor', 'Calle Luis Miguel 5, nº 8', '624153465', '958462134', 'aGarcia7', '77448Garcia'),
 (3, 'Francisco ', 'Roca Gutierrez', 'Calle Tortosa 9, nº 17', '722154685', '', 'franRoca17', '722Gutierrez'),
 (4, 'Fernando ', 'Garzon Contreras', 'Calle Alcahueta 90, nº 4', '645128468', '958451624', 'fGarCon', 'Contreras25'),
@@ -128,9 +128,9 @@ CREATE TABLE `trabajos` (
 --
 
 INSERT INTO `trabajos` (`id`, `imagen`, `titulo`, `descripcion`, `precio`, `id_cliente`) VALUES
-(1, 'img/1.jpg', 'Naturaleza Humana', 'En este trabajo se fusionan humano y naturaleza para crear una sensación de belleza inigualable', 110.00, 0),
+(1, 'img/1.jpg', 'Naturaleza Humana', 'En este trabajo se fusionan humano y naturaleza para crear una sensación de belleza inigualable', 110.00, 3),
 (2, 'img/2.jpg', 'Ro(ck)', 'Trabajo personalizado para una guitarrista llena de pasion y roll', 180.00, 10),
-(3, 'img/3.jpg', 'Pintada a mano', 'Naturaleza muerta de pintura al óleo', 270.99, 0),
+(3, 'img/3.jpg', 'Pintada a mano', 'Naturaleza muerta de pintura al óleo', 270.99, 3),
 (9, 'img/9.jpg', 'Return to Gray', 'Este impactante trabajo nos pone antiguas imagenes superpuestas en sus lugares contemporáneos', 300.00, 11),
 (10, 'img/10.jpg', 'Blue Ridge Mountains', 'Este fantástico proyecto de nuestro fotógrafo estrella te sumergirá en las nevadas laderas de las Bl', 599.00, 0);
 
