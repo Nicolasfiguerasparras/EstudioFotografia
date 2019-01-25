@@ -1,6 +1,7 @@
 # EstudioFotografia
 INDEX:  
     - Imagen aleatoria de los trabajos
+    - Poner escalas de grises en el background del texto
 CITAS:
     - Poner calendario de mes anterior y mes próximo para que se tenga perspectiva de las citas
     - Añadir tooltip con información referente a la cita
@@ -10,7 +11,8 @@ GENERAL:
     - Acceso CLIENTE (post login):
         - Mis datos personales
             - Formatear
-            - Ver por qué detecta mal el login  
+ACCESO:
+    - No recuerda la sesión
 ----------------------------------------------------------------------------------------------------
     INDEX:
         + Cambio los links del NavBar del Index

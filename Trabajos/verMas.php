@@ -106,6 +106,14 @@
                         }
                         $count++;
                     }
+                    
+                    $numberNews = mysqli_num_rows(mysqli_query("select * from trabajos"));
+                    for($i=0;$i<$numberNews;$i++){
+                        $numero_aleatorio = rand(1,100);
+                        $otherWork="select * from trabajos";
+                        $otherQuery=mysqli_query($db, $otherWork); //La movida está en que salgan trabajos aleatorios
+                                                                   //pero que no se repitan 
+                    }
                 ?>
             </div>
             <!-- /.row -->
