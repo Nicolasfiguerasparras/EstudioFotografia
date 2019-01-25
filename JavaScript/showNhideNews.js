@@ -11,10 +11,10 @@ function Start() {
 function Control_0() {
     let texto = $("#showNhide0").text();
     if(texto == "Mostrar"){
-        $("#texto0").show(300);
+        $("#texto0").show(500);
         $("#showNhide0").text("Ocultar")
     }else{
-        $("#texto0").hide(300);
+        $("#texto0").hide(500);
         $("#showNhide0").text("Mostrar")
     }
 }
@@ -22,67 +22,44 @@ function Control_0() {
 function Control_1() {
     let texto = $("#showNhide1").text();
     if(texto == "Mostrar"){
-        $("#texto1").show(300);
+        $("#texto1").show(400);
         $("#showNhide1").text("Ocultar")
-        
-        $("#texto2").hide();
-        $("#showNhide2").text("Mostrar")
     }else{
-        $("#texto1").hide(0);
+        $("#texto1").hide(500);
         $("#showNhide1").text("Mostrar")
-        
-        $("#texto2").show(300);
-        $("#showNhide2").text("Ocultar")
+
     }
 }
 
 function Control_2() {
     let texto = $("#showNhide2").text();
     if(texto == "Mostrar"){
-        $("#texto2").show(300);
+        $("#texto2").show(500);
         $("#showNhide2").text("Ocultar")
-        
-        $("#texto1").hide();
-        $("#showNhide1").text("Mostrar")
     }else{
-        $("#texto2").hide();
+        $("#texto2").hide(500);
         $("#showNhide2").text("Mostrar")
-        
-        $("#texto1").show(300);
-        $("#showNhide1").text("Ocultar")
     }
 }
 
 function Control_3() {
     let texto = $("#showNhide3").text();
     if(texto == "Mostrar"){
-        $("#texto3").show(300);
+        $("#texto3").show(500);
         $("#showNhide3").text("Ocultar")
-        
-        $("#texto4").hide();
-        $("#showNhide4").text("Mostrar")
     }else{
-        $("#texto3").hide();
+        $("#texto3").hide(500);
         $("#showNhide3").text("Mostrar")
-        
-        $("#texto4").show(300);
-        $("#showNhide4").text("Ocultar")
     }
 }
 
 function Control_4() {
     let texto = $("#showNhide4").text();
     if(texto == "Mostrar"){
-        $("#texto4").show(300);
+        $("#texto4").show(500);
         $("#showNhide4").text("Ocultar")
-        
-        $("#texto3").hide();
-        $("#showNhide3").text("Mostrar")
     }else{
-        $("#texto4").hide();
+        $("#texto4").hide(500);
         $("#showNhide4").text("Mostrar")
-        
-        $("#texto3").show(300);
-        $("#showNhide3").text("Ocultar")
     }
 }

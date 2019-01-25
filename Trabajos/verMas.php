@@ -67,7 +67,10 @@
                     <h3 class="my-3"><?php echo $array["titulo"]; ?></h3>
                     <p><?php $array["descripcion"] ?><p>
                     <h3 class="my-3">Detalles del trabajo</h3>
-                    <ul style="list-style-type: none;">
+                    <ul style="list-style-type: square;">
+                        <li>
+                            <?php echo "Descripción: ".$array["descripcion"]; ?>
+                        </li>
                         <li>
                             <?php echo "Precio: ".$array["precio"]."€"; ?>
                         </li>
@@ -93,26 +96,36 @@
 
             <div class="row">
                 <?php
-                    $otherWork="select * from trabajos";
-                    $otherQuery=mysqli_query($db, $otherWork);
-                    $count=0;
-                    while($otherArray=mysqli_fetch_array($otherQuery, MYSQLI_ASSOC)){
-                        if($otherArray['id']!=$id && $count<5){
+                    $countQuery="select count(*) cuenta from trabajos";
+                    $resultCount=mysqli_query($db,$countQuery);
+                    $total=mysqli_fetch_array($resultCount, MYSQLI_ASSOC);
+                    $numberWorks=$total['cuenta'];
+                    $numAleatorios=array();
+                    while(count($numAleatorios)<4){
+                        $same=false;
+                        $numAleatorio=rand(1,$numberWorks);
+                        for($i=0;$i<(count($numAleatorios));$i++){
+                            if($numAleatorio == $numAleatorios[$i]){
+                                $same=true;
+                            }
+                        }
+                        
+                        if($same==false){
+                            array_push($numAleatorios,$numAleatorio);
+                        }
+                    }
+                    
+                    for($i=0;$i<4;$i++){
+                        $otherWork="select * from trabajos where id=$numAleatorios[$i]";
+                        $otherQuery=mysqli_query($db, $otherWork);
+                        $otherArray=mysqli_fetch_array($otherQuery, MYSQLI_ASSOC);
+                        if($otherArray["id"]!=$id){
                             echo "<div class='col-md-3 col-sm-6 mb-4'>";
                                 echo "<a href='verMas.php?id=$otherArray[id]'>";
                                     echo "<img class='img-fluid' src='".$otherArray["imagen"]."' alt=''>";
                                 echo "</a>";
                             echo "</div>";
                         }
-                        $count++;
-                    }
-                    
-                    $numberNews = mysqli_num_rows(mysqli_query("select * from trabajos"));
-                    for($i=0;$i<$numberNews;$i++){
-                        $numero_aleatorio = rand(1,100);
-                        $otherWork="select * from trabajos";
-                        $otherQuery=mysqli_query($db, $otherWork); //La movida está en que salgan trabajos aleatorios
-                                                                   //pero que no se repitan 
                     }
                 ?>
             </div>

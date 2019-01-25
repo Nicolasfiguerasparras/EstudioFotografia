@@ -19,6 +19,17 @@
         <title>Estudio Fotografía</title>
         <link href="indexStyle.css" rel="stylesheet" type="text/css"/>
         <script src="JavaScript/showNhide.js" type="text/javascript"></script>
+        
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="vendor/css/grayscale.min.css" rel="stylesheet">
     </head>
     <body>
         <!--Modal advertencia-->
@@ -66,6 +77,7 @@
         <!--/NavBar-->
         
         <!--Caroussel con imagenes de trabajos-->
+        <section id="caroussel">
             <!--Sacamos titulares de noticias-->
             <?php
                 // Establecemos conexión con la base de datos
@@ -73,96 +85,89 @@
                 $db = connectDb();
                 
                 // Creamos la consulta para obtener titular y descripción de las noticias
-                $titulares = mysqli_query($db, "SELECT * FROM noticias");
+                $countQuery="select count(*) cuenta from trabajos";
+                $resultCount=mysqli_query($db,$countQuery);
+                $total=mysqli_fetch_array($resultCount, MYSQLI_ASSOC);
+                $numberWorks=$total['cuenta'];
+                $numAleatorio=rand(1,$numberWorks);
+                while(($numAleatorio+3)>$numberWorks){
+                    $numAleatorio=rand(1,$numberWorks);
+                }
             ?>
             <!--/Sacamos titulares de noticias-->
             
-        <div class="container-fluid">
-            <div class = "row">
-                <div class= "col-12">
-                    <div id="carousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel "data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel" data-slide-to="1"></li>
-                            <li data-target="#carousel" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="Noticias/img/3.jpg" style="height:90vh">
-                                <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
-                                    <h5>
-                                        <!--Sacamos el titulo del trabajo-->
-                                        <?php 
-                                            $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=3");
-                                            $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
-                                            echo $row["titular"];
-                                        ?>
-                                        <!--/Sacamos el titulo del trabajo-->
-                                    </h5>
+            <div class="container-fluid">
+                <div class = "row">
+                    <div class= "col-12">
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel "data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel" data-slide-to="1"></li>
+                                <li data-target="#carousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".jpg' style='height:90vh'>"; ?>
+                                    <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(179, 179, 179, 0.2);" >
+                                        <h5>
+                                            <!--Sacamos el titulo del trabajo-->
+                                            <?php 
+                                                $query = mysqli_query($db,"SELECT * FROM trabajos WHERE id=$numAleatorio");
+                                                $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
+                                                echo $row["titulo"];
+                                                $numAleatorio++;
+                                            ?>
+                                            <!--/Sacamos el titulo del trabajo-->
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".jpg' style='height:90vh'>"; ?>
+                                    <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(179, 179, 179, 0.2);" >
+                                        <h5>
+                                            <!--Sacamos el titulo del trabajo-->
+                                            <?php 
+                                                $query = mysqli_query($db,"SELECT * FROM trabajos WHERE id=$numAleatorio");
+                                                $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
+                                                echo $row["titulo"];
+                                                $numAleatorio++;
+                                            ?>
+                                            <!--/Sacamos el titulo del trabajo-->
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".jpg' style='height:90vh'>"; ?>
+                                    <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(179, 179, 179, 0.2);" >
+                                        <h5>
+                                           <!--Sacamos el titulo del trabajo-->
+                                            <?php 
+                                                $query = mysqli_query($db,"SELECT * FROM trabajos WHERE id=$numAleatorio");
+                                                $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
+                                                echo $row["titulo"];
+                                            ?>
+                                            <!--/Sacamos el titulo del trabajo-->
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="Noticias/img/4.jpg" style="height:90vh">
-                                <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
-                                    <h5>
-                                        <!--Sacamos el titular de la noticia-->
-                                        <?php 
-                                            $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=4");
-                                            $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
-                                            echo $row["titular"];
-                                        ?>
-                                        <!--/Sacamos el titular de la noticia-->
-                                    </h5>
-                                    <p>
-                                        <!--Sacamos el contenido de la noticia-->
-                                        <?php 
-                                            echo $row["contenido"];
-                                        ?>
-                                        <!--/Sacamos el contenido de la noticia-->
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="Noticias/img/5.jpg" style="height:90vh">
-                                <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(102,102,0, 0.8);" >
-                                    <h5>
-                                        <!--Sacamos el titular de la noticia-->
-                                        <?php 
-                                            $query = mysqli_query($db,"SELECT * FROM noticias WHERE id=5");
-                                            $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
-                                            echo $row["titular"];
-                                        ?>
-                                        <!--/Sacamos el titular de la noticia-->
-                                    </h5>
-                                    <p>
-                                        <!--Sacamos el contenido de la noticia-->
-                                        <?php 
-                                            echo $row["contenido"];
-                                        ?>
-                                        <!--/Sacamos el contenido de la noticia-->
-                                    </p>
-                                </div>
-                            </div>
+                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Anterior</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Siguiente</span>
+                            </a>
                         </div>
-                        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Anterior</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Siguiente</span>
-                        </a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!--/Caroussel-->
       
         
         <!--Sección con las tres últimas noticias publicadas-->
-        <div>
-            <h3 style='text-align:center'>Últimas noticias</h3>
-        </div><br>
         <?php
             // Sacamos la fecha actual
             $actualDate = date("Y/m/d");
@@ -183,165 +188,219 @@
                 // En caso de no encontrar noticias, imprime un mensaje de error
                 echo "No se ha encontrado ninguna noticia";
             }
-            
-            
-            
-            // Utilizamos un bucle for para recorrer las secciones de cada noticia
-            for($i=0; $i<$rows; $i++){
-                echo "<div class='container col-12'>";
-                    echo "<div class='row'>";
-                        // Volcamos los resultados en $noticias
-                        $noticias=mysqli_fetch_array($resultNews);
-                        echo "<div class='card col-12 col-lg-4 offset-lg-1 text-white bg-dark mb-3'>";
-                            echo "<br><img class='card-img-top' src='Noticias/$noticias[imagen]'>";
-                            echo "<div class='card-header d-none d-md-block' id='headingOne'>";
-                                echo "<h5 class='card-title'>$noticias[titular]</h5>"; 
-                            echo "</div>";
-                            echo "<a class='btn btn-dark' id='showNhide$i'>Mostrar</a>";
-                        echo "</div>";
-                      
-                        // Como id del Collapse ponemos el valor de $i para crear DIVs únicos
-                        echo "<div class='card col-lg-6 text-white bg-dark mb-3 outer-div' style='display:none' id='texto$i'>";
-                            echo "<div class='inner-div'><p>$noticias[contenido]</p></div>";
-                        echo "</div>";
-                    echo "</div>";
-                echo "</div>";
-            }
-            mysqli_close($db);
-        ?> 
+        ?>   
+
+        <section id="projects" class="projects-section bg-light">
+            <div class="container">
+
+                <!-- Primera noticia main -->
+                <?php 
+                    // Volcamos los resultados en $noticias
+                    $noticias=mysqli_fetch_array($resultNews);
+                ?>
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                    <div class="col-xl-8 col-lg-7">
+                        <?php echo "<img class='img-fluid mb-3 mb-lg-0' src='noticias/$noticias[imagen]' alt=''>"; ?>
+                    </div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <?php echo "<h4>$noticias[titular]</h4>"; ?>
+                            <?php echo "<p class='text-black-50 mb-0'>$noticias[contenido]</p>"; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segunda noticia -->
+                <?php 
+                    // Volcamos los resultados en $noticias
+                    $noticias=mysqli_fetch_array($resultNews);
+                ?>
+                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                    <div class="col-lg-6">
+                        <?php echo "<img class='img-fluid' src='noticias/$noticias[imagen]' alt=''>"; ?>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                    <div class="project-text w-100 my-auto text-center text-lg-left">
+                                        <?php echo "<h4 class='text-white'>$noticias[titular]</h4>"; ?>
+                                        <?php "<p class='mb-0 text-white-50'>$noticias[contenido]</p>"; ?>
+                                        <hr class="d-none d-lg-block mb-0 ml-0">
+                                    </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tercera noticia -->
+                <?php 
+                    // Volcamos los resultados en $noticias
+                    $noticias=mysqli_fetch_array($resultNews);
+                ?>
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6">
+                        <?php echo "<img class='img-fluid' src='noticias/$noticias[imagen]' alt=''>"; ?>
+                    </div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <?php echo "<h4 class='text-white'>$noticias[titular]</h4>"; ?>
+                                    <?php "<p class='mb-0 text-white-50'>$noticias[contenido]</p>"; ?>
+                                    <hr class="d-none d-lg-block mb-0 mr-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php mysqli_close($db); ?>
+            </div>
+        </section>
         <!--/Sección con las últimas tres noticias publicadas-->
+        
+        <!-- Signup Section -->
+        <section id="signup" class="signup-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white mb-5">¡Suscríbete para mantenerte al día de las novedades!</h2>
+                        <form class="form-inline d-flex">
+                            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Escribe tu correo electrónico...">
+                            <button type="submit" class="btn btn-primary mx-auto">Suscribirme</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <section class="contact-section bg-black">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-file-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Estudio fotográfico</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">
+                                    <p>
+                                        Una aplicación web con diseñoo aplicado para presentar como trabajo.
+                                    </p>
+                                    <p>
+                                        Nº de registro: 123515416851
+                                    </p>
+                                    <p
+                                        >CIF: 1165152518
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-link text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Enlaces de utilidad</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">
+                                    <p>
+                                        <a class="dark-grey-text" href="#!">Contacto</a>
+                                    </p>
+                                    <p>
+                                        <a class="dark-grey-text" href="#!">Aviso legal</a>
+                                    </p>
+                                    <p>
+                                        <a class="dark-grey-text" href="#!">Ayuda</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-sign-in-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Login</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">
+                                    <p>
+                                        <a class="dark-grey-text" href="Acceder/acceder.php">Acceder</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Dirección</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">Granada, Granada 18012, ES</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-envelope text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Email</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">
+                                    <a href="#">nicolas@escuela.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Teléfono</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">622514535</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social d-flex justify-content-center">
+                    <a href="#" class="mx-2">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="mx-2">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="mx-2">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <footer class="bg-black small text-center text-white-50">
+          <div class="container">
+            Copyright &copy; Nicolás Figueras Parras 2019
+          </div>
+        </footer>
+        <!-- Footer -->
 
         
         <!--Return to Top-->
         <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
         <!--/Return to Top-->
-        
-        <!--Footer-->  
-        <footer class="page-footer font-small blue-grey lighten-5">
-
-           <div style="background-color: #21d192;">
-                <div class="container">
-
-                    <!-- Grid row-->
-                    <div class="row py-4 d-flex align-items-center">
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                            <h6 class="mb-0">¡Estate al día de nuestras redes sociales!</h6>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-7 text-center text-md-right">
-
-                            <!-- Facebook -->
-                            <a class="fb-ic" href="facebook.com">
-                                <i class="fa fa-facebook-f white-text mr-4"></i>
-                            </a>
-                            
-                            <!-- Twitter -->
-                            <a class="tw-ic" href="twitter.com">
-                                <i class="fa fa-twitter white-text mr-4"> </i>
-                            </a>
-                            
-                            <!-- Google +-->
-                            <a class="gplus-ic" href="google.com">
-                                <i class="fa fa-google-plus-g white-text mr-4"> </i>
-                            </a>
-                            
-                            <!--Linkedin -->
-                            <a class="li-ic" href="linkedin.com">
-                                <i class="fa fa-linkedin-in white-text mr-4"> </i>
-                            </a>
-                            
-                            <!--Instagram-->
-                            <a class="ins-ic" href="instagram.com">
-                                <i class="fa fa-instagram white-text"> </i>
-                            </a>
-
-                        </div> 
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row-->
-
-                </div>
-            </div>
-
-            <!-- Footer Links -->
-            <div class="container text-center text-md-left mt-5">
-
-                <!-- Grid row -->
-                <div class="row mt-3 dark-grey-text">
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-4 col-xl-3 mb-4">
-
-                        <!-- Content -->
-                        <h6 class="text-uppercase font-weight-bold">Estudio Fotográfico</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>Una aplicación web con diseño aplicado para presentar como trabajo.</p>
-                        <p>Nº de registro: 123515416851</p>
-                        <p>CIF: 1165152518</p>
-
-                    </div>
-                    <!-- Grid column -->
-
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Links de utilidad</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <a class="dark-grey-text" href="#!">Acceder</a>
-                        </p>
-                        <p>
-                            <a class="dark-grey-text" href="#!">Contacto</a>
-                        </p>
-                        <p>
-                            <a class="dark-grey-text" href="#!">Aviso legal</a>
-                        </p>
-                        <p>
-                            <a class="dark-grey-text" href="#!">Ayuda</a>
-                        </p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Contacto</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <i class="fas fa-home mr-3"></i>Granada, Granada 18012, ES</p>
-                        <p>
-                            <i class="fas fa-envelope mr-3"></i>nicolas@escuela.com</p>
-                        <p>
-                            <i class="fas fa-phone mr-3"></i>622514535</p>
-                        <p>
-                            <i class="fas fa-print mr-3"></i>958451254</p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-            </div>
-            <!-- Footer Links -->
-
-            <!-- Copyright -->
-            <div class="footer-copyright text-center text-black-50 py-3">© 2018 Copyright:
-                <a class="dark-grey-text" href="http://nicolasfiguerasparras.com">Nicolás Figueras Parras</a>
-            </div>
-            <!-- Copyright -->
-
-        </footer>
-        <!--/Footer de libre contenido--> 
         
         
         
@@ -375,5 +434,15 @@
             });
         </script>
         <!--/Script scroll to top-->
+        
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="js/grayscale.min.js"></script>
     </body>
 </html>

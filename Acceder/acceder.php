@@ -24,7 +24,7 @@
             $dataSesion = session_encode();
 
             if(isset($_POST['openSession'])){
-                setcookie("sesion", $dataSesion, time(), "/");
+                setcookie("sesion", $dataSesion, time()+(60*60*60), "/");
             }
             header("location: ../index.php");
         }else{
