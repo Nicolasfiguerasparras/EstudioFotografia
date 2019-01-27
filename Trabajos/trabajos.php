@@ -73,7 +73,7 @@ session_start();
                         $client = mysqli_fetch_array($queryClient);
                         echo "<div class='row'>";
                             echo "<div class='col-md-7'>";
-                                echo "<a href='#'>";
+                                echo "<a href='verMas.php?id=$row[id]'>";
                                     echo "<img class='img-fluid rounded mb-3 mb-md-0' src='".$row["imagen"]."' alt=''>";
                                 echo "</a>";
                             echo "</div>";

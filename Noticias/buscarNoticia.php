@@ -26,7 +26,7 @@
             }
         ?>
         <!--/NavBar-->
-        <br><br>
+        <br>
         
         <?php
             // Establecemos conexión con la base de datos
@@ -47,32 +47,26 @@
                 
                 // En el caso en el que encuentre noticias, imprime una tabla con los resultados
                 if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table>"; 
-
-                        // Mostramos las cabeceras de la tabla
-                        echo "<tr>"; 
-                            echo "<td style='width:250px;'>ID</td>";
-                            echo "<td style='width:250px;'>Titular</td>";
-                            echo "<td style='width:400px;'>Contenido</td>";
-                            echo "<td style='width:250px;'>Imagen</td>";
-                            echo "<td style='width:250px;'>Fecha de activación</td>";
-                        echo "</tr>"; 
-
-                        // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
-                        do{ 
-                            echo "<tr>"; 
-                                echo "<td>".$row["id"]."</td>"; 
-                                echo "<td>".$row["titular"]."</td>"; 
-                                echo "<td>".$row["contenido"]."</td>"; 
-                                echo "<td><img src='".$row["imagen"]."' style='width:250px; height:240px;' /></td>"; 
-                                $fecha = strtotime($row["fecha"]);
-                                $dia = date('d', $fecha);
-                                $mes = date('m', $fecha);
-                                $anio = date('Y', $fecha);
-                                echo "<td>".$dia."-".$mes."-".$anio."</td>"; 
-                            echo "</tr>"; 
+                    // Establecemos un bucle DO WHILE que imprime resultados mientras siga habiéndolos
+                    echo "<div class='container'>";
+                        do{  
+                            echo "<div class='row'>";
+                                echo "<div class='col-md-7'>";
+                                    echo "<img class='img-fluid rounded mb-3 mb-md-0' src='".$row["imagen"]."' alt=''>";
+                                echo "</div>";
+                                echo "<div class='col-md-5'>";
+                                    echo "<h3>".$row["titular"]."</h3>";
+                                    echo "<p>".$row["contenido"]."</p>";
+                                    $fecha = strtotime($row["fecha"]);
+                                    $dia = date('d', $fecha);
+                                    $mes = date('m', $fecha);
+                                    $anio = date('Y', $fecha);
+                                    echo "<p class='small'>".$dia."-".$mes."-".$anio."</p>";
+                                echo "</div>";
+                            echo "</div>";
+                            echo "<hr>";
                         }while($row = mysqli_fetch_array($consulta)); 
-                    echo "</table>"; 
+                    echo "</div>";
                     mysqli_close($p_db);
                 }
                 
@@ -82,31 +76,56 @@
                 }
             }
         ?>
-        
+         
         <!--Formulario-->
-        <div class="padre container">
-            <div class="row">
-                <form method="post" action="buscarNoticia.php">  
-                    Texto a buscar: <input type="text" name="findText"><br><br>
-                    Fecha a buscar: <input type="date" name="findDate"><br><br>
-                    <h2>¿Por qué parámetro deseas buscarlo?</h2>
-                    <label><input type='radio' name='option' value='titular' checked>Titulo</label><br>
-                    <label><input type='radio' name='option' value='fecha'>Fecha de activación</label><br><br>
-                    <input type="submit" name="submit" value="Buscar">
-                </form>
+        <form method="post" action="buscarNoticia.php">
+            <div class="form-row">
+                <div class="form-group col-10 offset-1 col-md-5">
+                  <label for="findText">Texto a buscar</label>
+                  <input type="text" class="form-control" id="findText" name="findText" placeholder="Introduzca el texto a buscar">
+                </div>
+                <div class="form-group col-10 offset-1 offset-md-0 col-md-5">
+                  <label for="findDate">Fecha a buscar</label>
+                  <input type="date" class="form-control" id="findDate" name="findDate">
+                </div>
             </div>
-        </div>
-        <br><br>
+            <div class="form-row">
+                <div class="form-check offset-1">
+                    <input class="form-check-input" type="radio" name="option" value="titular" id="titular" checked>
+                    <label class="form-check-label" for="titular">
+                        Titulo
+                    </label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-check offset-1">
+                    <input class="form-check-input" type="radio" name="option" value="fecha" id="fecha">
+                    <label class="form-check-label" for="fecha">
+                        Fecha de activación
+                    </label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group offset-1">
+                    <input type="submit" name="submit" value="Buscar">
+                </div>
+            </div>
+        </form>
+        <!--/Formulario-->
+        
         
         <?php
             // Comprobar que se ha introducido el parámetro de ordenación
             if(isset($_POST['option'])){
                 //Comprobar que se ha enviado el formulario
                 if(isset($_POST['submit'])){
-                    buscarNoticia($db);
+                    if($_POST['findText']!=null && $_POST['findDate']!=null){
+                        echo "No puedes buscar por dos parámetros al mismo tiempo.";
+                    }else{
+                        buscarNoticia($db);
+                    }
                 }
             }
         ?>
-
     </body>
 </html>

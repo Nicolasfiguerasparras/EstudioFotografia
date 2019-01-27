@@ -22,85 +22,59 @@
                 header("location: ../Acceder/error.php");
             }
         ?>
+        <br>
         <!--/NavBar-->
-        <br><br>
         
-        <?php        
-            // Establecemos conexión con la base de datos
-            include('../connectDB.php');
-            $db = connectDb(); 
-            // Creamos la función imprimirTabla para que nos la saque cada vez que la necesitemos
-            function imprimirTabla($p_db){
-                // Creamos la consulta que saca todas las noticias
-                $consulta=mysqli_query($p_db,"SELECT * FROM noticias");
-
-                // Imprimimos una tabla con las noticias
-                if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<div class='container col-12'>";
-                        echo "<table class='table'>"; 
-
-                            // Mostramos las cabeceras de la tabla
-                            echo "<tr>"; 
-                                echo "<td>ID</td>
-                                      <td>Titular</td>
-                                      <td style='width: 33%'>Imagen</td>
-                                      <td>Fecha</td>
-                                      <td>Borrar noticia</td>";
-                            echo "</tr>"; 
-
-
-                            // Establecemos un bucle DO WHILE que imprime las noticias mientras haya
-                            do{ 
-                                echo "<tr>";
-                                    // Creamos un formulario para introducir el botón borrar en cada noticia
-                                    echo "<form method='get'>";
-                                        // Creamos una variable que almacena el ID
-                                        $del_id=$row['id'];
-                                        echo "<td>".$del_id."</td>"; 
-                                        echo "<td>".$row["titular"]."</td>"; 
-                                        echo "<td style='width: 33%'><img src='".$row["imagen"]."' /></td>"; 
-                                        $fecha = strtotime($row["fecha"]);
-                                        $dia = date('d', $fecha);
-                                        $mes = date('m', $fecha);
-                                        $anio = date('Y', $fecha);
-                                        echo "<td>".$dia."-".$mes."-".$anio."</td>"; 
-                                        echo "<td><a class='deleteButton'><input type='submit' value='Borrar' name='borrar'></a></td>";
-                                        // Introducimos un input oculto que utilizaremos para conocer a qué botón de borrar de todos ha pulsado el usuario
-                                        echo "<input type='hidden' name='id' value='$del_id'>";
-                                    echo "</form>";
-                                echo "</tr>";
-                            }while($row = mysqli_fetch_array($consulta)); 
-                        echo "</table>"; 
-                    echo "</div>";
-                // En caso de no encontrar ningún registro, nos lo indica
-                }else{
-                    echo "¡No se ha encontrado ningún registro!";
-                }
-            }   
-        ?>
         
-        <?php
-            // Imprimimos la tabla con las noticias
-            imprimirTabla($db);
-            
-            // En caso de que se envíe el formulario, empieza la consulta
-            if(isset($_GET['borrar'])){
-                // Almacenamos el ID enviado por el método GET en el botón borrar que se haya pulsado
-                $p_id=$_GET['id'];   
-                // Definimos la consulta
-                $query=mysqli_query($db, "DELETE FROM noticias WHERE id = '$p_id'");
-                
-                // Si la consulta da fallo, se informa de ello
-                if(!$query){
-                    echo mysqli_error($query);
+        <div class="container"> 
+            <?php        
+                // Establecemos conexión con la base de datos
+                include('../connectDB.php');
+                $db = connectDb(); 
+           
+                // Imprimimos el listado de noticias
+                $consulta=mysqli_query($db,"SELECT * FROM noticias");
+                if($row = mysqli_fetch_array($consulta)){
+                    do{
+                        echo "<div class='row'>";
+                            echo "<div class='col-md-7'>";
+                                echo "<a href='verMas.php?id=$row[id]'>";
+                                    echo "<img class='img-fluid rounded mb-3 mb-md-0' src='".$row["imagen"]."' alt=''>";
+                                echo "</a>";
+                            echo "</div>";
+                            echo "<div class='col-md-5'>";
+                                echo "<h3>".$row["titular"]."</h3>";
+                                echo "<p>".$row["contenido"]."</p>";
+                                echo "<form method='post' action='borrarNoticia.php'>";
+                                    echo "<input type='submit' class='btn btn-primary' value='Borrar' name='borrar'>";
+                                    echo "<input type='hidden' name='id' value='$row[id]'>";
+                                echo "</form>";
+                            echo "</div>";
+                        echo "</div>";
+                        echo "<hr>";
+                    }while($row=mysqli_fetch_array($consulta));
                 }
-                // En caso contrario, refrescamos la página
-                else{
-                    header("Location:borrarNoticia.php");
+
+
+                // En caso de que se envíe el formulario, empieza la consulta
+                if(isset($_POST['borrar'])){
+                    // Almacenamos el ID enviado por el método GET en el botón borrar que se haya pulsado
+                    $p_id=$_POST['id'];   
+                    // Definimos la consulta
+                    $query=mysqli_query($db, "DELETE FROM noticias WHERE id = '$p_id'");
+
+                    // Si la consulta da fallo, se informa de ello
+                    if(!$query){
+                        echo mysqli_error($query);
+                    }
+                    // En caso contrario, refrescamos la página
+                    else{
+                        echo "<script> location.href='borrarNoticia.php'; </script>";
+                    }
+                    // Cerramos la conexión
+                    mysqli_close($db);
                 }
-                // Cerramos la conexión
-                mysqli_close($db);
-            }
-        ?>
+            ?>
+        </div>
     </body>
 </html>

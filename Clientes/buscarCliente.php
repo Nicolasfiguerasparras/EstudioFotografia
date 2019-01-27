@@ -44,29 +44,34 @@
                 
                 //En el caso en el que encuentre clientes, imprime una tabla con los resultados
                 if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table class='table'>"; 
+                    echo "<div class='col-10 offset-1'>";
+                        echo "<table class='table'>"; 
 
-                        //Mostramos las cabeceras de la tabla
-                        echo "<tr>"; 
-                            while ($field = mysqli_fetch_field($consulta)){ 
-                                echo "<td>$field->name</td>"; 
-                            } 
-                        echo "</tr>"; 
-
-                        // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
-                        do{ 
+                            //Mostramos las cabeceras de la tabla
                             echo "<tr>"; 
-                                echo "<td>".$row["id"]."</td>"; 
-                                echo "<td>".$row["nombre"]."</td>"; 
-                                echo "<td>".$row["apellidos"]."</td>"; 
-                                echo "<td>".$row["direccion"]."</td>"; 
-                                echo "<td>".$row["telefono1"]."</td>";
-                                echo "<td>".$row["telefono2"]."</td>";
-                                echo "<td>".$row["nick"]."</td>";
-                                echo "<td>".$row["contraseña"]."</td>"; 
+                                echo "<td>Nombre</td>";
+                                echo "<td>Apellidos</td>";
+                                echo "<td>Dirección</td>";
+                                echo "<td>Teléfono 1</td>";
+                                echo "<td>Teléfono 2</td>";
+                                echo "<td>Nick</td>";
+                                echo "<td>Contraseña</td>";
                             echo "</tr>"; 
-                        }while($row = mysqli_fetch_array($consulta)); 
-                    echo "</table>"; 
+
+                            // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
+                            do{ 
+                                echo "<tr>"; 
+                                    echo "<td>".$row["nombre"]."</td>"; 
+                                    echo "<td>".$row["apellidos"]."</td>"; 
+                                    echo "<td>".$row["direccion"]."</td>"; 
+                                    echo "<td>".$row["telefono1"]."</td>";
+                                    echo "<td>".$row["telefono2"]."</td>";
+                                    echo "<td>".$row["nick"]."</td>";
+                                    echo "<td>".$row["contraseña"]."</td>"; 
+                                echo "</tr>"; 
+                            }while($row = mysqli_fetch_array($consulta)); 
+                        echo "</table>";
+                    echo "</div>";
                     mysqli_close($p_db);
                 }
                 
@@ -76,22 +81,40 @@
                 }
             }
         ?>
-        <br><br>
         
         <!--Formulario-->
-        <div class="padre container">
-            <div class="row">
-                <form method="post" action="buscarCliente.php">  
-                    Texto a buscar: <input type="text" name="findText"><br><br>
-                    <h2>¿Por qué parámetro deseas buscarlo?</h2>
-                    <label><input type='radio' name='option' value='nombre' checked>Nombre</label><br>
-                    <label><input type='radio' name='option' value='apellidos'>Apellidos</label><br><br>
-                    <input type="submit" name="submit" value="Buscar">
-            </div>
-                </form>
-        
+        <div class="container">
+            <form method="post" action="buscarCliente.php">
+                <div class="form-row">
+                    <div class="form-group col-10 offset-1">
+                      <label for="findText">Texto a buscar</label>
+                      <input type="text" class="form-control" id="findText" name="findText" placeholder="Introduzca el texto a buscar">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-check offset-1">
+                        <input class="form-check-input" type="radio" name="option" value="nombre" id="nombre" checked>
+                        <label class="form-check-label" for="nombre">
+                            Nombre
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-check offset-1">
+                        <input class="form-check-input" type="radio" name="option" value="apellidos" id="apellidos">
+                        <label class="form-check-label" for="apellidos">
+                            Apellidos
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group offset-1">
+                        <input type="submit" name="submit" value="Buscar">
+                    </div>
+                </div>
+            </form>
         </div>
-        <br><br>
+        <!--/Formulario-->
         
         <?php
             // Comprobar que se ha introducido el parámetro de ordenación

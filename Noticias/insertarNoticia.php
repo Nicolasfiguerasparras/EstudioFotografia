@@ -24,7 +24,7 @@
             }
         ?>
         <!--/NavBar-->
-        <br><br>
+        <br>
         
         <?php
             //Conectar a la Base de Datos y sacar el ID
@@ -71,56 +71,43 @@
                     $result=0;
                 }
                 
-                // Redirigimos al cliente a una URL validada.
-                header('Location: ../Noticias/insertarNoticia.php?success='.$result);
+                // Redirigimos al cliente al listado de noticias.
+                echo "<script> location.href='noticias.php'; </script>";
             }
         ?>
-        <br><br>
         
-        <!--Recogemos los parámetros a través de un formulario-->
-        <div class="padre container">
-            <div class="row">
-                <form method="post" action="insertarNoticia.php" enctype="multipart/form-data">  
-                    ID: <input type="text" name="idNoticias" placeholder="<?php echo($id); ?>"disabled>
+        <!--Formulario que recoge los datos insertados por el usuario-->      
+        <form method="post" action="insertarNoticia.php" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-1 offset-1">
+                    <label for="idNoticias">ID</label>
+                    <input type="text" name="idNoticias" class="form-control" id="idTrabajo" placeholder="<?php echo($id); ?>"disabled>
+                </div>
+                <div class="form-group col-4">
+                    <label for="titular">Título</label>
+                    <input type="text" class="form-control" name="titular" id="titular" placeholder="Titular de la noticia" required>
+                </div>
+                <div class="form-group col-5">
+                    <label for="contenido">Contenido</label>
+                    <textarea rows="1" class="form-control" name="contenido" id="contenido" placeholder="Contenido de la noticia" required></textarea>
+                </div>
             </div>
-            <br><br>
-                    
-            <div class="row">
-                        Titular: <input type="text" name="titular" required>
+            <div class="form-row">
+                <div class="form-group col-2 offset-1">
+                    <label for="fecha">Fecha a partir de la cual estará visible la noticia</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" required>
+                </div>
+                <div class="form-group col-2">
+                    <label for="imagen">Imagen</label>
+                    <input type="file" class="form-control-file" id="imagen" accept="image/*" name="imagen" required>
+                </div>
             </div>
-            <br><br>
-                    
-            <div class="row">
-                        Contenido: <textarea name="contenido" rows="5" cols="40" required></textarea>
-            </div>
-            <br><br>
-                    
-            <div class="row">
-                        Sube una imagen: <input type="file" name="imagen" accept="image/*" required>
-            </div>
-            <br><br>
-                    
-            <div class="row">
-                        Fecha a partir de la que estará visible la noticia: <input type="date" name="fecha" required>
-            </div>
-            <br><br>
-                    
+            <div class="form-row">
+                <div class="form-group col-1 offset-1">
                     <input type="submit" name="submit" value="Enviar">  
-                </form>
+                </div>
             </div>
-        </div>
-        <br><br>
-        
-        <!--Mandamos un mensaje para indicar que se ha insertado corréctamente la noticia-->
-        <?php
-            if(isset($_GET['success']) && !$_GET['success']==0){
-                echo "Se ha insertado correctamente la noticia";
-            }elseif(isset($_GET['success']) && $_GET['success']==0){
-                echo "No se ha introducido corréctamente la noticia"; // Estaría bien indicar qué ha fallado en dicho caso
-            }
-            
-            // Cerramos la conexión a la base de datos
-                mysqli_close($db);
-        ?> 
+        </form>
+        <!--/Formulario que recoge los datos insertados por el usuario-->
     </body>
 </html>

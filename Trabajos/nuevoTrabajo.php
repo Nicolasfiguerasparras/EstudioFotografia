@@ -24,7 +24,7 @@
             }
         ?>
         <!--/NavBar-->
-        <br><br>
+        <br>
         
         <?php
             //Conectar a la Base de Datos y sacar el ID
@@ -70,7 +70,7 @@
         ?>
         
         
-        <!--Formulario que recoge los datos insertados por el usuario-->      
+        <!--Formulario que recoge los datos insertados por el usuario-->
         <form method="post" action="nuevoTrabajo.php" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-1 offset-1">
@@ -120,6 +120,7 @@
                 </div>
             </div>
         </form>
+        <!--/Formulario que recoge los datos insertados por el usuario-->
         
         <?php
             // Cerramos la conexión a la base de datos

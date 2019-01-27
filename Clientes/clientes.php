@@ -9,8 +9,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Clientes</title>
-        <link href="../Noticias/tableStyle.css" rel="stylesheet" type="text/css"/>
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <link href="table.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!--NavBar-->
@@ -26,8 +26,7 @@
             }
         ?>
         <!--/NavBar-->
-        <br><br>
-        <br><br>
+        <br>
         
         <?php
             // Establecemos conexión con la base de datos
@@ -41,37 +40,44 @@
 
                 // Imprimimos una tabla con los clientes
                 if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table border=1>"; 
-                        
-                        // Mostramos las cabeceras de la tabla
-                        echo "<tr>"; 
-                            while ($field = mysqli_fetch_field($consulta)){ 
-                                echo "<td>$field->name</td>"; 
-                            }
-                        echo "</tr>";
+                    echo "<div class='col-10 offset-1>";
+                        echo "<table class='table'>"; 
 
-                        // Establecemos un bucle DO WHILE que imprime los clientes mientras haya
-                        do{ 
-                            echo "<form method='post' action='clientes.php'>";
-                            if($row['nombre']!="Disponible"){
-                                echo "<tr>";
-                                    // Creamos una variable que almacena el ID
-                                    $mod_id=$row['id'];
-                                    echo "<td>".$row['id']."</td>"; 
-                                    echo "<td>".$row["nombre"]."</td>"; 
-                                    echo "<td>".$row["apellidos"]."</td>"; 
-                                    echo "<td>".$row["direccion"]."</td>"; 
-                                    echo "<td>".$row["telefono1"]."</td>"; 
-                                    echo "<td>".$row["telefono2"]."</td>"; 
-                                    echo "<td>".$row["nick"]."</td>"; 
-                                    echo "<td>".$row["contraseña"]."</td>";
-                                    echo "<td><input type='submit' name='submit' value='Modificar'></td>";
-                                    echo "<input type='hidden' name='id' value='$mod_id'>";
-                                    echo "</form>";
-                                echo "</tr>";
-                            }
-                        }while($row = mysqli_fetch_array($consulta)); 
-                    echo "</table>"; 
+                            //Mostramos las cabeceras de la tabla
+                            echo "<tr>";
+                                echo "<td>ID</td>";
+                                echo "<td>Nombre</td>";
+                                echo "<td>Apellidos</td>";
+                                echo "<td>Dirección</td>";
+                                echo "<td>Teléfono 1</td>";
+                                echo "<td>Teléfono 2</td>";
+                                echo "<td>Nick</td>";
+                                echo "<td>Contraseña</td>";
+                            echo "</tr>"; 
+
+                            // Establecemos un bucle DO WHILE que imprime los clientes mientras haya
+                            do{ 
+                                echo "<form method='post' action='clientes.php'>";
+                                if($row['nombre']!="Disponible"){
+                                    echo "<tr>";
+                                        // Creamos una variable que almacena el ID
+                                        $mod_id=$row['id'];
+                                        echo "<td>".$row['id']."</td>"; 
+                                        echo "<td>".$row["nombre"]."</td>"; 
+                                        echo "<td>".$row["apellidos"]."</td>"; 
+                                        echo "<td>".$row["direccion"]."</td>"; 
+                                        echo "<td>".$row["telefono1"]."</td>"; 
+                                        echo "<td>".$row["telefono2"]."</td>"; 
+                                        echo "<td>".$row["nick"]."</td>"; 
+                                        echo "<td>".$row["contraseña"]."</td>";
+                                        echo "<td><input type='submit' name='submit' value='Modificar'></td>";
+                                        echo "<input type='hidden' name='id' value='$mod_id'>";
+                                        echo "</form>";
+                                    echo "</tr>";
+                                }
+                            }while($row = mysqli_fetch_array($consulta)); 
+                        echo "</table>";
+                    echo "</div>";
                 // En caso de no encontrar ningún registro, nos lo indica
                 }else{
                     echo "¡No se ha encontrado ningún registro!";

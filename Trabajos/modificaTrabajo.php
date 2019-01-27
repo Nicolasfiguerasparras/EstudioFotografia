@@ -40,7 +40,7 @@
                     . "precio='$array[precio]', id_cliente='$id_cliente' WHERE id='$id_trabajo'";
             mysqli_query($db,$updateQuery);
             mysqli_close($db);
-            echo "<script> location.href='trabajos.php'; </script>";
+            echo "<script> location.href='verMas.php?id=$id_trabajo'; </script>";
         ?>
     </body>
 </html>

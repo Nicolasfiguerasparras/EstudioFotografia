@@ -37,7 +37,7 @@
             $id=$_GET['id'];
             
             if(isset($_POST["update"])){
-                header("location:modificaTrabajo.php?data=$_POST[id]-$_POST[cliente]"); // Aquí grumete grrrrrrrr
+                header("location:modificaTrabajo.php?data=$_POST[id]-$_POST[cliente]");
             }
         ?>
         <!-- ./form action -->
@@ -67,18 +67,6 @@
                     echo "</div>";
                 echo "</div>";
             echo "</form>";
-            
-            
-//            <div class="form-row">
-//                <div class="form-group col-md-6">
-//                    <label for="inputEmail4">Email</label>
-//                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-//                </div>
-//                <div class="form-group col-md-6">
-//                    <label for="inputPassword4">Password</label>
-//                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-//                </div>
-//            </div>
         ?>
     </body>
 </html>
