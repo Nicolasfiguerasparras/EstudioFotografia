@@ -5,10 +5,12 @@
 <!--/Sacamos sesión-->
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
+        <meta name="Description" content="Estudio fotográfico ubicado en granada especializado en temas abstractos.">
         <script type="text/javascript" src="JavaScript/jquery-3.2.1.min.js"></script>
+        <meta name=”robots” content="Index, Follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">	
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -16,6 +18,20 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <!--Script modal-->
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script defer="defer" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script defer="defer" src="vendor/modal.js" type="text/javascript"></script>
+        
+        <!-- Bootstrap core JavaScript -->
+        <script defer="defer" src="vendor/jquery/jquery.min.js"></script>
+        <script defer="defer" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script defer="defer" src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for this template -->
+        <script defer="defer" src="js/grayscale.min.js"></script>
         <title>Estudio Fotografía</title>
         <link href="indexStyle.css" rel="stylesheet" type="text/css"/>
         <script src="JavaScript/showNhide.js" type="text/javascript"></script>
@@ -49,9 +65,9 @@
                             echo "</div>";
                             echo "<div class='modal-footer footerModal'>";
                                 // En caso de aceptar las cookies, se redirige a un archivo php que crea la cookie y éste vuelve a redirigir al index con la cookie ya creada
-                                echo "<a href='cookieAccess.php' class='btn btn-primary btn-success'>Estoy de acuerdo, seguir navegando</a>";
+                                echo "<a href='cookieAccess.php' aria-label='Accept-cookies' class='btn btn-primary btn-success'>Estoy de acuerdo, seguir navegando</a>";
                                 echo "<br>";
-                                echo "<a href='https://www.boe.es/buscar/act.php?id=BOE-A-1999-23750'>";
+                                echo "<a href='https://www.boe.es/buscar/act.php?id=BOE-A-1999-23750' aria-label='Not-accept-cookies'>";
                                     echo "<button type='button' class='btn btn-secondary btn-danger'>No estoy de acuerdo, sácame de aquí</button>";
                                 echo "</a>";
                             echo "</div>";
@@ -98,7 +114,7 @@
             
             <div class="container-fluid">
                 <div class = "row">
-                    <div class= "col-12">
+                    <div class= "col-12 d-none d-md-block">
                         <div id="carousel" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel "data-slide-to="0" class="active"></li>
@@ -107,7 +123,7 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".jpg' style='height:90vh'>"; ?>
+                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".webp' style='height:90vh' alt='Imagen aleatoria de un trabajo'>"; ?>
                                     <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(179, 179, 179, 0.2);" >
                                         <h5>
                                             <!--Sacamos el titulo del trabajo-->
@@ -122,7 +138,7 @@
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".jpg' style='height:90vh'>"; ?>
+                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".webp' style='height:90vh' alt='Imagen aleatoria de un trabajo'>"; ?>
                                     <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(179, 179, 179, 0.2);" >
                                         <h5>
                                             <!--Sacamos el titulo del trabajo-->
@@ -137,7 +153,7 @@
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".jpg' style='height:90vh'>"; ?>
+                                    <?php echo "<img class='d-block w-100' src='Trabajos/img/".$numAleatorio.".webp' style='height:90vh' alt='Imagen aleatoria de un trabajo'>"; ?>
                                     <div class="carousel-caption d-none d-lg-block" style="background-color: rgba(179, 179, 179, 0.2);" >
                                         <h5>
                                            <!--Sacamos el titulo del trabajo-->
@@ -151,11 +167,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                            <a class="carousel-control-prev" aria-label="prev-Caroussel" href="#carousel" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Anterior</span>
                             </a>
-                            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                            <a class="carousel-control-next" aria-label="next-Caroussel" href="#carousel" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Siguiente</span>
                             </a>
@@ -200,7 +216,7 @@
                 ?>
                 <div class="row align-items-center no-gutters mb-4 mb-lg-5">
                     <div class="col-xl-8 col-lg-7">
-                        <?php echo "<img class='img-fluid mb-3 mb-lg-0' src='noticias/$noticias[imagen]' alt=''>"; ?>
+                        <?php echo "<img class='img-fluid mb-3 mb-lg-0' src='noticias/$noticias[imagen]' alt='Una imagen de una noticia'>"; ?>
                     </div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
@@ -217,7 +233,7 @@
                 ?>
                 <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
                     <div class="col-lg-6">
-                        <?php echo "<img class='img-fluid' src='noticias/$noticias[imagen]' alt=''>"; ?>
+                        <?php echo "<img class='img-fluid' src='noticias/$noticias[imagen]' alt='Una imagen de una noticia'>"; ?>
                     </div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
@@ -239,7 +255,7 @@
                 ?>
                 <div class="row justify-content-center no-gutters">
                     <div class="col-lg-6">
-                        <?php echo "<img class='img-fluid' src='noticias/$noticias[imagen]' alt=''>"; ?>
+                        <?php echo "<img class='img-fluid' src='noticias/$noticias[imagen]' alt='Una imagen de una noticia'>"; ?>
                     </div>
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
@@ -309,13 +325,13 @@
                                 <hr class="my-4">
                                 <div class="small text-black-50">
                                     <p>
-                                        <a class="dark-grey-text" href="#!">Contacto</a>
+                                        <a class="dark-grey-text" aria-label="contacto" href="Contacto/contacto.php">Contacto</a>
                                     </p>
                                     <p>
-                                        <a class="dark-grey-text" href="#!">Aviso legal</a>
+                                        <a class="dark-grey-text" aria-label="legalAdvertise" href="avisoLegal.php">Aviso legal</a>
                                     </p>
                                     <p>
-                                        <a class="dark-grey-text" href="#!">Ayuda</a>
+                                        <a class="dark-grey-text" aria-label="help" href="sitemap.xml">Ayuda</a>
                                     </p>
                                 </div>
                             </div>
@@ -330,7 +346,7 @@
                                 <hr class="my-4">
                                 <div class="small text-black-50">
                                     <p>
-                                        <a class="dark-grey-text" href="Acceder/acceder.php">Acceder</a>
+                                        <a class="dark-grey-text" aria-label="Access" href="Acceder/acceder.php">Acceder</a>
                                     </p>
                                 </div>
                             </div>
@@ -356,7 +372,7 @@
                                 <h4 class="text-uppercase m-0">Email</h4>
                                 <hr class="my-4">
                                 <div class="small text-black-50">
-                                    <a href="#">nicolas@escuela.com</a>
+                                    <a aria-label="email" href="#">nicolas@escuela.com</a>
                                 </div>
                             </div>
                         </div>
@@ -375,13 +391,13 @@
                 </div>
 
                 <div class="social d-flex justify-content-center">
-                    <a href="#" class="mx-2">
+                    <a aria-label="Twitter" href="#" class="mx-2">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="mx-2">
+                    <a aria-label="Facebook"  href="#" class="mx-2">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="mx-2">
+                    <a aria-label="Github"  href="#" class="mx-2">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
@@ -399,50 +415,9 @@
 
         
         <!--Return to Top-->
-        <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+        <a aria-label="Javascript"  href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
         <!--/Return to Top-->
         
         
-        
-        <!--Script modal-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <?php
-            echo "
-                <script>
-                    $(window).on('load',function(){
-                        $('#modalInicio').modal('show');
-                    });
-                </script>
-            ";
-        ?>
-        <!--/Script modal-->
-        
-        <!--Script scroll to top-->
-        <script>
-            $(window).scroll(function() {
-                if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
-                    $('#return-to-top').fadeIn(200);    // Fade in the arrow
-                } else {
-                    $('#return-to-top').fadeOut(200);   // Else fade out the arrow
-                }
-            });
-            $('#return-to-top').click(function() {      // When arrow is clicked
-                $('body,html').animate({
-                    scrollTop : 0                       // Scroll to top of body
-                }, 500);
-            });
-        </script>
-        <!--/Script scroll to top-->
-        
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Plugin JavaScript -->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Custom scripts for this template -->
-        <script src="js/grayscale.min.js"></script>
     </body>
 </html>

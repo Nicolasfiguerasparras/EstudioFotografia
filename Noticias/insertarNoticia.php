@@ -94,7 +94,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-2 offset-1">
-                    <label for="fecha">Fecha a partir de la cual estará visible la noticia</label>
+                    <label for="fecha">Fecha</label>
                     <input type="date" class="form-control" id="fecha" name="fecha" required>
                 </div>
                 <div class="form-group col-2">
@@ -104,7 +104,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-1 offset-1">
-                    <input type="submit" name="submit" value="Enviar">  
+                    <input type="submit" class="btn btn-primary" name="submit" value="Enviar">  
                 </div>
             </div>
         </form>

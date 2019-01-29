@@ -102,7 +102,7 @@
                                     $resul=mysqli_query($db, $consulta);
                                     // Mostramos el dia
                                     if($fila=mysqli_fetch_array($resul, MYSQLI_ASSOC)){
-                                       echo "<td style='background-color:green'><a href='citaDia.php?data=$fila[id]'</a>$day</td>";
+                                       echo "<td><a class='btn btn-primary' href='citaDia.php?data=$fila[id]'</a>$day</td>";
                                     }else{
                                         echo "<td>$day</td>";
                                     }

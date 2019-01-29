@@ -24,7 +24,6 @@
             }
         ?>
         <!--/NavBar-->
-        <br><br>
         
         <?php            
             // Conectar a la Base de Datos y sacar el ID
@@ -71,18 +70,19 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-4 offset-1">
+                <div class="form-group col-5 offset-1">
                     <label for="motivo">Motivo</label>
-                    <input type="text" class="form-control" id="motivo" placeholder="Apartamento, estudio, etc" name="motivo" required>
+                    <input type="text" class="form-control" id="motivo" placeholder="Motivo de la cita" name="motivo" required>
                 </div>
-                <div class="form-group col-3">
+                <div class="form-group col-5">
                     <label for="lugar">Lugar</label>
-                    <input type="text" class="form-control" id="lugar" name="lugar" required>
+                    <input type="text" class="form-control" id="lugar" placeholder="Apartamento, estudio, etc" name="lugar" required>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-5 offset-1">
-                    <select name="cliente" id="choseClient">
+                <div class="form-group col-3 offset-1">
+                    <label for="cliente">Cliente</label>
+                    <select class="form-control" name="cliente" id="choseClient">
                         <option value=0>Elige un cliente</option>
                         
 			<?php 
@@ -102,10 +102,10 @@
                 </div>
             </div>
             <div class="form-group offset-1">
-                <input type="submit" name="submit" value="Enviar">
+                <input type="submit" class="btn btn-primary" name="submit" value="Enviar">
             </div>
         </form>
-        <br><br>
+        <br>
         
         <?php            
             // Cerramos la conexión a la base de datos

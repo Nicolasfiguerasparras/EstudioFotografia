@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://localhost/EstudioFotografico/EstudioFotografico/sitemap.xml">
+
+    <url>
+        <loc>http://localhost/EstudioFotografico/EstudioFotografico/index.php</loc>
+        <lastmod>2019/01/27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1,0</priority>
+    </url>
+   
+    <url>
+        <loc>http://localhost/EstudioFotografico/EstudioFotografico/Trabajos/trabajos.php</loc>
+        <lastmod>2019/01/27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0,5</priority>
+    </url>
+   
+    <url>
+        <loc>http://localhost/EstudioFotografico/EstudioFotografico/Contacto/contacto.php</loc>
+        <lastmod>2019/01/27</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0,5</priority>
+    </url>
+   
+    <url>
+        <loc>http://localhost/EstudioFotografico/EstudioFotografico/Citas/citas.php</loc>
+        <lastmod>2019/01/27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0,5</priority>
+    </url>
+   
+    <url>
+        <loc>http://localhost/EstudioFotografico/EstudioFotografico/Clientes/clientes.php</loc>
+        <lastmod>2019/01/27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0,5</priority>
+    </url>
+   
+    <url>
+        <loc>http://localhost/EstudioFotografico/EstudioFotografico/Noticias/noticias.php</loc>
+        <lastmod>2019/01/27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0,5</priority>
+    </url>
+
+</urlset>

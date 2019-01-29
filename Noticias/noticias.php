@@ -9,6 +9,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Noticias</title>
+        <meta name="Description" content="Noticias sobre el estudio fotográfico.">
         <link href="noticiasStyle.css" rel="stylesheet" type="text/css"/>
         <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
         <script src="../JavaScript/showNhideNews.js" type="text/javascript"></script>

@@ -1,0 +1,9 @@
+User-agent: *
+
+Disallow: /
+
+Allow: /index.php/
+Allow: /Trabajos/trabajos.php/
+Allow: /Contacto/contacto.php/
+Allow: /Acceder/acceder.php/
+Allow: /mapaXml.xml/

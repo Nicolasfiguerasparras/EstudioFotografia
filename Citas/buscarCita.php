@@ -81,17 +81,39 @@
         
         <!--Formulario-->
         <div class="padre container">
-            <div class="row">
-                <form method="post" action="buscarCita.php">  
-                    Texto a buscar: <input type="text" name="findText"><br><br>
-                    Fecha a buscar: <input type="date" name="findDate"><br><br>
-                    <h2>¿Por qué parámetro deseas buscarlo?</h2>
-                    <label><input type='radio' name='option' value='nombre' checked>Nombre</label><br>
-                    <label><input type='radio' name='option' value='apellidos'>Apellidos</label><br><br>
-                    <input type="submit" name="submit" value="Buscar">
-            </div>
-                </form>
-        
+            <form method="post" action="buscarCita.php">
+                <div class="form-row">
+                    <div class="form-group col-5 offset-1">
+                        <label for="findText">Texto a buscar</label>
+                        <input type="text" class="form-control" id="findText" name="findText" placeholder="Introduzca el texto a buscar">
+                    </div>
+                    <div class="form-group col-5">
+                        <label for="findText">Fecha a buscar</label>
+                        <input type="text" class="form-control" id="findDate" name="findDate" placeholder="Introduzca la fecha a buscar">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-check offset-1">
+                        <input class="form-check-input" type="radio" name="option" value="nombre" id="nombre" checked>
+                        <label class="form-check-label" for="nombre">
+                            Nombre
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-check offset-1">
+                        <input class="form-check-input" type="radio" name="option" value="apellidos" id="apellidos">
+                        <label class="form-check-label" for="apellidos">
+                            Apellidos
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group offset-1">
+                        <input type="submit" class="btn btn-primary" name="submit" value="Buscar">
+                    </div>
+                </div>
+            </form>        
         </div>
         <br>
         

@@ -8,6 +8,7 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="Description" content="Trabajos realizados en el estudio fotográfico.">
         <title>Trabajos</title>
         
         <!-- Bootstrap core CSS -->

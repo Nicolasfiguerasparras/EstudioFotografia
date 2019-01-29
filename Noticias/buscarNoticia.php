@@ -107,7 +107,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group offset-1">
-                    <input type="submit" name="submit" value="Buscar">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Buscar">
                 </div>
             </div>
         </form>

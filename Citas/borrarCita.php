@@ -70,7 +70,7 @@
                                         echo "<td>".$row["motivo"]."</td>";
                                         echo "<td>".$row["lugar"]."</td>";
                                         echo "<td>".$consultaCliente["nombre"]."</td>";
-                                        echo "<td><input type='submit' value='Borrar' name='borrar'></td>";
+                                        echo "<td><input type='submit' class='btn btn-primary' value='Borrar' name='borrar'></td>";
                                         // Introducimos un input oculto que utilizaremos para conocer a qué botón de borrar de todos ha pulsado el usuario
                                         echo "<input type='hidden' name='id' value='$del_id'>";
                                     echo "</form>";
