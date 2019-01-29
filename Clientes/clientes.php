@@ -9,8 +9,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Clientes</title>
-        <script src="../JavaScript/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <link href="table.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!--NavBar-->

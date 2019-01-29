@@ -38,8 +38,8 @@
 
             function imprimirTabla($consulta_var){
                 if($row = mysqli_fetch_array($consulta_var)){ 
-                    echo "<div class='container col-12'>";   
-                        echo "<table border=1>"; 
+                    echo "<div class='col-10 offset-1'>";   
+                        echo "<table class='table'>"; 
 
                         // Mostramos las cabeceras de la tabla
                         echo "<tr>"; 
@@ -72,25 +72,41 @@
                 }
             }
             imprimirTabla($consulta);
+            
             if(isset($_POST["submit"])){
                 $id=$_POST['id'];
                 $client="select * from clientes where id=$id";
                 $consulta=mysqli_query($db, $client);
                 $array=mysqli_fetch_array($consulta, MYSQLI_ASSOC);
                 
-                //Formulario que recoge los datos insertados por el usuario
-                echo "<form method='post' action='personalData.php'>";
-                    echo "Dirección: <input type='text' name='direccion' value='$array[direccion]' required><br><br>";
-                    echo "Teléfono 1: <input type='text' name='telef1' value='$array[telefono1]' required><br><br>";
-                    echo "Teléfono 2: <input type='text' name='telef2' value='$array[telefono2]'><br><br>";
-                    echo "Contraseña: <input type='password' name='pass' value='$array[contraseña]' required><br><br>";
-                    echo "<input type='hidden' name='idCliente' placeholder='$id' disabled><br><br>";
-                    echo "<input type='hidden' name='nombre' value='$array[nombre]' required><br><br>";
-                    echo "<input type='hidden' name='apellidos' value='$array[apellidos]' required><br><br>";
-                    echo "<input type='hidden' name='nick' value='$array[nick]' required><br><br>";
-                    echo "<input type='hidden' name='id' value='$id'>";
-                    echo "<input type='submit' name='update' value='Enviar'>";
-                echo "</form>";
+                echo "<form method='post' action='nuevoCliente.php'>
+                        <div class='form-row'>
+                            <div class='form-group col-4 offset-1'>
+                                <label for='direccion'>Dirección</label>
+                                <input type='text' name='direccion' class='form-control' id='direccion' value='$array[direccion]' required>
+                            </div>
+                            <div class='form-group col-2'>
+                                <label for='telef1'>Teléfono 1</label>
+                                <input type='text' class='form-control' name='telef1' id='telef1' value='$array[telefono1]' required>
+                            </div>
+                            <div class='form-group col-2'>
+                                <label for='telef2'>Teléfono 2</label>
+                                <input type='text' class='form-control' name='telef2' id='telef2' value='$array[telefono2]' required>
+                            </div>
+                            <div class='form-group col-2'>
+                                <label for='pass'>Contraseña</label>
+                                <input type='password' class='form-control' name='pass' id='pass' value='$array[contraseña]' required>
+                            </div>
+                        </div>
+                        <input type='hidden' name='idCliente' placeholder='$id' disabled>
+                        <input type='hidden' name='nombre' value='$array[nombre]' required>
+                        <input type='hidden' name='apellidos' value='$array[apellidos]' required>
+                        <input type='hidden' name='nick' value='$array[nick]' required>
+                        <input type='hidden' name='id' value='$id'>
+                        <div class='form-group offset-1'>
+                            <input type='submit' name='update' value='Enviar'>  
+                        </div>
+                    </form>";
             }
             
             if(isset($_POST["update"])){ 

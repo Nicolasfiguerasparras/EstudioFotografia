@@ -38,19 +38,23 @@
             // Definimos la consulta
             $query = mysqli_query($db,"SELECT * FROM citas where id_cliente=$id_user");
             
+            echo "<div class='container'>";
             if($row=mysqli_fetch_array($query)){
-                echo "Fecha: $row[fecha]<br>";
-                echo "Hora: $row[hora]<br>";
-                echo "Motivo: $row[motivo]<br>";
-                echo "Lugar: $row[lugar]<br>";
+                    echo "<div class='row'>";
+                        echo "Fecha: $row[fecha]<br>";
+                        echo "Hora: $row[hora]<br>";
+                        echo "Motivo: $row[motivo]<br>";
+                        echo "Lugar: $row[lugar]<br>";
 
-                $queryClient=mysqli_query($db, "SELECT * FROM clientes WHERE id=$row[id_cliente]");
-                $datosClient=mysqli_fetch_array($queryClient, MYSQLI_ASSOC);
-                $nombre="$datosClient[nombre] $datosClient[apellidos]";
-                echo "Cliente: $nombre <br>";
+                        $queryClient=mysqli_query($db, "SELECT * FROM clientes WHERE id=$row[id_cliente]");
+                        $datosClient=mysqli_fetch_array($queryClient, MYSQLI_ASSOC);
+                        $nombre="$datosClient[nombre] $datosClient[apellidos]";
+                        echo "Cliente: $nombre <br>";
+                    echo "</div>";
             }else{
                 echo "<h1 style='color:red; text-align:center'>¡Aún no tienes ninguna cita!</h1>";
             }
+            echo "</div>";
         ?>
     </body>
 </html>

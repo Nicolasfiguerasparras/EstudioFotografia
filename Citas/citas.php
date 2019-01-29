@@ -64,14 +64,15 @@
             }
         ?>
         <!--/NavBar-->
+        <br>
         
-        <div class="container col-12">
-            <div class="offset-5">
-                <table border="1px">
-                    <a href="?ym=<?= $prev; ?>" class="btn btn-link">&lt; Anterior</a>
-                    <caption>
-                        <?php echo $meses[$nombre]." de ".$exploded[0]?>
-                    </caption>
+        <div class="col-md-6 offset-md-3">
+
+                <table class="table">
+                    <p align='center'><a href="?ym=<?= $prev; ?>" class="btn btn-link">&lt; Anterior</a></`p>
+
+                    <?php echo $meses[$nombre]." de ".$exploded[0]?>
+
                     <a href="?ym=<?= $next; ?>" class="btn btn-link">Siguiente &gt;</a><br>
                     <tr>
                         <th>Lun</th>
@@ -115,7 +116,7 @@
                         ?>
                     </tr>
                 </table>
-            </div>
+
         </div>
     </body>
 </html>

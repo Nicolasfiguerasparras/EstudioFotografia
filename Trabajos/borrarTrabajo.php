@@ -38,45 +38,33 @@
             function imprimirTabla($p_db){
                 // Creamos la consulta que saca todas las noticias
                 $consulta=mysqli_query($p_db,"SELECT * FROM trabajos");
-
+                echo "<div class='container'>";
                 // Imprimimos una tabla con las noticias
                 if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table border='1px' align='center' style='width:700px; height: 500px'>"; 
-                        
-                        // Mostramos las cabeceras de la tabla
-                        echo "<tr>"; 
-                            echo "<td>ID</td>";
-                            echo "<td>Título</td>";
-                            echo "<td>Descripción</td>";
-                            echo "<td>Precio</td>";
-                            echo "<td>Imagen</td>";
-                            echo "<td>Borrar trabajo</td>";
-                        echo "</tr>"; 
-
-
                         // Establecemos un bucle DO WHILE que imprime las noticias mientras haya
-                        do{ 
-                            echo "<tr>";
-                                // Creamos un formulario para introducir el botón borrar en cada noticia
-                                echo "<form method='get'>";
-                                    // Creamos una variable que almacena el ID
-                                    $del_id=$row['id'];
-                                    echo "<td>".$del_id."</td>"; 
-                                    echo "<td>".$row["titulo"]."</td>"; 
-                                    echo "<td>".$row["descripcion"]."</td>";
-                                    echo "<td>".$row["precio"]."</td>";
-                                    echo "<td><img src='".$row["imagen"]."' style='width:250px; height:240px;' /></td>"; 
-                                    echo "<td><a class='deleteButton'><input type='submit' value='Borrar' name='borrar'></a></td>";
-                                    // Introducimos un input oculto que utilizaremos para conocer a qué botón de borrar de todos ha pulsado el usuario
-                                    echo "<input type='hidden' name='id' value='$del_id'>";
-                                echo "</form>";
-                            echo "</tr>";
+                        do{
+                             $del_id=$row['id'];
+                            echo "<div class='row'>";
+                                echo "<div class='col-md-7'>";
+                                    echo "<img class='img-fluid rounded mb-3 mb-md-0' src='".$row["imagen"]."' alt=''>";
+                                echo "</div>";
+                                echo "<div class='col-md-5'>";
+                                    echo "<h3>".$row["titulo"]."</h3>";
+                                    echo "<p>".$row["descripcion"]."</p>";
+                                    echo "<p>".$row["precio"]."</p>";
+                                    echo "<form method='post' action='borrarNoticia.php'>";
+                                        echo "<input type='submit' class='btn btn-primary' value='Borrar' name='borrar'>";
+                                        echo "<input type='hidden' name='id' value='$del_id'>";
+                                    echo "</form>";
+                                echo "</div>";
+                            echo "</div>";
+                            echo "<hr>";
                         }while($row = mysqli_fetch_array($consulta)); 
-                    echo "</table>"; 
                 // En caso de no encontrar ningún registro, nos lo indica
                 }else{
                     echo "¡No se ha encontrado ningún registro!";
                 }
+                echo "</div>";
             }   
         ?>
         

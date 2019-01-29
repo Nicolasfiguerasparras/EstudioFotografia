@@ -47,46 +47,30 @@
                                                  and
                                                  t.id_cliente=c.id order by $_POST[option]");
                 }
-                
-                // En el caso en el que encuentre trabajos, imprime una tabla con los resultados
-                if($row = mysqli_fetch_array($works)){ 
-                    echo "<table border='1px' align='center' style='width:500px; height: 500px'>"; 
+                echo "<div class='container'>";
+                    // En el caso en el que encuentre trabajos, imprime una tabla con los resultados
+                    if($row = mysqli_fetch_array($works)){                        
+                            // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
+                            do{
+                                $queryClient = mysqli_query($p_db,"select nombre from clientes where id=$row[id_cliente]");
+                                $client = mysqli_fetch_array($queryClient);
+                                echo "<div class='row'>";
+                                    echo "<div class='col-md-7'>";
+                                        echo "<img class='img-fluid rounded mb-3 mb-md-0' src='".$row["imagen"]."' alt=''>";
+                                    echo "</div>";
+                                    echo "<div class='col-md-5'>";
+                                        echo "<h3>".$row["titulo"]."</h3>";
+                                        echo "<a class='btn btn-primary' href='verMas.php?id=$row[id]'>Ver más</a>";
+                                    echo "</div>";
+                                echo "</div>";
+                                echo "<hr>";
+                            }while($row = mysqli_fetch_array($works));
 
-                        //Mostramos las cabeceras de la tabla
-                        echo "<tr>"; 
-                            echo "<td>Título</td>";
-                            echo "<td>Cliente</td>";
-                            echo "<td>Precio</td>";
-                            echo "<td>Imagen</td>";
-                        echo "</tr>"; 
-                        
-                        // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
-                        do{
-                            $queryClient = mysqli_query($p_db,"select nombre from clientes where id=$row[id_cliente]");
-                            $client = mysqli_fetch_array($queryClient);
-                            echo "<tr>"; 
-                                echo "<td>".$row["titulo"]."</td>"; 
-                                if($row['id_cliente']=0){
-                                    echo "";
-                                }else{
-                                    if($client['nombre'] == "Disponible"){
-                                        echo "<td style='background-color:green;'><p>Disponible</p></td>";
-                                    }else{
-                                        echo "<td>".$client['nombre']."</td>";
-                                    }
-                                    
-                                }
-                                echo "<td>".$row["precio"]."</td>";
-
-                                echo "<td><img src='".$row["imagen"]."' height='150' width='150' /></td>";
-                            echo "</tr>"; 
-                        }while($row = mysqli_fetch_array($works)); 
-                    echo "</table>";
-
-                // En caso de no encontrar ningún resultado, mostramos un mensaje informativo
-                }else{ 
-                    echo "¡No se ha encontrado ningún registro!"; 
-                }
+                    // En caso de no encontrar ningún resultado, mostramos un mensaje informativo
+                    }else{ 
+                        echo "¡No se ha encontrado ningún registro!"; 
+                    }
+                echo "</div>";  
             }
         ?>
         

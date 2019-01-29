@@ -24,7 +24,7 @@
             }
         ?>
         <!--/NavBar-->
-        <br><br>
+        <br>
         
         <?php
             // Establecemos conexión con la base de datos
@@ -38,44 +38,46 @@
                 $query = "SELECT * FROM citas ci, clientes cli WHERE (ci.fecha='$submit' or cli.nombre like '%$submit%') and ci.id_cliente = cli.id ORDER BY $_POST[option]";
                 $consulta = mysqli_query($p_db, $query);
                 
-                //En el caso en el que encuentre clientes, imprime una tabla con los resultados
-                if($row = mysqli_fetch_array($consulta)){ 
-                    echo "<table class='table'>"; 
+                echo "<div class='container'>";
+                    //En el caso en el que encuentre clientes, imprime una tabla con los resultados
+                    if($row = mysqli_fetch_array($consulta)){ 
+                        echo "<table class='table'>"; 
 
-                        //Mostramos las cabeceras de la tabla
-                        echo "<tr>"; 
-                            echo "<td>Fecha</td>";
-                            echo "<td>Hora</td>";
-                            echo "<td>Motivo</td>";
-                            echo "<td>Lugar</td>";
-                            echo "<td>ID del cliente</td>";
-                        echo "</tr>"; 
-
-                        // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
-                        do{ 
+                            //Mostramos las cabeceras de la tabla
                             echo "<tr>"; 
-                                $fecha = strtotime($row["fecha"]);
-                                $dia = date('d', $fecha);
-                                $mes = date('m', $fecha);
-                                $anio = date('Y', $fecha);
-                                echo "<td>".$dia."-".$mes."-".$anio."</td>"; 
-                                echo "<td>".$row["hora"]."</td>"; 
-                                echo "<td>".$row["motivo"]."</td>"; 
-                                echo "<td>".$row["lugar"]."</td>"; 
-                                echo "<td>".$row["id_cliente"]."</td>";
+                                echo "<td>Fecha</td>";
+                                echo "<td>Hora</td>";
+                                echo "<td>Motivo</td>";
+                                echo "<td>Lugar</td>";
+                                echo "<td>ID del cliente</td>";
                             echo "</tr>"; 
-                        }while($row = mysqli_fetch_array($consulta)); 
-                    echo "</table>"; 
-                    mysqli_close($p_db);
-                }
-                
-                // En caso de no encontrar ningún resultado, mostramos un mensaje informativo
-                else{ 
-                    echo "¡No se ha encontrado ningún registro!"; 
-                }
+
+                            // Establecemos un bucle DO WHILE que imprime resultados en la tabla mientras siga habiéndolos
+                            do{ 
+                                echo "<tr>"; 
+                                    $fecha = strtotime($row["fecha"]);
+                                    $dia = date('d', $fecha);
+                                    $mes = date('m', $fecha);
+                                    $anio = date('Y', $fecha);
+                                    echo "<td>".$dia."-".$mes."-".$anio."</td>"; 
+                                    echo "<td>".$row["hora"]."</td>"; 
+                                    echo "<td>".$row["motivo"]."</td>"; 
+                                    echo "<td>".$row["lugar"]."</td>"; 
+                                    echo "<td>".$row["id_cliente"]."</td>";
+                                echo "</tr>"; 
+                            }while($row = mysqli_fetch_array($consulta)); 
+                        echo "</table>"; 
+                        mysqli_close($p_db);
+                    }
+
+                    // En caso de no encontrar ningún resultado, mostramos un mensaje informativo
+                    else{ 
+                        echo "¡No se ha encontrado ningún registro!"; 
+                    }
+                echo "</div>";
             }
         ?>
-        <br><br>
+        <br>
         
         <!--Formulario-->
         <div class="padre container">
@@ -91,7 +93,7 @@
                 </form>
         
         </div>
-        <br><br>
+        <br>
         
         <?php
             // Comprobar que se ha introducido el parámetro de ordenación
