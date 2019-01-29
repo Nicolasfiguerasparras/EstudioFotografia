@@ -2,8 +2,9 @@ User-agent: *
 
 Disallow: /
 
-Allow: /index.php/
-Allow: /Trabajos/trabajos.php/
-Allow: /Contacto/contacto.php/
-Allow: /Acceder/acceder.php/
-Allow: /mapaXml.xml/
+Allow: /wp-content/uploads
+Allow: /index.php
+Allow: /Trabajos/trabajos.php
+Allow: /Contacto/contacto.php
+Allow: /Acceder/acceder.php
+Sitemap: /mapaXml.xml
