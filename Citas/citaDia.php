@@ -24,7 +24,9 @@
             }
         ?>
         <!--/NavBar-->
+        <br>
         
+        <div class="row-4 offset-1">
         <?php
             // Establecemos conexión con la base de datos
             include('../connectDB.php');
@@ -48,5 +50,6 @@
             echo "<a href='modificaCita.php?id=$id_cita' class='btn btn-link'>Modificar</a>";
             mysqli_close($db);
         ?>
+        </div>
     </body>
 </html>

@@ -78,15 +78,15 @@
         ?>
          
         <!--Formulario-->
-        <form method="post" action="buscarNoticia.php">
+        <form method="post" action="buscarNoticia.php" role="search">
             <div class="form-row">
                 <div class="form-group col-10 offset-1 col-md-5">
                   <label for="findText">Texto a buscar</label>
-                  <input type="text" class="form-control" id="findText" name="findText" placeholder="Introduzca el texto a buscar">
+                  <input type="text" aria-label="search text" class="form-control" id="findText" name="findText" placeholder="Introduzca el texto a buscar">
                 </div>
                 <div class="form-group col-10 offset-1 offset-md-0 col-md-5">
                   <label for="findDate">Fecha a buscar</label>
-                  <input type="date" class="form-control" id="findDate" name="findDate">
+                  <input type="date" aria-label="search date" class="form-control" id="findDate" name="findDate">
                 </div>
             </div>
             <div class="form-row">
@@ -107,7 +107,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group offset-1">
-                    <input type="submit" name="submit" value="Buscar">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Buscar">
                 </div>
             </div>
         </form>

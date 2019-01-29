@@ -116,7 +116,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-1 offset-1">
-                    <input type="submit" name="submit" value="Enviar">  
+                    <input type="submit" class="btn btn-primary" name="submit" value="Enviar">  
                 </div>
             </div>
         </form>

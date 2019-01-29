@@ -75,21 +75,38 @@
         ?>
         
         <!--Formulario que recoge el texto a buscar-->
-        <div class="padre container">
-            <div class="row">
-                <form method="post" action="buscarTrabajo.php">  
-                    Texto a buscar: <input type="text" name="textField">
-            </div>
-                    <br><br>
-                    <h2>¿Por qué parámetro deseas buscarlo?</h2>
-                    <label><input type='radio' name='option' value='nombre' checked>Nombre</label><br>
-                    <label><input type='radio' name='option' value='apellidos'>Precio</label><br><br>
-                    
-                    <input type="submit" name="submit" value="Submit">
-                </form>
-        
+        <div class="container">
+            <form method="post" action="buscarTrabajo.php">
+                <div class="form-row">
+                    <div class="form-group col-10 offset-1">
+                      <label for="textField">Texto a buscar</label>
+                      <input type="text" class="form-control" id="textField" name="textField" placeholder="Introduzca el texto a buscar">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-check offset-1">
+                        <input class="form-check-input" type="radio" name="option" value="nombre" id="nombre" checked>
+                        <label class="form-check-label" for="nombre">
+                            Nombre
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-check offset-1">
+                        <input class="form-check-input" type="radio" name="option" value="apellidos" id="apellidos">
+                        <label class="form-check-label" for="apellidos">
+                            Precio
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group offset-1">
+                        <input type="submit" class="btn btn-primary" name="submit" value="Buscar">
+                    </div>
+                </div>
+            </form>
         </div>
-        <br><br>
+        <br>
         
         <?php
             // Comprobar que se ha introducido el parámetro de ordenación

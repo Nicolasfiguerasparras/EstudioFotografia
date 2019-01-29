@@ -24,7 +24,10 @@
             }
         ?>
         <!--/NavBar-->
+        <br>
         
+        
+        <div class="row-10 offset-1">
         <?php
             // Establecemos conexión con la base de datos
             include('../connectDB.php');
@@ -82,5 +85,6 @@
             }
             mysqli_close($db);
         ?>
+        </div>
     </body>
 </html>
