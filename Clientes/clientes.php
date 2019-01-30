@@ -70,9 +70,9 @@
                                         echo "<td>".$row["contraseña"]."</td>";
                                         echo "<td><input type='submit' name='submit' value='Modificar'></td>";
                                         echo "<input type='hidden' name='id' value='$mod_id'>";
-                                        echo "</form>";
                                     echo "</tr>";
                                 }
+                                echo "</form>";
                             }while($row = mysqli_fetch_array($consulta)); 
                         echo "</table>";
                     echo "</div>";

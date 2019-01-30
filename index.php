@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta name="Description" content="Estudio fotográfico ubicado en granada especializado en temas abstractos. Se realizan trabajos en un rango internacional. Ideal para artistas, modelos, etc.">
         <script type="text/javascript" src="JavaScript/jquery-3.2.1.min.js"></script>
-        <meta name=”robots” content="Index, Follow">
+        <meta name="robots" content="Index, Follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -109,7 +109,7 @@
             
             <div class="container-fluid">
                 <div class = "row">
-                    <div class= "col-12 d-none d-md-block">
+                    <div class= "col-12 d-none d-lg-block">
                         <div id="carousel" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel "data-slide-to="0" class="active"></li>
