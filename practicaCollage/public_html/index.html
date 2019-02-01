@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="css/heroic-features.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <h1 align="center">Práctica Collage JavaScript</h1><br>
+        <!--Crear rejilla-->
+            <div class="col-10 offset-1">
+                <div class="row">
+                    <div class="col-6">
+                        <input id="filas" type="number" class="form-control" placeholder="Inserta las filas">
+                    </div>
+                    <div class="col-6">
+                        <input id="columnas" type="number" class="form-control" placeholder="Inserta las columnas">
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-6 offset-3">
+                        <button id="generarPlantilla" type="button" class="btn btn-primary btn-lg btn-block">Generar Plantilla</button>
+                    </div>
+                </div>
+            </div>
+        <!--/Crear rejilla-->
+        <br><br>
+        
+        <!--Imágenes-->
+            <div class="col-10 offset-1">
+                <div class="row" id="imagenes">
+                    <div class="col-3">
+                        <img style="width:50%; height:100%;" src="img/1.jpg">
+                    </div>
+                    <div class="col-3">
+                        <img style="width:50%; height:100%;" src="img/2.jpg">
+                    </div>
+                    <div class="col-3">
+                        <img style="width:50%; height:100%;" src="img/3.jpg">
+                    </div>
+                    <div class="col-3">
+                        <img style="width:50%; height:100%;" src="img/4.jpg">
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div class="row" id="insertar">
+                    <input id="url" type="text" class="form-control" placeholder="Inserta la url de la imagen">
+                </div><br>
+                <div class="row">
+                    <button id="nuevaImagen" type="button" class="btn btn-primary btn-lg btn-block">Insertar imagen</button>
+                </div>
+                
+                <br>
+                
+                <div class="row" id="limpiar">
+                    <button class="btn btn-primary btn-lg btn-block" type="button" id="limpiarCeldas">Limpiar Celdas</button>
+                </div><br>
+            </div>
+        <!--/Imágenes-->
+        
+        <!--Contador-->
+            <div class="cellNumber">
+                <h2>Número de celdas</h2>
+            </div>
+        <!--/Contador-->
+        
+        <!--Tabla-->
+            <div id="contenedor_tabla" class="col-12">
+                    
+            </div>
+        <!--/Tabla-->
+        
+        <!--Scripts-->
+        
+            <!-- Bootstrap core JavaScript -->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            
+            <!-- Javascript app-->
+            <script type="text/javascript" src="app.js"></script>
+            
+        <!--/Scripts-->
+    </body>
+</html>
